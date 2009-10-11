@@ -1,3 +1,0 @@
-#set($tabheader1_class='currenttab')
-
-#parse('menu/menu_partial.vm')

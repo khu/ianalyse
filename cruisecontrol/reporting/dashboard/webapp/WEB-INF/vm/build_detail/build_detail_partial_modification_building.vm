@@ -1,6 +1,0 @@
-<div id="modifications" class="widget" $modification_extra_attrs>
-    <h2>Modifications</h2>
-    <div id="modification_keys" class="modifications">
-        <span>Build forced, No new code is committed into repository</span>
-    </div>
-</div>

@@ -1,2 +1,0 @@
-info: Change 1138 on 2006/01/01 by non@non:all 'just a comment'
-exit: 0

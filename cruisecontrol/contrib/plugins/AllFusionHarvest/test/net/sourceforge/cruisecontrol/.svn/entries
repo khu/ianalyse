@@ -1,34 +1,0 @@
-9
-
-dir
-4361
-https://cruisecontrol.svn.sourceforge.net/svnroot/cruisecontrol/trunk/cruisecontrol/contrib/plugins/AllFusionHarvest/test/net/sourceforge/cruisecontrol
-https://cruisecontrol.svn.sourceforge.net/svnroot/cruisecontrol
-
-
-
-2008-09-20T10:08:48.306574Z
-4014
-jfredrick
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-878de816-9c12-0410-b5fe-b34e1928e20d
-
-sourcecontrols
-dir
-
-bootstrappers
-dir
-

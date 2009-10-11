@@ -1,5 +1,0 @@
-#!/bin/bash
-set -e
-
-/etc/init.d/cruisecontrol stop
-

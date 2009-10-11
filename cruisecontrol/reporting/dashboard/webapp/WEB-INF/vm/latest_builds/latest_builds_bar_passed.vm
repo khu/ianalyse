@@ -1,2 +1,0 @@
-#set($href="$req.getContextPath()/tab/build/detail/$buildCmd.build.projectName")
-#parse('latest_builds/latest_builds_bar_partial.vm')
