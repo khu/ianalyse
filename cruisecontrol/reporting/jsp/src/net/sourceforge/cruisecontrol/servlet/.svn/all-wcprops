@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/cruisecontrol/!svn/ver/4160/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/servlet
+END
+FileServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/4160/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/servlet/FileServlet.java
+END
+XmlServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/2989/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/servlet/XmlServlet.java
+END
+LogFileServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/servlet/LogFileServlet.java
+END
+PluginsServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/servlet/PluginsServlet.java
+END
+PluginDetailsServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/servlet/PluginDetailsServlet.java
+END
+ConfigurationServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/servlet/ConfigurationServlet.java
+END

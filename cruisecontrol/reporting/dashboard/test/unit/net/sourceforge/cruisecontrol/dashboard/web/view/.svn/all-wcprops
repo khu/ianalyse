@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svnroot/cruisecontrol/!svn/ver/4048/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/web/view
+END
+DirectoryViewTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svnroot/cruisecontrol/!svn/ver/3108/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/web/view/DirectoryViewTest.java
+END
+JsonViewTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svnroot/cruisecontrol/!svn/ver/3108/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/web/view/JsonViewTest.java
+END
+FileViewTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svnroot/cruisecontrol/!svn/ver/4048/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/web/view/FileViewTest.java
+END

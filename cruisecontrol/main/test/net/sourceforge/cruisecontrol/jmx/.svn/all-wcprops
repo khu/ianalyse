@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/jmx
+END
+LoggerControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/jmx/LoggerControllerTest.java
+END
+CruiseControlControllerJMXAdaptorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/jmx/CruiseControlControllerJMXAdaptorTest.java
+END
+ProjectControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/jmx/ProjectControllerTest.java
+END
+DashboardControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/jmx/DashboardControllerTest.java
+END

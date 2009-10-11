@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/cruisecontrol/!svn/ver/4180/trunk/cruisecontrol/documentation/main/helloWorld/src/test/hello
+END
+HelloWorldTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/cruisecontrol/!svn/ver/4180/trunk/cruisecontrol/documentation/main/helloWorld/src/test/hello/HelloWorldTest.java
+END

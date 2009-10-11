@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/sourcecontrols/accurev
+END
+AccurevCommandline.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/sourcecontrols/accurev/AccurevCommandline.java
+END
+AccurevInputParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/sourcecontrols/accurev/AccurevInputParser.java
+END
+AccurevCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/sourcecontrols/accurev/AccurevCommand.java
+END
+DateTimespec.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/sourcecontrols/accurev/DateTimespec.java
+END
+TransactionNumberTimespec.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/sourcecontrols/accurev/TransactionNumberTimespec.java
+END
+Runner.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/sourcecontrols/accurev/Runner.java
+END
+Timespec.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/sourcecontrols/accurev/Timespec.java
+END
+KeywordTimespec.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/sourcecontrols/accurev/KeywordTimespec.java
+END

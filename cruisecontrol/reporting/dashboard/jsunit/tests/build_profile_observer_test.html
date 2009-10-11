@@ -1,0 +1,118 @@
+<!--
+/********************************************************************************
+ * CruiseControl, a Continuous Integration Toolkit
+ * Copyright (c) 2007, ThoughtWorks, Inc.
+ * 200 E. Randolph, 25th Floor
+ * Chicago, IL 60601 USA
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *     + Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *
+ *     + Redistributions in binary form must reproduce the above
+ *       copyright notice, this list of conditions and the following
+ *       disclaimer in the documentation and/or other materials provided
+ *       with the distribution.
+ *
+ *     + Neither the name of ThoughtWorks, Inc., CruiseControl, nor the
+ *       names of its contributors may be used to endorse or promote
+ *       products derived from this software without specific prior
+ *       written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ ********************************************************************************/
+ --><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CCE Dashboard Tests</title>
+<link rel="stylesheet" type="text/css" href="../css/jsUnitStyle.css">
+<link rel="stylesheet" type="text/css" href="../css/jsUnitStyle.css">
+<script language="JavaScript" type="text/javascript" src="../app/jsUnitCore.js"></script>
+<script language="JavaScript" type="text/javascript" src="../app/jsUnitVersionCheck.js"></script>
+<script language="JavaScript" type="text/javascript" src="../app/jsTestHelper.js"></script>
+<script language="JavaScript" type="text/javascript" src="../compressed/all.js"></script>
+<script language="JavaScript" type="text/javascript">
+var contextPath = "";
+var build_profile_observer;
+
+function setUp() {
+    Prototype.Browser.IE = false;
+   
+    build_profile_observer = new BuildProfileObserver();
+	$("project1_forcebuild").className="force_build_disabled";
+	$("project1_config_panel").className="config_panel_disabled";
+	$("project1_profile").className="inactive";
+}
+
+function test_should_update_css_and_invoke_activators() {
+	var is_json_to_css_invoked = false;
+	JsonToCss.prototype.update_profile = function() {
+		is_json_to_css_invoked = true;
+	}
+	var is_config_panel_invoked = false;
+	ConfigPanelActivator.prototype.activateOrInactivate = function(is_disabled, json) {
+		assertTrue("config panel", is_disabled);
+		is_config_panel_invoked = true;
+	}
+	var is_force_build_invoked = false;
+	ForceBuildActivator.prototype.activateOrInactivate = function(is_disabled, json) {
+		assertTrue("force build", is_disabled);
+		is_force_build_invoked = true;
+	}
+	var is_all_builds_invoked = false;
+	AllBuildsActivator.prototype.activateOrInactivate = function(is_disabled, json) {
+		assertTrue("all builds", is_disabled);
+		is_all_builds_invoked = true;
+	}
+	var is_all_passed_builds_invoked = false;
+	AllPassedBuildsActivator.prototype.activateOrInactivate = function(is_disabled, json) {
+		assertTrue("all passed", is_disabled);
+		is_all_passed_builds_invoked = true;
+	}
+	var is_updater_invoked = false;
+	ContentUpdater.prototype.update = function() {
+		is_updater_invoked = true;
+	}
+
+	assertFalse("should not invoke json to css", is_json_to_css_invoked);
+	assertFalse("should not invoke config panel", is_config_panel_invoked);
+	assertFalse("should not invoke force build", is_force_build_invoked);
+	assertFalse("should not invoke all builds", is_all_builds_invoked);
+	assertFalse("should not invoke all passed builds", is_all_passed_builds_invoked);
+	assertFalse("should not invoke updater", is_updater_invoked);
+	
+	build_profile_observer._notify(passed_json("project1"));
+	
+	assertTrue("should invoke json to css", is_json_to_css_invoked);
+	assertTrue("should invoke config panel", is_config_panel_invoked);
+	assertTrue("should invoke force build", is_force_build_invoked);
+	assertTrue("should invoke all builds", is_all_builds_invoked);
+	assertTrue("should invoke all passed builds", is_all_passed_builds_invoked);
+	assertTrue("should invoke updater", is_updater_invoked);
+}
+
+</script>
+</head>
+<body>
+
+<a id="project1_profile"></a>
+<a id="project1_forcebuild"></a>
+<a id="project1_config_panel"></a>
+</body>
+</html>

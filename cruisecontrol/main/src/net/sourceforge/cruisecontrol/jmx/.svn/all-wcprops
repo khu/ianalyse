@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx
+END
+ProjectControllerMBeanDescription.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/4205/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/ProjectControllerMBeanDescription.java
+END
+LoggerController.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/LoggerController.java
+END
+LoggerControllerMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/LoggerControllerMBean.java
+END
+CruiseControlControllerJMXAdaptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/4205/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/CruiseControlControllerJMXAdaptor.java
+END
+ProjectMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/cruisecontrol/!svn/ver/4205/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/ProjectMBean.java
+END
+ProjectController.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/cruisecontrol/!svn/ver/4205/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/ProjectController.java
+END
+DashboardController.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/DashboardController.java
+END
+CruiseControlControllerJMXAdaptorMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/CruiseControlControllerJMXAdaptorMBean.java
+END
+ProjectControllerMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/ProjectControllerMBean.java
+END
+CruiseControlControllerAgent.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/CruiseControlControllerAgent.java
+END
+CruiseControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svnroot/cruisecontrol/!svn/ver/4205/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/CruiseControlMBean.java
+END
+DashboardControllerMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/jmx/DashboardControllerMBean.java
+END

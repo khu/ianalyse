@@ -1,0 +1,4 @@
+<div id="build_log" class="widget"  $log_extra_attrs>
+    <h2>Build Log</h2>
+    <span class="logfile"><a href="$req.getContextPath()/tab/build/download/log/$projectName/$logfile">Download log</a></span>
+</div>

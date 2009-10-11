@@ -1,0 +1,269 @@
+<!--********************************************************************************
+ * CruiseControl, a Continuous Integration Toolkit
+ * Copyright (c) 2001 ThoughtWorks, Inc.
+ * 200 E. Randolph, 25th Floor
+ * Chicago, IL 60601 USA
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *     + Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *
+ *     + Redistributions in binary form must reproduce the above
+ *       copyright notice, this list of conditions and the following
+ *       disclaimer in the documentation and/or other materials provided
+ *       with the distribution.
+ *
+ *     + Neither the name of ThoughtWorks, Inc., CruiseControl, nor the
+ *       names of its contributors may be used to endorse or promote
+ *       products derived from this software without specific prior
+ *       written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ ********************************************************************************-->
+<project name="reporting-jsp" default="clean-all" basedir=".">
+    <property environment="env"/>
+    <property file="override.properties"/>
+
+    <!-- define version -->
+    <property file="../../build.properties"/>
+
+    <property name="dist" value="dist"/>
+    <property name="target" value="target"/>
+	<property name="reports.dir" value="${target}/reports" />
+    <property name="deploy.dir" value="${dist}"/>
+    <property name="lib" value="lib"/>
+    <property name="src" value="src"/>
+    <property name="classes" value="${target}/classes"/>
+    <property name="test.classes" value="${target}/test-classes"/>
+    <property name="temp.dir" value="${target}/tmp"/>
+    <property name="test" value="test"/>
+    <property name="test.results" value="${target}/test-results"/>
+    <property name="tests" value="*Test"/>
+    <property name="webcontent" value="webcontent"/>
+
+    <property name="checkstyle.cache" value="${target}/checkstyle.cache"/>
+	<property name="checkstyle.config" value="../../common/checkstyle.xml"/>
+    <property name="checkstyle.jar" value="${lib}/checkstyle-all-4.4.jar"/>
+
+    <import file="../../common/checkstyle-build.xml"/>
+
+    <path id="project.classpath" >
+        <fileset dir="${lib}" includes="*.jar"/>
+        <!-- ant.jar is also needed to compile the ArtifactsPublisher,
+             but is added automatically to the javac classpath -->
+    </path>
+
+    <path id="project.runtime.classpath" >
+
+        <fileset file="../../main/dist/cruisecontrol.jar"/>
+
+        <fileset dir="${lib}" id="req.libs">
+            <include name="batik*.jar"/>
+            <include name="cewolf*.jar"/>
+            <include name="commons-lang*.jar"/>
+            <include name="commons-logging*.jar"/>
+            <include name="el-api.jar"/>
+            <include name="jcommon*.jar"/>
+            <include name="jaxen*.jar"/>
+            <include name="jdom*.jar"/>
+            <include name="jfreechart*.jar"/>
+            <include name="junit*.jar"/>
+            <include name="mx4j*.jar"/>
+            <include name="ognl*.jar"/>
+            <include name="oscore*.jar"/>
+            <include name="velocity-dep*.jar"/>
+            <include name="webwork*.jar"/>
+            <include name="saxon*.jar"/>
+            <include name="serializer*.jar"/>
+            <include name="xerces*.jar"/>
+            <include name="xml*.jar"/>
+            <include name="xwork*.jar"/>
+        </fileset>
+        <fileset dir="${lib}" includes="servlet*.jar"/>
+        <fileset dir="${lib}" includes="jsp*.jar"/>
+        <pathelement location="${classes}"/>
+        <pathelement location="${test.classes}"/>
+        <pathelement location="../../main/target/test-classes"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="${target}"/>
+    </target>
+
+    <target name="init">
+        <fail unless="cc.version" message="cc.version property is not defined. Check your build.properties"/>
+
+        <echo>Java: ${java.version} (${java.vm.name})</echo>
+        <echo>   in ${java.home}</echo>
+        <echo>Ant: ${ant.version}</echo>
+        <echo>   in ${ant.home}</echo>
+        <echo>CruiseControl: ${cc.version}
+        </echo>
+
+        <mkdir dir="${dist}"/>
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${test.classes}"/>
+        <mkdir dir="${test.results}"/>
+        <mkdir dir="${temp.dir}"/>
+
+        <tstamp/>
+        <property name="label" value="${cc.version} Compiled on ${TODAY} ${TSTAMP}"/>
+    </target>
+
+    <!-- **************************************************** -->
+    <!-- Run duplication check on code -->
+    <!-- **************************************************** -->
+    <target name="check-duplication" description="Check for duplicated code">
+        <taskdef resource="simiantask.properties" classpath="${simian.jar}" />
+        <!-- Switch this to true with a threshold once we deal with current duplication -->
+        <simian failOnDuplication="false">
+            <fileset dir="${src}" includes="**/*.java" />
+        </simian>
+    </target>
+
+    <target name="-checkstyle">
+        <checkstyle-macro
+            reportsdir="${reports.dir}"
+            configfile="${checkstyle.config}"
+            checkstylecache="${checkstyle.cache}">
+
+            <taskdef resource="checkstyletask.properties" classpath="${checkstyle.jar}" />
+
+        </checkstyle-macro>
+    </target>
+
+    <macrodef name="compile-macro">
+        <attribute name="destdir" default="${classes}" />
+        <attribute name="srcdir" default="${src}" />
+        <attribute name="classpathref" default="project.runtime.classpath" />
+        <element name="nested" implicit="true" optional="true" />
+        <sequential>
+            <javac destdir="@{destdir}" debug="true" deprecation="true" fork="true" source="1.5" target="1.5" compiler="javac1.5" classpathref="@{classpathref}" srcdir="@{srcdir}">
+                <nested />
+            </javac>
+        </sequential>
+    </macrodef>
+
+    <target name="compile" depends="init">
+        <compile-macro/>
+    </target>
+
+    <target name="compile-test" depends="compile"
+        description="Compile test code">
+        <compile-macro srcdir="${test}" destdir="${test.classes}"/>
+    </target>
+
+    <target name="test" depends="compile-test" unless="test.skip" description="Executes the unit tests">
+        <junit fork="yes" forkmode="perBatch" haltonfailure="yes" printsummary="on" dir="${target}">
+            <classpath refid="project.runtime.classpath" />
+            <formatter type="brief" usefile="false" />
+            <formatter type="xml"/>
+            <batchtest todir="${test.results}" >
+                <fileset dir="${test.classes}" includes="**/${tests}.class" />
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="test-one" depends="compile-test" description="Executes one unit test" if="testcase">
+        <junit fork="yes" haltonfailure="yes" printsummary="on" dir="${target}">
+            <classpath refid="project.runtime.classpath" />
+            <formatter type="brief" usefile="false"/>
+            <formatter type="xml"/>
+            <test name="${testcase}" todir="${test.results}"/>
+        </junit>
+    </target>
+
+    <target name="create-web-xml" depends="-set.log.dir, -set.status.file, -set.artifacts.dir">
+                                  <!-- Add: ", -set.jmxport" to "depends" list to prompt for jmxport -->
+        <filter token="YOUR CRUISECONTROL LOG DIRECTORY" value="${user.log.dir}" />
+        <filter token="CURRENT BUILD STATUS FILE" value="${user.build.status.file}" />
+        <filter token="ARTIFACTS DIRECTORY" value="${cruise.build.artifacts.dir}"/>
+        <property name="cruise.build.jmxport" value="8000"/>
+        <filter token="JMXPORT" value="${cruise.build.jmxport}"/>
+        <copy filtering="true" todir="${temp.dir}" file="${webcontent}/WEB-INF/web.xml" />
+    </target>
+
+    <target name="-set.log.dir" unless="user.log.dir">
+        <input message="WARNING! Property user.log.dir not set!  Please enter the absolute path to the CruiseControl logs directory:"
+            addproperty="user.log.dir"/>
+    </target>
+
+    <target name="-set.status.file" unless="user.build.status.file">
+        <input message="WARNING! Property user.build.status.file not set!  Please enter the name of the current build status file:"
+            addproperty="user.build.status.file"/>
+    </target>
+
+    <target name="-set.artifacts.dir" unless="cruise.build.artifacts.dir">
+        <input message="WARNING! Property cruise.build.artifacts.dir not set!  Please enter the absolute path to the directory where additional build artifacts are stored:"
+            addproperty="cruise.build.artifacts.dir"/>
+    </target>
+
+    <target name="-set.jmxport" unless="cruise.build.jmxport">
+        <input message="WARNING! Property cruise.build.jmxport not set!  Please enter the jmxport on which cruisecontrol is running:" addproperty="cruise.build.jmxport"/>
+    </target>
+
+    <target name="war" depends="compile, create-web-xml">
+        <copy file="webwork.properties" todir="${classes}"/>
+        <copy file="xwork.xml" todir="${classes}"/>
+        <war warfile="${deploy.dir}/cruisecontrol.war" webxml="${temp.dir}/web.xml">
+            <fileset dir="${webcontent}" excludes="WEB-INF/web.xml"/>
+            <classes dir="${classes}"/>
+            <lib refid="req.libs"/>
+            <lib file="../../main/dist/cruisecontrol.jar"/>
+            <manifest>
+                <attribute name="Implementation-Version" value="${label}"/>
+            </manifest>
+        </war>
+    </target>
+
+    <target name="jsp-precompile" depends="war">
+        <mkdir dir="target/jsp-precompile/exploded-war"/>
+        <unzip src="${deploy.dir}/cruisecontrol.war" dest="target/jsp-precompile/exploded-war"/>
+
+        <mkdir dir="target/jsp-precompile/src"/>
+        <taskdef classname="org.apache.jasper.JspC" name="jasper2">
+            <classpath id="jspc.classpath">
+                <fileset dir="../../binaryrelease/lib">
+                    <include name="*.jar"/>
+                </fileset>
+                <path refid="project.runtime.classpath"/>
+            </classpath>
+        </taskdef>
+        <jasper2 compile="true" outputdir="${basedir}/target/jsp-precompile/src"
+                 listerrors="true" validatexml="true" verbose="2"
+                 uriroot="${basedir}/target/jsp-precompile/exploded-war"/>
+    </target>
+
+    <target name="javadoc" depends="init,compile" description="Generate the javadocs">
+       <mkdir dir="target/javadoc"/>
+       <javadoc sourcepath="${src}" destdir="target/javadoc" packagenames="net.sourceforge.cruisecontrol.*"
+           breakiterator="yes" failonerror="true" source="1.5">
+           <classpath>
+               <path refid="project.classpath" />
+               <path refid="project.runtime.classpath" />
+               <pathelement location="${src}" />
+           </classpath>
+       </javadoc>
+    </target>
+
+    <target name="clean-all" depends="clean, all" description="Performs a clean build, runs tests, and builds war"/>
+
+    <target name="all" depends="init,compile,-checkstyle,test,war, jsp-precompile"
+            description="Performs a build, runs tests, and builds war" />
+    <target name="checkstyle" depends="-checkstyle" description="Run Checkstyle" />
+
+</project>

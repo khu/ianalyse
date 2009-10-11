@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/tabs
+END
+TabProviderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/tabs/TabProviderTest.java
+END
+BaseTabControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/tabs/BaseTabControllerTest.java
+END
+TabInterceptorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/tabs/TabInterceptorTest.java
+END
+TabContainerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/tabs/TabContainerTest.java
+END
+InterceptorInjectorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/tabs/InterceptorInjectorTest.java
+END

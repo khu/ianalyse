@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+    "-//Puppy Crawl//DTD Suppressions 1.0//EN"
+    "http://www.puppycrawl.com/dtds/suppressions_1_0.dtd">
+
+<suppressions>
+    <suppress checks="AnonInnerLength" files="PluginType.java"/>
+    <suppress checks="AnonInnerLength" files="NantBuilderTest.java"/>
+
+    <suppress checks="ModifiedControlVariable" files="Launcher.java"/>
+
+    <suppress checks="PackageDeclaration" files="CruiseControl.java"/>
+    <suppress checks="PackageDeclaration" files="CruiseControlWithJetty.java"/>
+
+    <!-- suppressions added only to avoid different behavior after checkstyle upgrade to v4.3 -->
+    <suppress checks="DescendantToken"
+              files="SametimeAnnouncementPublisher.java"
+              lines="348"/>
+
+    <suppress checks="InnerAssignment"
+              files="P4.java"
+              lines="395,420"/>
+
+</suppressions>

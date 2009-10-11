@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svnroot/cruisecontrol/!svn/ver/4358/trunk/cruisecontrol/contrib/distributed/test/net/sourceforge/cruisecontrol/distributed
+END
+BuildAgentServiceImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svnroot/cruisecontrol/!svn/ver/4139/trunk/cruisecontrol/contrib/distributed/test/net/sourceforge/cruisecontrol/distributed/BuildAgentServiceImplTest.java
+END
+BuildAgentEntryOverrideUITest.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svnroot/cruisecontrol/!svn/ver/4326/trunk/cruisecontrol/contrib/distributed/test/net/sourceforge/cruisecontrol/distributed/BuildAgentEntryOverrideUITest.java
+END
+BuildAgentTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svnroot/cruisecontrol/!svn/ver/4326/trunk/cruisecontrol/contrib/distributed/test/net/sourceforge/cruisecontrol/distributed/BuildAgentTest.java
+END

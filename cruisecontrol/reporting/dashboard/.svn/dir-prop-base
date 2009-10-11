@@ -1,0 +1,16 @@
+K 10
+svn:ignore
+V 161
+dist
+target
+cruise-dashboard.iml
+cruisecontrol.iml
+dashboard.iml
+cruise-dashboard.ipr
+cruise-dashboard.iws
+cruisecontrol.log
+dashboard.log
+dashboard.log.1
+*.iml
+
+END

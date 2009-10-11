@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/cruisecontrol/!svn/ver/3939/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/chart
+END
+XPathChartData.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svnroot/cruisecontrol/!svn/ver/3939/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/chart/XPathChartData.java
+END
+PieChartData.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/3939/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/chart/PieChartData.java
+END
+TimeChartData.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/3939/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/chart/TimeChartData.java
+END
+AbstractCruiseControlChartData.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svnroot/cruisecontrol/!svn/ver/3939/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/chart/AbstractCruiseControlChartData.java
+END
+XPathData.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/chart/XPathData.java
+END

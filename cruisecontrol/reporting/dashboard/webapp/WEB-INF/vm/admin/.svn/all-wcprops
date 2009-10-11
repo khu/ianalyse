@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/WEB-INF/vm/admin
+END
+page_admin_about.vm
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/WEB-INF/vm/admin/page_admin_about.vm
+END
+page_admin_version.txt
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/WEB-INF/vm/admin/page_admin_version.txt
+END
+page_admin_configuration.vm
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/WEB-INF/vm/admin/page_admin_configuration.vm
+END

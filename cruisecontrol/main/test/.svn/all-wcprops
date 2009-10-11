@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/cruisecontrol/!svn/ver/4342/trunk/cruisecontrol/main/test
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cruisecontrol/!svn/ver/2258/trunk/cruisecontrol/main/test/log4j.properties
+END
+test.build
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/cruisecontrol/!svn/ver/1749/trunk/cruisecontrol/main/test/test.build
+END

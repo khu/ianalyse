@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/report
+END
+BuildLoopMonitorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/report/BuildLoopMonitorTest.java
+END
+BuildLoopStatusReportTaskTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/report/BuildLoopStatusReportTaskTest.java
+END

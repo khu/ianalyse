@@ -1,0 +1,15 @@
+K 10
+svn:ignore
+V 103
+target
+dist
+testresults.xml
+override.properties
+.classpath
+.project
+scrap.jpage
+bin
+*.iml
+intellij-out
+
+END

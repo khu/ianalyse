@@ -1,0 +1,19 @@
+html .yui-g .projects_summary {
+	/*IE 6/7 hack to assign layout for the build profile*/
+    height: 1%;
+}
+
+#menu ul {
+    /*IE 6 hack to assign layout for the build profile*/
+	height: 1%;
+}
+
+.build_status_bar_container {
+	_height:450px;
+}
+
+.build_profile {
+    _padding: 10px 3px 3px 42px;
+	/*IE 6/7 hack to assign layout for the build profile*/
+    height:1%;
+}

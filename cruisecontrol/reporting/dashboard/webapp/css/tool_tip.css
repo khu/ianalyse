@@ -1,0 +1,164 @@
+/********************************************************************************
+ * CruiseControl, a Continuous Integration Toolkit
+ * Copyright (c) 2007, ThoughtWorks, Inc.
+ * 200 E. Randolph, 25th Floor
+ * Chicago, IL 60601 USA
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *     + Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *
+ *     + Redistributions in binary form must reproduce the above
+ *       copyright notice, this list of conditions and the following
+ *       disclaimer in the documentation and/or other materials provided
+ *       with the distribution.
+ *
+ *     + Neither the name of ThoughtWorks, Inc., CruiseControl, nor the
+ *       names of its contributors may be used to endorse or promote
+ *       products derived from this software without specific prior
+ *       written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ ********************************************************************************/
+
+/* Styles for popup tooltip on compact dashboard page */
+
+/* Negative margins to place the point of the tooltip's arrow at the cursor */
+
+.tooltip {
+	position: absolute;
+	width: 300px;
+	margin-top: -110px;
+	margin-left: -40px;
+}
+
+.tooltip .tooltip_content {
+	border:  1px solid #a49e9e;
+    padding: 0px 10px 15px 10px ;
+    /*min-height hack for IE*/
+	min-height:150px;
+    height:auto !important;
+  	height : 150px;
+}
+
+.tooltip .tooltip_content div div {
+    padding-left: 20px;
+    text-indent: -20px;
+}
+
+/* Draw rounded corners on tooltips - see niftyCorners.css */
+.tooltip .tooltip_header {
+   height : 10px;
+   min-height : 10px;
+   position:relative;
+   top:1px;
+}
+
+/* the icon for arrow */
+
+.tooltip_passed .tooltip_header, .tooltip_building_passed .tooltip_header,
+.tooltip_building_unknown .tooltip_header, .tooltip_building_unknown .tooltip_header {
+	background: url( '../images/tooltip-passed.gif' ) no-repeat bottom left;
+}
+
+.tooltip_failed .tooltip_header {
+	background: url( '../images/tooltip-failed.gif' ) no-repeat  bottom left;
+}
+
+.tooltip_building_failed .tooltip_header {
+	background: url( '../images/tooltip-building.gif' ) no-repeat  bottom left;
+}
+
+.tooltip_building_unknown .tooltip_header, .tooltip_unknown .tooltip_header, .paused .tooltip_header, .discontinued .tooltip_header, .inactive .tooltip_header {
+	background: url( '../images/tooltip-unknown.gif' ) no-repeat  bottom left;
+}
+
+/*sections global*/
+.section_top,.section_middle {
+	padding-top:3px; 
+	border-bottom : 1px dashed #000000;
+}
+
+.section_top span,.section_middle span {
+	line-height : 1.5em;
+}
+
+
+.section_top .project_name {
+	font-weight : bold;
+    padding-top : 3px;
+}
+.section_top div,.section_middle div, .section_bottom a {
+    margin-left:40px;
+}
+
+/*sections icons*/
+.section_top {
+    background-repeat : no-repeat;
+    background-position : 3px 17px;
+    padding-top:10px;
+}
+
+.tooltip_failed .section_top {
+	background-image : url( ../images/icon-failure-medium.gif );
+}
+
+.tooltip_passed .section_top {
+	background-image : url( ../images/icon-success-medium.gif );
+}
+
+.tooltip_building_passed .section_top , .tooltip_building_failed .section_top, .tooltip_building_unknown .section_top {
+	background-image : url( ../images/icon-build-spinning-medium.gif );
+}
+
+.discontinued .section_top {
+    background-image: url("../images/icon-discontinued-medium.gif");
+}
+
+.inactive .section_top {
+    background-image: url("../images/icon-inactive-medium.gif");
+}
+
+/*the color and fond of each status*/
+.tooltip_passed .tooltip_content {
+	background-color : #B6FFB1;
+	color : #030;
+}
+
+.tooltip_failed .tooltip_content {
+	background-color : #FFC2C9;
+	color : #300;
+}
+
+.tooltip_building_passed .tooltip_content, .tooltip_building_unknown .tooltip_content {
+	background-color : #B6FFB1;
+}
+
+.tooltip_building_failed .tooltip_content {
+	background-color : #f9d861;
+	color : #C30;
+}
+
+.tooltip_building_unknown .tooltip_content, .tooltip_unknown .tooltip_content, .paused .tooltip_content, .inactive .tooltip_content, .discontinued .tooltip_content {
+	background-color: #ccc;
+	color : #666;
+}
+
+div.inactive, div.discontinued {
+    background-color: transparent;
+}
+

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cruisecontrol/!svn/ver/3088/trunk/cruisecontrol/reporting/dashboard/test/performance
+END
+functional.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/cruisecontrol/!svn/ver/3088/trunk/cruisecontrol/reporting/dashboard/test/performance/functional.jmx
+END
+profile dashboard.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/test/performance/profile%20dashboard.jmx
+END
+profile dashboard
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/test/performance/profile%20dashboard
+END

@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/cruisecontrol/!svn/ver/4354/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web
+END
+GetCommitMessageController.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svnroot/cruisecontrol/!svn/ver/4046/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/GetCommitMessageController.java
+END
+BuildDetailExceptionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/BuildDetailExceptionController.java
+END
+ForceBuildEnabledInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/ForceBuildEnabledInterceptor.java
+END
+MBeanConsoleController.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/MBeanConsoleController.java
+END
+GetProjectBuildOutputController.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/GetProjectBuildOutputController.java
+END
+DownloadController.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/DownloadController.java
+END
+GetProjectBuildStatusXmlController.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svnroot/cruisecontrol/!svn/ver/4046/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/GetProjectBuildStatusXmlController.java
+END
+FlashMessageInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svnroot/cruisecontrol/!svn/ver/3108/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/FlashMessageInterceptor.java
+END
+ForceBuildController.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/ForceBuildController.java
+END
+ConfigInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svnroot/cruisecontrol/!svn/ver/4096/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/ConfigInterceptor.java
+END
+BuildsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/BuildsController.java
+END
+BuildDetailController.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svnroot/cruisecontrol/!svn/ver/4348/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/BuildDetailController.java
+END
+ServerNameInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svnroot/cruisecontrol/!svn/ver/4058/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/ServerNameInterceptor.java
+END
+BaseMultiActionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/BaseMultiActionController.java
+END
+PageContentTypeInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/PageContentTypeInterceptor.java
+END
+DashboardController.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/DashboardController.java
+END
+AdminController.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/AdminController.java
+END
+BuildLoopController.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/BuildLoopController.java
+END
+BuildListingController.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/BuildListingController.java
+END
+LatestBuildsListingController.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/LatestBuildsListingController.java
+END
+GetProjectBuildStatusController.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svnroot/cruisecontrol/!svn/ver/4046/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/GetProjectBuildStatusController.java
+END
+RootFolderInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/web/RootFolderInterceptor.java
+END

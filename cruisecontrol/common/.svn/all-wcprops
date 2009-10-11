@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/cruisecontrol/!svn/ver/4078/trunk/cruisecontrol/common
+END
+checkstyle-build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cruisecontrol/!svn/ver/3357/trunk/cruisecontrol/common/checkstyle-build.xml
+END
+checkstyle.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/cruisecontrol/!svn/ver/3990/trunk/cruisecontrol/common/checkstyle.xml
+END

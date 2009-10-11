@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cruisecontrol/!svn/ver/4354/trunk/cruisecontrol/reporting/dashboard/test/data
+END
+config_partial.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/cruisecontrol/!svn/ver/3090/trunk/cruisecontrol/reporting/dashboard/test/data/config_partial.xml
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/data/config.xml
+END
+dashboard-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/data/dashboard-config.xml
+END

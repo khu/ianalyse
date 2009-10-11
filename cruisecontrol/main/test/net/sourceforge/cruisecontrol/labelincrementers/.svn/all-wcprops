@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers
+END
+DefaultLabelIncrementerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/DefaultLabelIncrementerTest.java
+END
+PropertyFileLabelIncrementerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svnroot/cruisecontrol/!svn/ver/2559/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/PropertyFileLabelIncrementerTest.java
+END
+FormattedLabelIncrementerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/FormattedLabelIncrementerTest.java
+END
+P4ChangelistLabelIncrementerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/P4ChangelistLabelIncrementerTest.java
+END
+SVNLabelIncrementerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svnroot/cruisecontrol/!svn/ver/3966/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/SVNLabelIncrementerTest.java
+END
+p4_client3.txt
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/2352/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/p4_client3.txt
+END
+CVSLabelIncrementerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/CVSLabelIncrementerTest.java
+END
+p4_changes1.txt
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svnroot/cruisecontrol/!svn/ver/2352/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/p4_changes1.txt
+END
+p4_changes2.txt
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svnroot/cruisecontrol/!svn/ver/2352/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/p4_changes2.txt
+END
+p4_where1.txt
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/2352/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/p4_where1.txt
+END
+p4_where2.txt
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/2352/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/p4_where2.txt
+END
+p4_where3.txt
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/2352/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/labelincrementers/p4_where3.txt
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/3119/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/email
+END
+MockMapping.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/email/MockMapping.java
+END
+DropLetterEmailAddressMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/email/DropLetterEmailAddressMapper.java
+END
+MavenMapperTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svnroot/cruisecontrol/!svn/ver/3119/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/email/MavenMapperTest.java
+END

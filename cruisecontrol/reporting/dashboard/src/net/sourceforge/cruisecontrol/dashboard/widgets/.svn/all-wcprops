@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/4359/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/widgets
+END
+AbstractXslOutputWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svnroot/cruisecontrol/!svn/ver/4356/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/widgets/AbstractXslOutputWidget.java
+END
+EmmaArtifactWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svnroot/cruisecontrol/!svn/ver/3078/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/widgets/EmmaArtifactWidget.java
+END
+Widget.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/cruisecontrol/!svn/ver/4356/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/widgets/Widget.java
+END
+BuildOutputWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svnroot/cruisecontrol/!svn/ver/4356/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/widgets/BuildOutputWidget.java
+END
+ErrorsAndWarningsMessagesWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svnroot/cruisecontrol/!svn/ver/4359/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/widgets/ErrorsAndWarningsMessagesWidget.java
+END
+MergedCheckStyleWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svnroot/cruisecontrol/!svn/ver/4359/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/widgets/MergedCheckStyleWidget.java
+END
+PanopticodeWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/widgets/PanopticodeWidget.java
+END

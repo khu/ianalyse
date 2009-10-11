@@ -1,0 +1,728 @@
+<?xml version="1.0"?>
+<!--****************************************************************************
+ * CruiseControl, a Continuous Integration Toolkit
+ * Copyright (c) 2001, ThoughtWorks, Inc.
+ * 200 E. Randolph, 25th Floor
+ * Chicago, IL 60601 USA
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *     + Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *
+ *     + Redistributions in binary form must reproduce the above
+ *       copyright notice, this list of conditions and the following
+ *       disclaimer in the documentation and/or other materials provided
+ *       with the distribution.
+ *
+ *     + Neither the name of ThoughtWorks, Inc., CruiseControl, nor the
+ *       names of its contributors may be used to endorse or promote
+ *       products derived from this software without specific prior
+ *       written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ ****************************************************************************-->
+
+<!-- ======================================================================
+     Dec 17, 2004 1:09:40 PM
+
+     This Ant script builds the distributed extensions to CruiseControl and
+     prepares a set of files for running a Jini Lookup Service. In addition
+     it prepares a zip file for installation on build agent machines. See
+     the README.html in this directory for details.
+
+     jramsdale
+     ====================================================================== -->
+
+<project name="CCDist" default="build" basedir=".">
+
+    <property file="override.properties" />
+
+    <!-- define ccdist.version, use same props file as CC Main -->
+    <property file="${basedir}/../../build.properties" />
+    <property name="ccdist.release.label" value="${cc.version}" />
+
+    <property name="target" value="${basedir}/target"/>
+    <property name="reports.dir" value="${target}/reports" />
+
+    <property name="classes" value="${target}/classes"/>
+    <property name="test.classes" value="${target}/test-classes" />
+
+    <property name="junit.results" value="${target}/test-results" />
+
+    <property name="src" value="${basedir}/src"/>
+    <property name="test" value="${basedir}/test"/>
+
+    <property name="dir.main" value="${basedir}/../../main"/>
+    <property name="dir.main.lib" value="${dir.main}/lib"/>
+    <property name="dir.main.dist" value="${dir.main}/dist"/>
+
+    <property name="dir.main.target.test-classes" value="${dir.main}/target/test-classes"/>
+
+    <property name="dir.webcontent" value="webcontent"/>
+    <property name="dir.webstart" value="${dir.webcontent}/webstart"/>
+
+    <property name="checkstyle.fail.on.violation" value="true"/>
+
+    <property name="jini.core.DirName" value="jini-core"/>
+
+    <property name="jini.lib.DirName" value="jini-lib"/>
+    <property name="jini.libDownload.DirName" value="jini-lib-dl"/>
+
+    <property name="dist.lookup.DirName" value="dist/lookup"/>
+
+
+    <property name="checkstyle.cache" value="${target}/checkstyle.cache" />
+    <property name="checkstyle.config" value="${basedir}/../../common/checkstyle.xml"/>
+    <property name="checkstyle.jar" value="${dir.main.lib}/checkstyle-all-4.4.jar" />
+
+    <property name="emma.results" value="${target}/emma-results" />
+    <property name="emma.stats" value="${emma.results}/coverage.emma" />
+
+    <import file="${basedir}/../../common/checkstyle-build.xml"/>
+
+    <path id='emma.classpath'>
+        <pathelement location="${dir.main.lib}/emma.jar" />
+        <pathelement location="${dir.main.lib}/emma_ant.jar" />
+    </path>
+    <taskdef resource="emma_ant.properties" classpathref="emma.classpath" />
+
+
+    <!-- xml apis and parsers -->
+    <patternset id="ps.jarnames-xml-libs">
+        <include name="xml-apis-*.jar" />
+        <include name="xercesImpl-*.jar" />
+        <!-- Saxon jars cause the Ant junitreport task to fail when no anthome/antscript is set,
+         and Sun Bug ID: 6568540 "(prefs) Preferences not saved in Webstart app, even after synch()" -->
+        <!--<include name="saxon*.jar" />-->
+    </patternset>
+
+    <!-- commonly reused libs from main/lib -->
+    <patternset id="ps.main.lib-common">
+        <include name="log4j*.jar" />
+        <include name="mail*.jar" /> <!-- for cases where SMTPAppender is used in log4j.properties -->
+        <include name="activation*.jar" /> <!-- for cases where SMTPAppender is used in log4j.properties -->
+
+        <include name="jdom*.jar" />
+    </patternset>
+
+
+    <!-- JNLP Service API classes -->
+    <path id="jnlpServiceAPI.classpath">
+         <fileset dir="${java.home}">
+             <!-- location in jre1.5 -->
+             <include name="lib/javaws.jar"/>
+             <!-- location in jre1.4 -->
+             <include name="javaws/javaws.jar"/>
+         </fileset>
+    </path>
+
+    <!-- Common Core JINI libs -->
+    <path id="jini.core.classpath">
+         <fileset id="fs.jini.core" dir="${jini.core.DirName}">
+             <include name="*.jar" />
+         </fileset>
+    </path>
+
+     <fileset id="fs.jini.lib.jsk-platform" dir="${jini.lib.DirName}">
+         <include name="jsk-platform.jar" />
+     </fileset>
+
+
+    <path id="main.lib.junit">
+        <fileset dir="${dir.main.lib}">
+            <include name="junit*.jar" />
+        </fileset>
+    </path>
+
+    <path id="compile.classpath">
+        <path refid="jini.core.classpath"/>
+        <fileset dir="${dir.main.lib}">
+            <patternset refid="ps.main.lib-common" />
+            <include name="junit*.jar" />
+            <include name="mx4j*.jar" />
+        </fileset>
+        <fileset dir="${dir.main.dist}">
+            <include name="cruisecontrol.jar" />
+        </fileset>
+        <path refid="jnlpServiceAPI.classpath"/>
+
+        <!-- required unit test helper class from main test-classes -->
+        <pathelement location="${dir.main.target.test-classes}"/>
+        <!--<fileset dir="${dir.main.target.test-classes}"> @todo Fixme -->
+            <!--<include  name="**/*MockBuilder"/>-->
+        <!--</fileset>-->
+
+        <!-- provides Administrable interface -->
+        <fileset id="fs.jini.lib-dl.jsk-dl" dir="jini-lib-dl">
+            <include name="jsk-dl.jar" />
+        </fileset>
+    </path>
+
+    <path id="ccdist.project.runtime.classpath">
+        <pathelement path="${classes}"/>
+        <pathelement path="${test.classes}"/>
+        <fileset dir="${dir.main.dist}">
+            <include name="cruisecontrol.jar" />
+        </fileset>
+        <fileset dir="${dir.main.lib}">
+            <patternset refid="ps.main.lib-common" />
+            <patternset refid="ps.jarnames-xml-libs"/>
+            <include name="jakarta-oro*.jar" />
+            <include name="ant/*.jar" /> <!-- required by tests that run a build via a build agent -->
+        </fileset>
+        <path refid="jini.core.classpath"/>
+        <fileset dir="${jini.lib.DirName}">
+             <include name="tools.jar" /> <!-- required to read start-jini.config settings in unit test. -->
+         </fileset>
+        <path refid="jnlpServiceAPI.classpath"/>
+
+        <!-- required unit test helper class from main test-classes -->
+        <pathelement location="${dir.main.target.test-classes}"/>
+        <!--<fileset dir="${dir.main.target.test-classes}"> @todo Fixme -->
+            <!--<include  name="**/*MockBuilder"/>-->
+        <!--</fileset>-->
+    </path>
+
+    <target name="buildMainIfMissing" description="Only exists to avoid CCLive compile errors when Main jar a missing">
+        <available property="ccmainJarExists" file="${dir.main.dist}/cruisecontrol.jar"/>
+        <antcall target="_doBuildMainIfMissing"/>
+    </target>
+    <target name="_doBuildMainIfMissing" unless="ccmainJarExists">
+        <echo>Missing CCMain jars. Building them now. Need to fix CCLive config to ensure CCMain jars exist before building CCDist.</echo>
+        <ant antfile="${dir.main}/build.xml" dir="${dir.main}" target="compile-test" inheritAll="false"/>
+        <ant antfile="${dir.main}/build.xml" dir="${dir.main}" target="jar" inheritAll="false"/>
+    </target>
+
+    <target name="build" depends="buildMainIfMissing, clean, compile-test, checkstyle, test, jar, validate-html"/>
+
+    <target name="jar" depends="compile, jar-masterbuilder, jar-agent, zip-agent, jar-util"/>
+
+    <target name="clean" description="Deletes 'target' and 'dist' directories">
+        <delete dir="${target}"/>
+		<delete dir="dist" />
+		<delete dir="${dir.webstart}/conf"/>
+		<delete dir="${dir.webstart}/lib"/>
+	</target>
+
+    <target name="checkRequiredLibs" description="make sure required libraries are available">
+
+        <!-- check for JNLP Service API -->
+        <available classname="javax.jnlp.ServiceManager" classpathref="jnlpServiceAPI.classpath" property="jnlpServiceAPI-present" />
+        <fail unless="jnlpServiceAPI-present" >
+        Missing Webstart JNLP Service API (javaws.jar).
+        Is the JAVA_HOME environment variable set? (Current java.home=${java.home})
+        This file is usually located in:
+            ${java.home}/lib/javaws.jar
+        or:
+            ${java.home}/javaws/javaws.jar
+
+        NOTE: Sun's 64-bit java provides webstart support as of v1.6.0_12 (update 12),
+        so you may need to upgrade your 64-bit jdk or compile using a 32-bit jdk.
+        </fail>
+
+        <!-- check for junit.jar -->
+        <available classname="junit.framework.TestCase" property="JUnit-present" classpathref="main.lib.junit"/>
+        <fail unless="JUnit-present" >
+        Is the junit.jar in ant's library path?
+        </fail>
+    </target>
+
+
+    <target name="ccdist.checklabel">
+        <fail unless="ccdist.release.label" message="label is not defined." />
+
+        <echo>Java: ${java.version} (${java.vm.name})</echo>
+        <echo>   in ${java.home}</echo>
+        <echo>Ant: ${ant.version}</echo>
+        <echo>   in ${ant.home}</echo>
+        <echo>CruiseControl: ${cc.version}, CCDist: ${ccdist.release.label}</echo>
+    </target>
+
+    <target name="init" depends="ccdist.checklabel,checkRequiredLibs" description="Initializes dist directories">
+        <mkdir dir="dist" />
+        <mkdir dir="dist/builder"/>
+
+        <mkdir dir="${junit.results}" />
+
+        <antcall target="init-core" />
+        <antcall target="init-lookup" />
+        <antcall target="init-agent" />
+        <antcall target="init-util" />
+
+
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${test.classes}"/>
+
+        <tstamp />
+        <property name="ccdist.build.version" value="${ccdist.release.label}" />
+        <property name="ccdist.build.version.info" value="Compiled on ${TODAY} ${TSTAMP}" />
+        <property name="ccdist.build.version.date" value="${TODAY} ${TSTAMP}" />
+	</target>
+
+	<target name="init-core" description="Prepares directory structure for ccdist-core">
+		<mkdir dir="dist/core" />
+    </target>
+
+    <target name="init-lookup" description="Prepares directory structure for Lookup Service files">
+        <mkdir dir="${dist.lookup.DirName}" />
+        <mkdir dir="${dist.lookup.DirName}/${jini.lib.DirName}" />
+        <mkdir dir="${dist.lookup.DirName}/${jini.libDownload.DirName}" />
+        <mkdir dir="${dist.lookup.DirName}/conf" />
+        <copy file="conf/lookup-build.xml" tofile="${dist.lookup.DirName}/build.xml" />
+        <copy todir="${dist.lookup.DirName}/conf">
+            <fileset dir="conf">
+                <include name="cruise.properties" />
+                <include name="insecure.policy" />
+                <include name="jini.logging" />
+                <include name="log4j.properties" />
+                <include name="start-jini.config" />
+                <include name="transient-reggie.config" />
+            </fileset>
+        </copy>
+        <copy todir="${dist.lookup.DirName}/${jini.lib.DirName}">
+            <fileset dir="${jini.lib.DirName}">
+                <include name="*.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${dist.lookup.DirName}/${jini.libDownload.DirName}">   <!-- Downloadable Jini jars -->
+            <fileset dir="${jini.libDownload.DirName}">
+                <include name="*.jar" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="init-agent" description="Prepares directory structure for agent files and copies property file in">
+        <mkdir dir="dist/agent" />
+        <mkdir dir="dist/agent/lib" />
+        <mkdir dir="dist/agent/${jini.core.DirName}" />
+        <mkdir dir="dist/agent/${jini.lib.DirName}" />
+        <mkdir dir="dist/agent/conf" />
+        <copy file="conf/agent-build.xml" tofile="dist/agent/build.xml" />
+        <copy todir="dist/agent/conf">
+            <fileset dir="conf">
+                <include name="agent.properties" />
+                <include name="user-defined.properties" />
+                <include name="insecure.policy" />
+                <include name="jini.logging" />
+                <include name="log4j.properties" />
+            </fileset>
+        </copy>
+        <copy todir="dist/agent/${jini.core.DirName}">
+            <fileset refid="fs.jini.core"/>
+        </copy>
+        <copy todir="dist/agent/${jini.lib.DirName}">
+            <fileset refid="fs.jini.lib.jsk-platform"/>
+        </copy>
+        <copy todir="dist/agent/lib">
+            <fileset dir="${dir.main.lib}">
+                <patternset refid="ps.main.lib-common" />
+                <patternset refid="ps.jarnames-xml-libs"/>
+                <include name="jakarta-oro*.jar" />
+            </fileset>
+            <fileset dir="${dir.main.dist}">
+                <include name="cruisecontrol.jar" />
+                <include name="cruisecontrol-antprogresslogger.jar" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="init-util" description="Prepares directory structure for util files and copies property file in">
+        <mkdir dir="dist/util" />
+        <mkdir dir="dist/util/lib" />
+        <mkdir dir="dist/util/${jini.core.DirName}" />
+        <mkdir dir="dist/util/${jini.lib.DirName}" />
+        <mkdir dir="dist/util/conf" />
+        <copy file="conf/util-build.xml" tofile="dist/util/build.xml" />
+        <copy todir="dist/util/conf">
+            <fileset dir="conf">
+                <include name="agent.properties" />
+                <include name="cruise.properties" /> <!-- only required by Interactive Build for DistributedMasterBuilder -->
+                <include name="insecure.policy" />
+                <include name="jini.logging" />
+                <include name="log4j.properties" />
+            </fileset>
+        </copy>
+        <copy todir="dist/util/${jini.core.DirName}">
+            <fileset refid="fs.jini.core"/>
+        </copy>
+        <copy todir="dist/util/${jini.lib.DirName}">
+            <fileset refid="fs.jini.lib.jsk-platform"/>
+        </copy>
+        <!-- provides Administrable interface -->
+        <copy todir="dist/util/${jini.libDownload.DirName}">
+            <fileset refid="fs.jini.lib-dl.jsk-dl"/>
+        </copy>
+        <copy todir="dist/util/lib">
+            <fileset dir="${dir.main.lib}">
+                <patternset refid="ps.main.lib-common" />
+                <patternset refid="ps.jarnames-xml-libs"/>
+                <include name="jakarta-oro*.jar" />
+            </fileset>
+            <fileset dir="${dir.main.dist}">
+                 <include name="cruisecontrol.jar" />
+                 <include name="cruisecontrol-antprogresslogger.jar" />
+            </fileset>
+        </copy>
+    </target>
+
+
+    <macrodef name="compile-macro">
+        <attribute name="destdir" default="${classes}" />
+        <attribute name="srcdir" default="${src}" />
+        <attribute name="classpathref" default="project.classpath" />
+        <element name="nested" implicit="true" optional="true" />
+        <sequential>
+            <javac destdir="@{destdir}" debug="true" deprecation="true" fork="true" source="1.5" target="1.5" compiler="javac1.5" classpathref="@{classpathref}" srcdir="@{srcdir}">
+                <nested />
+                <!-- @todo add other compiler warning flags -->
+                <compilerarg value="-Xlint:unchecked"/>
+            </javac>
+        </sequential>
+    </macrodef>
+
+    <target name="compile" depends="init" description="Compile source code">
+        <compile-macro classpathref="compile.classpath" />
+
+        <copy todir="${classes}">
+            <fileset dir="${basedir}" includes="ccdist.version.properties" />
+            <filterset>
+                <filter token="VERSION" value="${ccdist.build.version}" />
+                <filter token="VERSION_INFO" value="${ccdist.build.version.info}" />
+                <filter token="VERSION_DATE" value="${ccdist.build.version.date}" />
+            </filterset>
+        </copy>
+        <!-- copy resources like properties from the src-dir -->
+        <copy todir="${classes}">
+            <fileset dir="${src}" excludes="**/*.java"/>
+        </copy>
+    </target>
+
+    <target name="compile-test" depends="compile" description="Compile test code">
+        <compile-macro classpathref="compile.classpath" srcdir="${test}" destdir="${test.classes}">
+            <classpath>
+                <pathelement location="${classes}" />
+            </classpath>
+        </compile-macro>
+
+        <!-- copy resources like properties from the src-dir -->
+        <copy todir="${test.classes}">
+            <fileset dir="${test}" excludes="**/*.java"/>
+            <fileset dir="conf" includes="insecure.policy"/>
+            <fileset dir="conf" includes="cruise.properties"/>
+            <!--@todo use a new config file, like 'progressremote.config' and update 'Bad DNS' workaround docs -->
+            <fileset dir="conf" includes="transient-reggie.config"/>
+        </copy>
+    </target>
+
+    <target name="checkstyle" depends="init" description="Run CheckStyle on code">
+        <checkstyle-macro
+            reportsdir="${reports.dir}"
+            configfile="${checkstyle.config}"
+            checkstylecache="${checkstyle.cache}">
+
+            <taskdef resource="checkstyletask.properties" classpath="${checkstyle.jar}" />
+
+        </checkstyle-macro>
+    </target>
+
+
+    <target name="emma-instrument" depends="init, compile">
+        <emma>
+            <instr instrpath="${classes}"
+                   outdir="${classes}"
+                   merge="yes"
+                   metadatafile="${emma.results}/metadata.emma"
+                   mode="overwrite" />
+        </emma>
+    </target>
+
+    <target name="report-emma" depends="init, emma-instrument, test">
+        <property name="emma.html.report" value="${emma.results}/coverage.html" />
+        <emma>
+            <report sourcepath="${src}">
+                <fileset dir="${emma.results}">
+                    <include name="*.emma" />
+                </fileset>
+
+                <html outfile="${emma.html.report}" />
+            </report>
+        </emma>
+        <echo message="View EMMA's HTML report at ${emma.html.report}" />
+    </target>
+
+    <target name="validate-html">
+        <xmlvalidate>
+            <dtd publicId="-//W3C//DTD XHTML 1.0 Strict//EN" location="../../xhtml1-strict.dtd"/>
+            <dtd publicId="-//W3C//DTD XHTML 1.0 Transitional//EN" location="../../xhtml1-transitional.dtd"/>
+
+            <fileset dir="${basedir}" includes="**/*.html" excludes="**/api/**"/>
+        </xmlvalidate>
+    </target>
+
+
+    <target name="setupTestEntry">
+        <!-- @todo find a cleaner way to prevent collision of multiple test runs on same subnet? -->
+        <tstamp>
+            <format property="start.time" pattern="yyyy.MM.dd.HH:mm:ss.SSS"/>
+        </tstamp>
+        <copy todir="${test.classes}" file="${test}/testdist.user-defined.properties" overwrite="true"/>
+        <replace file="${test.classes}/testdist.user-defined.properties"
+            token="build.type=test" value="build.type=${start.time}_test"/>
+    </target>
+
+    <target name="test" depends="compile-test, setupTestEntry" description="Runs unit tests for distributed extensions to Cruise Control">
+
+        <!-- @todo haltonfailure? -->
+        <junit fork="yes" forkmode="perBatch" haltonfailure="yes" printsummary="on" showoutput="true" dir="${target}">
+            <jvmarg value="-Demma.coverage.out.file=${emma.stats}" />
+            <jvmarg value="-Demma.coverage.out.merge=true" />
+
+            <classpath>
+                <path refid="ccdist.project.runtime.classpath"/>
+                <path refid="emma.classpath"/>
+                <path refid="main.lib.junit"/>
+            </classpath>
+            <formatter type="brief" usefile="false"/>
+            <formatter type="xml" />
+            <batchtest todir="${junit.results}">
+                <fileset dir="${test.classes}" includes="**/*Test.class" />
+            </batchtest>
+        </junit>
+
+	</target>
+
+    <target name="test-one" depends="compile-test, setupTestEntry" description="Executes one distributed unit test" if="testcase">
+        <junit fork="yes" haltonfailure="yes" printsummary="on" dir="${target}">
+            <classpath>
+                <path refid="ccdist.project.runtime.classpath" />
+                <path refid="main.lib.junit"/>
+            </classpath>
+            <formatter type="brief" usefile="false" />
+            <formatter type="xml" />
+            <test name="${testcase}" todir="${junit.results}" />
+        </junit>
+    </target>
+
+
+    <target name="jar-core" depends="compile" description="Creates ccdist-buildAgentService.jar and ccdist-core.jar">
+        <jar destfile="dist/core/ccdist-core.jar">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+                <attribute name="Main-Class" value="net.sourceforge.cruisecontrol.distributed.util.JiniLookUpUtility" />
+                <attribute name="Implementation-Version" value="${ccdist.build.version} ${ccdist.build.version.info}" />
+            </manifest>
+            <fileset dir="${classes}">
+                <include name="ccdist.version.properties" />
+                <include name="**/distributed/core/**" />
+                <include name="**/PropertyEntry.class"/>              <!-- Moving this to core package is not backwards compatible -->
+                <include name="**/SearchablePropertyEntries.class"/>  <!-- Moving this to core package is not backwards compatible -->
+                <include name="**/BuildAgentEntryOverrideUI*.class"/> <!-- Change this to a Jini ServiceUI component -->
+            </fileset>
+        </jar>
+
+        <jar destfile="dist/core/ccdist-buildAgentService.jar">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+            </manifest>
+            <fileset dir="${classes}">
+                <include name="**/BuildAgentService.class" />
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="jar-masterbuilder" depends="compile, jar-core" description="Creates ccdist-masterbuilder.jar">
+        <jar destfile="dist/builder/ccdist-masterbuilder.jar">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+            </manifest>
+            <fileset dir="${classes}">
+                <include name="**/builders/**" />
+
+                <include name="**/jmx/**" />
+                <!-- @todo Clean this up to avoid BuildAgentUtility classes in multiple jars,
+                 ccdist-masterbuilder.jar and ccdist-util.jar -->
+                <include name="**/util/BuildAgentUtility**" />
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="jar-agent" depends="compile, jar-core" description="Creates cc-agent.jar and cc-agent-dl.jar">
+        <!-- @todo Find a clean, webstart friendly way to avoid duplicating these jars. Maybe use Maven2? -->
+        <copy todir="dist/agent/lib">
+            <fileset dir="dist/core"/>
+        </copy>
+
+        <jar destfile="dist/agent/lib/cc-agent.jar">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+                <attribute name="Main-Class" value="net.sourceforge.cruisecontrol.distributed.BuildAgent" />
+            </manifest>
+            <fileset dir="${classes}">
+                <include name="**/distributed/*" />           <!-- Do NOT include sub dirs -->
+                <exclude name="**/BuildAgentService.class"/>          <!-- Moving this to core package is not backwards compatible -->
+                <exclude name="**/PropertyEntry.class"/>              <!-- Moving this to core package is not backwards compatible -->
+                <exclude name="**/SearchablePropertyEntries.class"/>  <!-- Moving this to core package is not backwards compatible -->
+                <exclude name="**/BuildAgentEntryOverrideUI*.class"/> <!-- Change this to a Jini ServiceUI component -->
+            </fileset>
+        </jar>
+        <!--<jar destfile="dist/lookup/${jini.libDownload.DirName}/cc-agent-dl.jar">-->
+            <!--<fileset dir="${classes}">-->
+                <!--<include name="**/BuildAgentServiceImpl.class" />-->
+            <!--</fileset>-->
+        <!--</jar>-->
+
+        <!-- wrapper jar for Ant Progress Logger.jar -->
+        <jar destfile="dist/agent/lib/cc-agent-antprogresslogger.jar">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+                <attribute name="Implementation-Version" value="${ccdist.build.version} ${ccdist.build.version.info}" />
+            </manifest>
+            <fileset dir="dist/agent/lib">
+                <!-- wrap the jar in a jar so we can get it as a resource -->
+                <include name="cruisecontrol-antprogresslogger.jar" />
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="jar-util" depends="compile, jar-core" description="Creates ccdist-util.jar">
+        <!-- @todo Find a clean, webstart friendly way to avoid duplicating these jars. Maybe use Maven2? -->
+        <copy todir="dist/util/lib">
+            <fileset dir="dist/core"/>
+        </copy>
+
+
+        <jar destfile="dist/util/lib/ccdist-util.jar">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+                <attribute name="Main-Class" value="net.sourceforge.cruisecontrol.distributed.util.BuildAgentUtility" />
+            </manifest>
+            <fileset dir="${classes}">
+                <include name="**/distributed/util/**" />
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="zip-agent" depends="jar-agent" description="Creates zip file for agent to be installed on build machines">
+        <zip destfile="dist/cc-agent.zip">
+            <zipfileset dir="dist/agent" />
+        </zip>
+    </target>
+
+
+    <target name="sign-agent" description="Sign all agent jars for use by Webstart."
+        depends="jar-agent">
+
+        <!-- build cc-agent-conf.jar so webstart can load resource files -->
+        <mkdir dir="${dir.webstart}/conf"/>
+        <jar destfile="${dir.webstart}/conf/cc-agent-conf.jar">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+            </manifest>
+            <fileset dir="dist/agent/conf" >
+                <include name="*"/>
+                <exclude name="log4j.properties"/>
+            </fileset>
+        </jar>
+
+        <!-- copy jars to dir in which they'll be signed. Wish sign jar did filesets w/ output path...-->
+        <copy todir="${dir.webstart}/${jini.core.DirName}">
+            <fileset dir="dist/agent/${jini.core.DirName}"/>
+        </copy>
+        <copy todir="${dir.webstart}/${jini.lib.DirName}">
+            <fileset dir="dist/agent/${jini.lib.DirName}"/>
+        </copy>
+        <copy todir="${dir.webstart}/lib">
+            <fileset dir="dist/agent/lib"/>
+        </copy>
+
+        <!-- load signing properties -->
+        <property file="build-sign.properties"/>
+
+        <fileset id="fs.id.ws.conf" dir="${dir.webstart}/conf"/>
+        <antcall target="signDir">
+            <param name="dirToSignID" value="fs.id.ws.conf"/>
+        </antcall>
+
+        <fileset id="fs.id.ws.jinicore" dir="${dir.webstart}/${jini.core.DirName}"/>
+        <antcall target="signDir">
+            <param name="dirToSignID" value="fs.id.ws.jinicore"/>
+        </antcall>
+
+        <fileset id="fs.id.ws.jinilib" dir="${dir.webstart}/${jini.lib.DirName}"/>
+        <antcall target="signDir">
+            <param name="dirToSignID" value="fs.id.ws.jinilib"/>
+        </antcall>
+
+        <fileset id="fs.id.ws.lib" dir="${dir.webstart}/lib"/>
+        <antcall target="signDir">
+            <param name="dirToSignID" value="fs.id.ws.lib"/>
+        </antcall>
+
+    </target>
+    <target name="signDir">
+        <antcall target="signDirIfKeypass">
+            <param name="dirToSignID" value="${dirToSignID}"/>
+        </antcall>
+        <antcall target="signDirUnlessKeypass">
+            <param name="dirToSignID" value="${dirToSignID}"/>
+        </antcall>
+    </target>
+    <!-- Sign jars in a directory using the keypass value from build-sign.properties -->
+    <target name="signDirIfKeypass" if="security.keypass">
+        <signjar keystore="${security.keystore}"
+            storepass="${security.storepass}"
+            alias="${security.alias}"
+            keypass="${security.keypass}"
+            >
+
+            <fileset refid="${dirToSignID}"/>
+        </signjar>
+    </target>
+    <!-- Sign jars in a directory if no keypass value exists in build-sign.properties -->
+    <target name="signDirUnlessKeypass" unless="security.keypass">
+        <signjar keystore="${security.keystore}"
+            storepass="${security.storepass}"
+            alias="${security.alias}"
+            >
+
+            <fileset refid="${dirToSignID}"/>
+        </signjar>
+    </target>
+
+
+    <!-- NOTE: Copy the war file into your web server (the same dir as cruisecontrol.war). -->
+    <target name="war-agent" description="Package the Agent in a war file with a Webstart launcher."
+        depends="sign-agent">
+
+        <war destfile="dist/cc-agent.war" webxml="${dir.webstart}/WEB-INF/agent-web.xml">
+            <lib dir="${dir.webstart}/WEB-INF/lib" includes="**/*"/>
+
+            <fileset dir="${dir.webstart}" includes="*"/><!-- .jnlp file -->
+
+            <zipfileset dir="${dir.webstart}/${jini.core.DirName}" prefix="${jini.core.DirName}"/>
+            <zipfileset dir="${dir.webstart}/${jini.lib.DirName}" prefix="${jini.lib.DirName}"/>
+            <zipfileset dir="${dir.webstart}/lib" prefix="lib"/>
+
+            <zipfileset dir="${dir.webstart}/conf" prefix="conf"/>
+            <zipfileset dir="dist/agent/conf" prefix="conf">
+                <include name="log4j.properties"/>
+            </zipfileset>
+        </war>
+    </target>
+
+</project>
+

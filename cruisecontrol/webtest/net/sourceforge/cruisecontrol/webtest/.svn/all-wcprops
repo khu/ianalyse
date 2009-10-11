@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest
+END
+PluginsWebTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/PluginsWebTest.java
+END
+PublisherDetailsWebTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/PublisherDetailsWebTest.java
+END
+PluginLocatorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/PluginLocatorTest.java
+END
+ProjectStatusPageWebTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/ProjectStatusPageWebTest.java
+END
+SourceControlDetailsWebTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/SourceControlDetailsWebTest.java
+END
+PluginConfigurationTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/PluginConfigurationTest.java
+END
+RssFeedJSPWebTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/2479/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/RssFeedJSPWebTest.java
+END
+ConfigurationTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/ConfigurationTest.java
+END
+BootstrapperDetailsWebTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/BootstrapperDetailsWebTest.java
+END
+ProjectConfigurationPageWebTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/ProjectConfigurationPageWebTest.java
+END
+ConfigReloadingTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/cruisecontrol/!svn/ver/2339/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/ConfigReloadingTest.java
+END
+MetricsTabWebTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/webtest/net/sourceforge/cruisecontrol/webtest/MetricsTabWebTest.java
+END

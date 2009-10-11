@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/cruisecontrol/!svn/ver/4275/trunk/cruisecontrol/main/lib/licenses
+END
+activation-license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/cruisecontrol/!svn/ver/1629/trunk/cruisecontrol/main/lib/licenses/activation-license.txt
+END
+fast_md5-license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cruisecontrol/!svn/ver/1923/trunk/cruisecontrol/main/lib/licenses/fast_md5-license.txt
+END
+mail-license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/1629/trunk/cruisecontrol/main/lib/licenses/mail-license.txt
+END
+mx4j-license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/1629/trunk/cruisecontrol/main/lib/licenses/mx4j-license.txt
+END
+mpl-1.0.txt
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cruisecontrol/!svn/ver/3122/trunk/cruisecontrol/main/lib/licenses/mpl-1.0.txt
+END
+jaxen-license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/cruisecontrol/!svn/ver/2291/trunk/cruisecontrol/main/lib/licenses/jaxen-license.txt
+END
+saxon-license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/cruisecontrol/!svn/ver/3932/trunk/cruisecontrol/main/lib/licenses/saxon-license.txt
+END
+jdom-license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/1629/trunk/cruisecontrol/main/lib/licenses/jdom-license.txt
+END
+comm-license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/1629/trunk/cruisecontrol/main/lib/licenses/comm-license.txt
+END
+apache-license-1.1.txt
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/cruisecontrol/!svn/ver/1629/trunk/cruisecontrol/main/lib/licenses/apache-license-1.1.txt
+END
+apache-license-2.0.txt
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/cruisecontrol/!svn/ver/1629/trunk/cruisecontrol/main/lib/licenses/apache-license-2.0.txt
+END
+cpl-license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/cruisecontrol/!svn/ver/1629/trunk/cruisecontrol/main/lib/licenses/cpl-license.txt
+END
+lgpl-license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/1629/trunk/cruisecontrol/main/lib/licenses/lgpl-license.txt
+END
+twitter4j-license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cruisecontrol/!svn/ver/4275/trunk/cruisecontrol/main/lib/licenses/twitter4j-license.txt
+END

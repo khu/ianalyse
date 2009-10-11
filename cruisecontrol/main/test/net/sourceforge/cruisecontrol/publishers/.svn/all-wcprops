@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers
+END
+AntPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/AntPublisherTest.java
+END
+OnFailurePublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/OnFailurePublisherTest.java
+END
+CompoundPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svnroot/cruisecontrol/!svn/ver/3147/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/CompoundPublisherTest.java
+END
+ClearCaseBaselinePublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/ClearCaseBaselinePublisherTest.java
+END
+SCPPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/SCPPublisherTest.java
+END
+EmailPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/cruisecontrol/!svn/ver/4069/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/EmailPublisherTest.java
+END
+SocketPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svnroot/cruisecontrol/!svn/ver/2143/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/SocketPublisherTest.java
+END
+MockPublisher.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/MockPublisher.java
+END
+FTPPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/FTPPublisherTest.java
+END
+ConditionalPublisherTestBase.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/ConditionalPublisherTestBase.java
+END
+MockEmailPublisher.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/MockEmailPublisher.java
+END
+ExecutePublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/ExecutePublisherTest.java
+END
+TwitterPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/cruisecontrol/!svn/ver/4275/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/TwitterPublisherTest.java
+END
+CMSynergyTaskPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svnroot/cruisecontrol/!svn/ver/4302/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/CMSynergyTaskPublisherTest.java
+END
+LinkJabberPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/LinkJabberPublisherTest.java
+END
+LinkEmailPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/LinkEmailPublisherTest.java
+END
+OnSuccessPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/OnSuccessPublisherTest.java
+END
+RSSPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/RSSPublisherTest.java
+END
+X10PublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/X10PublisherTest.java
+END
+HTMLEmailPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/HTMLEmailPublisherTest.java
+END
+HTTPPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svnroot/cruisecontrol/!svn/ver/3511/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/HTTPPublisherTest.java
+END
+OrigoPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/OrigoPublisherTest.java
+END
+WeblogPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svnroot/cruisecontrol/!svn/ver/4304/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/WeblogPublisherTest.java
+END
+ArtifactsPublisherTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svnroot/cruisecontrol/!svn/ver/4043/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/publishers/ArtifactsPublisherTest.java
+END

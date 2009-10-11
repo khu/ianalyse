@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <title>CruiseControl Getting Started with the Binary Distribution</title>
+   <style type="text/css" media="all">
+        @import "cruisecontrol.css";
+   </style>
+   <link href="print.css" type="text/css" rel="stylesheet" media="print"/>
+   <script type="text/javascript" src="tables.js"></script>
+</head>
+<body>
+<div class="header">
+    <div class="hostedby">
+        Hosted By:<br/>
+        <a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=23523&amp;type=1" width="88" height="31" alt="SourceForge"/></a>
+    </div>
+    <div class="logo"><img alt="CruiseControl" src="banner.png"/></div>
+</div>
+<div class="container">&nbsp;
+    <div id="menu">
+        <ul id="menulist">
+            <li class="top"><a href="index.html">home</a></li>
+            <li><a href="download.html">download</a></li>
+            <li><a class="expandedmenu" href="gettingstarted.html">getting started</a>
+                <ul>
+                    <li><p id="menuselected">binary distribution</p></li>
+                    <li><a href="gettingstartedsourcedist.html">source distribution</a></li>
+                </ul>
+            </li>
+            <li><h2>documentation</h2></li>
+            <li><a class="expandmenu" href="overview.html">overview</a></li>
+            <li><a href="main/configxml.html">config.xml</a></li>
+            <li><a href="faq.html">faq</a></li>
+            <li><a class="external" href="http://confluence.public.thoughtworks.org/display/CC/Home">wiki</a></li>
+            <li><h2>contributing</h2></li>
+            <li><a class="expandmenu" href="developers.html">developers</a></li>
+            <li><a href="contact.html">mailing lists</a></li>
+            <li><a href="svn.html">source repository</a></li>
+            <li><a href="license.html">license</a></li>
+            <li><p id="menubottom">Release: %%VERSION%%</p></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1><span class="printonly">CruiseControl</span> Getting Started with the Binary Distribution</h1>
+
+        <h2>Quick Start</h2>
+
+        <ol>
+
+	  <li>Install CruiseControl: unzip the release to a directory.  For example, <code>c:\cc-sandbox\cruisecontrol-bin-%%VERSION%%</code> (or <code>~/cc-sanbox/cruisecontrol-bin-%%VERSION%%</code> on Unix).</li>
+
+	  <li>Run CruiseControl: from the installation directory run the cruisecontrol script.  For example, <code>c:\cc-sanbox\cruisecontrol-bin-%%VERSION%%\cruisecontrol.bat</code> (or <code>~/cc-sanbox/cruisecontrol-bin-%%VERSION%%/cruisecontrol.sh</code> if on Unix; requires execute permissions for <code>cruisecontrol.sh</code> and <code>cruisecontrol-bin-%%VERSION%%/%%APACHE_ANT%%/bin/ant</code>).</li>
+
+	  <li>There is no step 3.</li>
+
+        </ol>
+
+	<p>With these steps you have a running instance of CruiseControl. Browse to <a class="external" href="http://localhost:8080/dashboard"><code>http://localhost:8080/dashboard</code></a> to see the sample project in the <a href="dashboard.html">dashboard</a>, <a class="external" href="http://localhost:8080/cruisecontrol"><code>http://localhost:8080/cruisecontrol</code></a> to see the <a href="reporting/jsp/index.html">jsp reporting application</a>, <a class="external" href="http://localhost:8080/documentation"><code>http://localhost:8080/documentation</code></a> for a local copy of this documentation, or to <a class="external" href="http://localhost:8000"><code>http://localhost:8000</code></a> to see the JMX interface. You can add your projects under this instance by editing <code>cruisecontrol-bin-%%VERSION%%/config.xml</code> after reading about the <a href="main/configxml.html">available plugins</a>.</p>
+
+        <h2>Overview</h2>
+
+        <p>This Binary Distribution is a trimmed down version of the Source Distribution.
+        It is fully functional and intended to work with a sample project &mdash; the game <a class="external" href="http://en.wikipedia.org/wiki/Connect_Four">Connect Four</a> &mdash; "out of the box".</p>
+
+
+        <ul>
+            <li><a href="#What_To_Expect">What to Expect</a></li>
+            <li><a href="#Command_Line_Options">Command Line Options</a></li>
+            <li>
+                <ul>
+                    <li><a href="#Command_Line_Options.Standard">Standard Options</a></li>
+                    <li><a href="#Command_Line_Options.Jetty">Web-related Options</a></li>
+                    <li><a href="#Command_Line_Options.JMX">JMX-related Options</a></li>
+                </ul>
+            </li>
+	    <li><a href="#moreinfo">Getting More Information</a></li>
+        </ul>
+
+        <h2><a name="What_To_Expect">What to Expect</a></h2>
+        <p>CruiseControl starts an instance of <a class="external" href="http://jetty.mortbay.org/jetty/">Jetty</a>
+        in a separate thread to host the reporting application. At some point in the logs you should see
+        a line similar to:</p>
+        <pre>
+[cc]Aug-04 07:40:21 SocketListener- Started SocketListener on 0.0.0.0:8080
+        </pre>
+
+        <p>Simultaneously, the main CruiseControl daemon starts. It comes pre-configured
+        to run a continuous integration process against the sample Connect Four project. At some
+        point in the logs you should see:</p>
+        <pre>
+[cc]Aug-04 07:43:27 Project       - Project connectfour starting
+[cc]Aug-04 07:43:27 Project       - Project connectfour:  idle
+[cc]Aug-04 07:43:27 Project       - Project connectfour started
+[cc]Aug-04 07:43:27 Project       - Project connectfour:  in build queue
+        </pre>
+        <p>The daemon will execute an initial build of <code>connectfour</code> shortly after starting.
+        Once the initial build is complete:</p>
+        <pre>
+BUILD SUCCESSFUL
+Total time: 46 seconds
+[cc]Aug-04 07:59:18 Project       - Project connectfour:  merging accumulated
+log files
+[cc]Aug-04 07:59:19 Project       - Project connectfour:  build successful
+[cc]Aug-04 07:59:19 Project       - Project connectfour:  publishing build
+results
+[cc]Aug-04 07:59:19 Project       - Project connectfour:  idle
+[cc]Aug-04 07:59:19 Project       - Project connectfour:  next build in 5
+minutes
+[cc]Aug-04 07:59:19 Project       - Project connectfour:  waiting for next
+time to build
+        </pre>
+
+        <p>Navigate a web browser to
+        <a class="external" href="http://localhost:8080/dashboard">
+        <code>http://localhost:8080/dashboard</code></a>
+        to view the results in the dashboard.</p>
+
+        <h2><a name="Command_Line_Options">Command Line Options</a></h2>
+
+        <h3><a name="Command_Line_Options.Standard">Standard Options</a></h3>
+        <table class="documentation">
+            <thead>
+                <tr>
+                    <th>Flag</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td>-configfile&nbsp;<em>filename</em></td>
+                    <td>No</td>
+                    <td>Relative path to CruiseControl config file.  Defaults to "config.xml".</td>
+                </tr>
+                <tr>
+                    <td>-dashboardurl&nbsp;<em>url</em></td>
+                    <td>No</td>
+                    <td>Home page address of your dashboard. The default value is http://localhost:8080/dashboard.</td>
+                </tr>
+                <tr>
+                    <td>-postinterval&nbsp;<em>[number]</em></td>
+                    <td>No</td>
+                    <td>The interval [in seconds] that build loop post builds information to the dashboard. The default value is 5 seconds.</td>
+                </tr>
+                <tr>
+                    <td>-postenabled&nbsp;<em>[true|false]</em></td>
+                    <td>No</td>
+                    <td>Specify whether build loop need to post builds information to the dashboard. The default value is true.</td>
+                </tr>
+                <tr>
+                    <td>-debug</td>
+                    <td>No</td>
+                    <td>Changes the logging level of the internal log4j Logger to DEBUG.
+                      Please note that this will NOT cause your ant scripts to run as if
+                      using 'ant -debug', you need to specify that in your config.xml file.</td>
+                </tr>
+                <tr>
+                    <td>-help or -?</td>
+                    <td>No</td>
+                    <td>Print the command line usage information.</td>
+                </tr>
+                <tr>
+                    <td>-log4jconfig&nbsp;<em>url</em></td>
+                    <td>No</td>
+                    <td>URL to a log4j config (example: "file:/c:/mylog4j.xml")</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3><a name="Command_Line_Options.Jetty">Web-related Options</a></h3>
+
+	<p>In addtion to these command-line options the behavior of Jetty can be customized by editing <a class="external" href="http://docs.codehaus.org/display/JETTY/Walkthrough+jetty.xml">jetty.xml</a> and the other files in the /cruisecontrol-bin-%%VERSION%%/etc directory. Information on configuring Jetty is available on the <a class="external" href="http://docs.codehaus.org/display/JETTY/Jetty+Documentation">Jetty Wiki</a>.</p>
+
+        <table class="documentation">
+            <thead><tr>
+                <th>Flag</th>
+                <th>Required</th>
+                <th>Description</th>
+            </tr></thead>
+            <tbody>
+                <tr>
+                    <td>-jettyxml&nbsp;<em>filename</em></td>
+                    <td>No</td>
+                    <td>Jetty configuration xml. Defaults to "jetty.xml".</td>
+                </tr>
+                <tr>
+                    <td>-webport&nbsp;<em>port</em></td>
+                    <td>No</td>
+                    <td>Port number for Jetty. Jetty will not start unless you specify this option or -webapppath. The cruisecontrol start scripts have this value set as 8080 by default.</td>
+                </tr>
+                <tr>
+                    <td>-webapppath&nbsp;<em>path</em></td>
+                    <td>No</td>
+                    <td>The path to the exploded cruisecontrol.war file.  Defaults to ./webapps/cruisecontrol.</td>
+                </tr>
+                <tr>
+                    <td>-ccname&nbsp;<em>name</em></td>
+                    <td>No</td>
+                    <td>A logical name to associate with this instance of CruiseControl. The name will
+                    be displayed in the Reporting Application's status page.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3><a name="Command_Line_Options.JMX">JMX-related Options</a></h3>
+        <table class="documentation">
+            <thead><tr>
+                <th>Flag</th>
+                <th>Required</th>
+                <th>Description</th>
+            </tr></thead>
+            <tbody>
+                <tr>
+                  <td>-agentutil&nbsp;<em>[true|false]</em></td>
+                    <td>No</td>
+                    <td>Load JMX Build Agent utility; default is true.</td>
+                </tr>
+		<tr>
+                  <td>-jmxport&nbsp;<em>[port&nbsp;number]</em></td>
+                    <td>No</td>
+                    <td>Port number for the JMX HTTP adapter.  This will activate
+                      the JMX admin functionality of CruiseControl.
+                      If no number is specified, this will default to 8000,
+                      which means you can access the JMX interface at
+                      <a class="external" href="http://localhost:8000">http://localhost:8000</a>
+                      or through the ControlPanel JSP tab or the
+		      <a href="reporting/jsp/index.html">JSP reporting application</a>.</td>
+                </tr>
+                <tr>
+                  <td>-rmiport&nbsp;<em>[port&nbsp;number]</em></td>
+                    <td>No</td>
+                    <td>Port number for the JMX RMI adapter and Connector Server.
+                      This will activate the JMX admin functionality of CruiseControl.
+                      If no number is specified, this will default to 1099,
+                      which is the default RMI port. If no RMI registry is
+                      running on the specified port, a registry will be started
+                      for you. You can read about the Connector Server and remoting
+                      via JSR 160
+                      <a class="external" href="http://mx4j.sourceforge.net/docs/ch03.html">here</a>.</td>
+                </tr>
+                <tr>
+                  <td>-xslpath&nbsp;<em>directory</em></td>
+                    <td>No</td>
+                    <td>The location of your custom XSLT files for use with the JMX HTTP adapter.
+                     Normally, you don't need to specify this and CruiseControl will use the
+                     style sheets that come with the distribution. This can be used to specify
+                     a directory containing your own customized versions of this stylesheets.
+                     </td>
+                </tr>
+                <tr>
+                    <td>-user <em>&nbsp;user&nbsp;id</em></td>
+                    <td>No</td>
+                    <td>Sets a user for the JMX HTTP Adapter. This will require users to login
+                    with this user (and password see below) to use the JMX Web interface.
+                    <em>The -password flag must also be set</em>.</td>
+                </tr>
+                <tr>
+                    <td>-password <em>password</em></td>
+                    <td>No</td>
+                    <td>Sets a password for the JMX HTTP Adapter. This will require users to
+                    login to use the JMX Web interface.<em>The -user flag must also be set</em>.</td>
+                </tr>
+            </tbody>
+        </table>
+
+	<h2><a name="moreinfo">Getting More Information</a></h2>
+
+        <p>The next step is to checkout your project code and configure CruiseControl to build it.
+        This is covered in detail in the getting started for the <a
+	href="gettingstartedsourcedist.html">Source Distribution</a>, especially the section on
+        <a href="gettingstartedsourcedist.html#Running_the_Build_Loop">Running the Build Loop</a>.</p>
+
+    </div>
+</div>
+</body>
+</html>

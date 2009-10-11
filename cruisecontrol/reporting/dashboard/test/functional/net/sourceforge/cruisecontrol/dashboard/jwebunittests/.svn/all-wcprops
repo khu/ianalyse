@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests
+END
+SingleQuoteTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/SingleQuoteTest.java
+END
+BuildDetailTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/BuildDetailTest.java
+END
+MBeanConsoleTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/MBeanConsoleTest.java
+END
+PanopticodeTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/PanopticodeTest.java
+END
+AdminTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/AdminTest.java
+END
+DownloadArtifactsFileTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/DownloadArtifactsFileTest.java
+END
+GetProjectBuildingStatusTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/GetProjectBuildingStatusTest.java
+END
+BuildListingTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/BuildListingTest.java
+END
+DownloadLogFileTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/DownloadLogFileTest.java
+END
+RSSFeedTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/RSSFeedTest.java
+END
+BaseFunctionalTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/BaseFunctionalTest.java
+END
+ZippedLogTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/jwebunittests/ZippedLogTest.java
+END

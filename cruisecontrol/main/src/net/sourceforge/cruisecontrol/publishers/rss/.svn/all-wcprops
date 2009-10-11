@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/publishers/rss
+END
+CruiseControlFeed.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/publishers/rss/CruiseControlFeed.java
+END
+Feed.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/publishers/rss/Feed.java
+END
+RSS.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/publishers/rss/RSS.java
+END
+CruiseControlItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/publishers/rss/CruiseControlItem.java
+END
+Item.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/4312/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/publishers/rss/Item.java
+END

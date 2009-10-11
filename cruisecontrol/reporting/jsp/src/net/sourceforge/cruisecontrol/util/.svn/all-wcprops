@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/util
+END
+CCTagException.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/util/CCTagException.java
+END
+TimeNumberFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/util/TimeNumberFormat.java
+END
+DateHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/src/net/sourceforge/cruisecontrol/util/DateHelper.java
+END

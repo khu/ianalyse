@@ -1,0 +1,268 @@
+<!-- build the release -->
+<project name="release" default="release">
+
+    <property file="build.properties"/>
+
+    <property  name="http.proxyHost" value=""/>
+    <property name="http.proxyPort" value="0"/>
+    <property name="http.proxyUser" value=""/>
+    <property name="http.proxyPassword" value=""/>
+
+    <!-- use a local variable to make sure that a script that would read the
+         properties file would still be capable of overidding this one -->
+    <property name="cc.release.label" value="${cc.version}"/>
+
+    <target name="release" depends="clean, build, website, validate-website, zip, bin-zip, add-cc-config, win-installer" description="Create release artifacts"/>
+
+    <target name="clean" description="Clean release and subprojects">
+        <delete dir="target" failonerror="false"/>
+        <ant inheritAll="false" dir="main" target="clean"/>
+        <ant inheritAll="false" dir="reporting/jsp" target="clean"/>
+        <ant inheritAll="false" dir="reporting/dashboard" target="clean"/>
+    </target>
+
+    <target name="checklabel">
+        <fail unless="cc.release.label" message="label is not defined."/>
+        
+        <echo>Java: ${java.version} (${java.vm.name})</echo>
+        <echo>   in ${java.home}</echo>
+        <echo>Ant: ${ant.version}</echo>
+        <echo>   in ${ant.home}</echo>
+        <echo>CruiseControl: ${cc.release.label}</echo>
+    </target>
+
+    <target name="build" depends="checklabel" description="Create core lib and webapp">
+        <ant inheritAll="false" dir="main">
+            <property name="cc.release.label" value="${cc.release.label}"/>
+        </ant>
+
+        <ant inheritAll="false" dir="reporting/jsp">
+            <property name="user.log.dir" value="logs"/>
+            <property name="user.build.status.file" value="status.txt"/>
+            <property name="cruise.build.artifacts.dir" value="artifacts"/>
+            <property name="cruise.build.jmxport" value="8000"/>
+        </ant>
+
+        <ant inheritAll="false" dir="reporting/dashboard" target="dist" >
+            <property name="cc.release.label" value="${cc.release.label}"/>
+        </ant>
+    </target>
+
+    <target name="website" depends="checklabel" description="Create documentation website">
+        <fixcrlf srcdir="."
+            eol="lf"
+            eof="remove"
+            includes="**/*.sh"
+            />
+
+        <fixcrlf srcdir="."
+            eol="crlf"
+            includes="**/*.bat"
+            />
+
+        <delete dir="target/website" failonerror="no"/>
+        <copy todir="target/website">
+            <fileset dir="documentation"/>
+        </copy>
+
+        <replace dir="target/website" token="%%VERSION%%" value="${cc.release.label}">
+            <include name="**/*.html"/>
+        </replace>
+
+        <replace dir="target/website" token="%%APACHE_ANT%%" value="${apache.ant}">
+            <include name="**/*.html"/>
+        </replace>
+    </target>
+
+    <target name="validate-website">
+	<xmlvalidate>
+		<dtd publicId="-//W3C//DTD XHTML 1.0 Strict//EN" location="xhtml1-strict.dtd"/>
+		<dtd publicId="-//W3C//DTD XHTML 1.0 Transitional//EN" location="xhtml1-transitional.dtd"/>
+            <fileset dir="target/website" includes="**/*.html"/>
+        </xmlvalidate>
+    </target>
+
+    <target name="zip" depends="checklabel" description="Create zip files">
+        <mkdir dir="target/zip"/>
+        <copy todir="target/zip/documentation" overwrite="true">
+            <fileset dir="documentation"/>
+        </copy>
+        <replace dir="target/zip" token="%%VERSION%%" value="${cc.release.label}">
+            <include name="**/*.html"/>
+        </replace>
+
+        <property name="cc.zip.prefix" value="cruisecontrol-${cc.release.label}"/>
+        <zip zipfile="target/cruisecontrol-src-${cc.release.label}.zip" duplicate="fail">
+            <zipfileset dir="target/zip" prefix="${cc.zip.prefix}"/>
+            <zipfileset dir="." prefix="${cc.zip.prefix}">
+                <exclude name="**/target/**"/>
+                <exclude name="documentation/**/*"/>
+                <exclude name="reporting/jsp/samplelogs/_cache/**"/>
+                <exclude name="reporting/jsp/testresults.xml"/>
+                <exclude name="release*"/>
+                <exclude name=".pc/**"/>
+                <exclude name="**/dist/**"/>
+            </zipfileset>
+        </zip>
+    </target>
+
+    <target name="bin-zip" description="Create binary zip">
+        <defaultexcludes remove="**/.svn"/>
+        <defaultexcludes remove="**/.svn/**"/>
+
+        <copy todir="target/binzip">
+            <fileset file="binaryrelease/README.txt"/>
+            <fileset file="binaryrelease/config.xml"/>
+        </copy>
+        <replace dir="target/binzip" token="%%VERSION%%" value="${cc.release.label}">
+            <include name="**/*"/>
+        </replace>
+        <replace dir="target/binzip" token="%%APACHE_ANT%%" value="${apache.ant}">
+            <include name="config.xml"/>
+        </replace>
+
+        <property name="cc.bin.zip.prefix" value="cruisecontrol-bin-${cc.release.label}"/>
+        <zip destfile="target/cruisecontrol-bin-${cc.release.label}.zip" duplicate="preserve">
+            <zipfileset dir="binaryrelease" prefix="${cc.bin.zip.prefix}">
+                <exclude name="README.txt"/>
+                <exclude name="JETTY-WORKDIR-README.txt"/>
+                <exclude name="cruisecontrol.sh"/>
+                <exclude name="config.xml"/>
+                <exclude name="*.zip"/>
+                <exclude name="**/.svn"/>
+                <exclude name="**/.svn/**"/>
+            </zipfileset>
+            <zipfileset file="binaryrelease/cruisecontrol.sh" filemode="755"
+                    prefix="${cc.bin.zip.prefix}"/>
+            <zipfileset dir="target/binzip" prefix="${cc.bin.zip.prefix}"/>
+            <!-- Force file and dir mode as ant has problem copying connectfour.zip's file permissions -->
+            <zipfileset src="binaryrelease/connectfour.zip" filemode="644" dirmode="755" prefix="${cc.bin.zip.prefix}/projects"/>
+            <zipfileset src="${apache.ant.zip}" prefix="${cc.bin.zip.prefix}"/>
+            <zipfileset dir="main/lib" includes="junit*.jar" prefix="${cc.bin.zip.prefix}/${apache.ant}/lib"/>
+            <zipfileset dir="main/lib" includes="*.jar" prefix="${cc.bin.zip.prefix}/lib" excludes="inmemorysfee*.jar, checkstyle*, **/.svn"/>
+            <zipfileset dir="main/lib/licenses" includes="*.txt" prefix="${cc.bin.zip.prefix}/lib/licenses"/>
+            <zipfileset file="main/lib/ant/ant.jar" prefix="${cc.bin.zip.prefix}/lib"/>
+            <zipfileset file="main/lib/ant/ant-launcher.jar" prefix="${cc.bin.zip.prefix}/lib"/>
+            <zipfileset dir="main/dist" prefix="${cc.bin.zip.prefix}/lib"/>
+            <zipfileset src="reporting/jsp/dist/cruisecontrol.war" prefix="${cc.bin.zip.prefix}/webapps/cruisecontrol"/>
+            <zipfileset file="binaryrelease/JETTY-WORKDIR-README.txt" prefix="${cc.bin.zip.prefix}/webapps/cruisecontrol/WEB-INF/work"/>
+            <zipfileset src="reporting/dashboard/dist/dashboard.war" prefix="${cc.bin.zip.prefix}/webapps/dashboard"/>
+            <zipfileset dir="target/website" prefix="${cc.bin.zip.prefix}/webapps/documentation"/>
+        </zip>
+    </target>
+
+    <target name="add-cc-config" depends="prep-cc-config" unless="test.skip">
+        <zip destfile="target/cruisecontrol-bin-${cc.release.label}.zip" update="true">
+            <zipfileset src="target/cc-config/dist/cc-config.war" prefix="${cc.bin.zip.prefix}/webapps/cc-config" />
+        </zip>
+    </target>
+
+    <target name="prep-cc-config" unless="test.skip">
+        <mkdir dir="target"/>
+        <setproxy proxyhost="${http.proxyHost}" proxyport="${http.proxyPort}" proxyUser="${http.proxyUser}" proxyPassword="${http.proxyPassword}"/>
+        <get src="http://internap.dl.sourceforge.net/sourceforge/cc-config/cc-config_1.8_build2.zip" dest="${java.io.tmpdir}/cc-config.zip" verbose="on" usetimestamp="true"/>
+        <unzip src="${java.io.tmpdir}/cc-config.zip" dest="target/cc-config" />
+        <ant antfile="build.xml" target="setup" dir="target/cc-config" inheritAll="false">
+            <property name="main.dir" value="../../main" />
+        </ant>
+        <ant antfile="build.xml" target="build.webstart.dist" dir="target/cc-config" inheritAll="false">
+            <property name="main.dir" value="../../main" />
+        </ant>
+    </target>
+
+    <target name="check-win-installer">
+        <condition property="should-create-win-installer">
+            <and>
+                <os family="windows"/>
+                <available file="c:/Program Files/NSIS/makensis.exe"/>
+            </and>
+        </condition>
+    </target>
+
+    <target name="win-installer" depends="check-win-installer" if="should-create-win-installer" description="Create win installer">
+        <property name="win-installer-stage" location="target/windows-install"/>
+        <mkdir dir="${win-installer-stage}"/>
+        <unzip src="target/cruisecontrol-bin-${cc.release.label}.zip" dest="${win-installer-stage}"/>
+        <move todir="${win-installer-stage}/cruisecontrol">
+            <fileset dir="${win-installer-stage}/${cc.bin.zip.prefix}"/>
+        </move>
+
+        <exec os="Windows XP" executable="c:/Program Files/NSIS/makensis.exe">
+            <arg value="contrib/windowsInstaller/cruise.nsi" />
+        </exec>
+
+        <move file="target/CruiseControl.exe" tofile="target/CruiseControl-${cc.release.label}.exe"/>
+
+    </target>
+
+    <target name="compile-webtest">
+        <mkdir dir="target/webtest-classes"/>
+        <javac srcdir="webtest" destdir="target/webtest-classes" debug="true">
+            <classpath>
+                <pathelement location="reporting/jsp/target/classes"/>
+                <fileset dir="reporting/jsp/lib" includes="*.jar"/>
+                <fileset dir="lib" includes="*.jar"/>
+                <fileset file="main/dist/cruisecontrol.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="webtest" depends="compile-webtest">
+        <parallel>
+            <daemons>
+                <antcall target="deploy-server"/>
+            </daemons>
+            <sequential>
+                <waitfor maxwait="3" maxwaitunit="minute" checkevery="500">
+                    <and>
+                        <http url="http://localhost:7854/cruisecontrol"/>
+                        <available file="target/webtest/cruisecontrol-bin-${cc.release.label}/projects/connectfour/target/connectfour.jar"/>
+                    </and>
+                </waitfor>
+
+                <mkdir dir="target/webtest-results"/>
+                <junit haltonfailure="no" printsummary="on"
+                    failureproperty="junit.failure" fork="yes" forkmode="once"
+                    dir="target\webtest\cruisecontrol-bin-${cc.release.label}">
+                    <classpath>
+                        <pathelement location="reporting/jsp/target/classes"/>
+                        <fileset dir="reporting/jsp/lib" includes="*.jar"/>
+                        <fileset dir="lib" includes="*.jar"/>
+                        <fileset file="main/dist/cruisecontrol.jar"/>
+                        <pathelement location="target/webtest-classes"/>
+                    </classpath>
+                    <formatter type="brief" usefile="false"/>
+                    <formatter type="xml"/>
+                    <batchtest todir="target/webtest-results">
+                        <fileset dir="target/webtest-classes" includes="**/*Test.class"/>
+                    </batchtest>
+                </junit>
+
+                <antcall target="kill-server"/>
+
+                <fail if="junit.failure" message="There were test failures."/>
+            </sequential>
+        </parallel>
+    </target>
+
+    <target name="deploy-server">
+        <mkdir dir="target/webtest"/>
+        <unzip src="target/cruisecontrol-bin-${cc.release.label}.zip" dest="target/webtest"/>
+
+        <chmod file="target/webtest/cruisecontrol-bin-${cc.release.label}/cruisecontrol.sh" perm="+x"/>
+        <chmod file="target/webtest/cruisecontrol-bin-${cc.release.label}/${apache.ant}/bin/ant" perm="+x"/>
+
+        <exec dir="target/webtest/cruisecontrol-bin-${cc.release.label}" executable="cmd.exe" os="Windows 95, Windows 98, Windows NT, Windows CE, Windows 2000, Windows XP">
+            <arg line="/c cruisecontrol.bat -webport 7854 -jmxport 7855 -rmiport 7856"/>
+        </exec>
+
+        <exec dir="target/webtest/cruisecontrol-bin-${cc.release.label}" executable="/bin/sh" os="Linux, Solaris, SunOS, Mac OS X">
+            <arg line="cruisecontrol.sh -webport 7854 -jmxport 7855 -rmiport 7856"/>
+        </exec>
+    </target>
+
+    <target name="kill-server">
+        <get src="http://localhost:7855/invoke?operation=halt&amp;objectname=CruiseControl+Manager%3Aid%3Dunique"
+            dest="target/webtest/.temp" ignoreerrors="true"/>
+    </target>
+</project>

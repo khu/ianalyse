@@ -1,0 +1,245 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cruisecontrol/!svn/ver/4353/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol
+END
+BuildLogger.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/BuildLogger.java
+END
+BuildLoopInformation.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/BuildLoopInformation.java
+END
+CruiseControlController.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/cruisecontrol/!svn/ver/4205/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/CruiseControlController.java
+END
+PluginType.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/cruisecontrol/!svn/ver/4303/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/PluginType.java
+END
+Attribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Attribute.java
+END
+ControllerAware.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/cruisecontrol/!svn/ver/3168/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/ControllerAware.java
+END
+Progress.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/cruisecontrol/!svn/ver/4029/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Progress.java
+END
+BuildQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/cruisecontrol/!svn/ver/4192/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/BuildQueue.java
+END
+Modification.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Modification.java
+END
+ProjectEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/1548/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/ProjectEvent.java
+END
+BuildOutputLoggerManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/4313/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/BuildOutputLoggerManager.java
+END
+ModificationSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/ModificationSet.java
+END
+Log.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/cruisecontrol/!svn/ver/4337/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Log.java
+END
+Bootstrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/2864/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Bootstrapper.java
+END
+PluginRegistry.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/cruisecontrol/!svn/ver/4287/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/PluginRegistry.java
+END
+Publisher.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/cruisecontrol/!svn/ver/2864/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Publisher.java
+END
+SourceControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/cruisecontrol/!svn/ver/4133/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/SourceControl.java
+END
+ProjectHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/ProjectHelper.java
+END
+Project.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/cruisecontrol/!svn/ver/4152/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Project.java
+END
+BuildLoopInformationBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/4058/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/BuildLoopInformationBuilder.java
+END
+ProjectState.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/4152/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/ProjectState.java
+END
+ProjectWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/cruisecontrol/!svn/ver/4192/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/ProjectWrapper.java
+END
+CruiseControlException.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/CruiseControlException.java
+END
+LabelIncrementer.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/cruisecontrol/!svn/ver/2864/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/LabelIncrementer.java
+END
+default-plugins.properties
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/cruisecontrol/!svn/ver/4353/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/default-plugins.properties
+END
+GenericPluginDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/4150/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/GenericPluginDetail.java
+END
+PluginXMLHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/PluginXMLHelper.java
+END
+CruiseControlConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/4303/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/CruiseControlConfig.java
+END
+PluginDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/PluginDetail.java
+END
+Main.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/cruisecontrol/!svn/ver/4289/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Main.java
+END
+PauseBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/2864/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/PauseBuilder.java
+END
+Listener.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/cruisecontrol/!svn/ver/2864/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Listener.java
+END
+ProgressImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/4036/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/ProgressImpl.java
+END
+Builder.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/cruisecontrol/!svn/ver/4221/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Builder.java
+END
+ProjectInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/cruisecontrol/!svn/ver/2864/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/ProjectInterface.java
+END
+ProjectXMLHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/cruisecontrol/!svn/ver/4261/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/ProjectXMLHelper.java
+END
+ServerXMLHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/ServerXMLHelper.java
+END
+Manipulator.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/cruisecontrol/!svn/ver/2362/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Manipulator.java
+END
+ProjectConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/ProjectConfig.java
+END
+Schedule.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/cruisecontrol/!svn/ver/4157/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/Schedule.java
+END

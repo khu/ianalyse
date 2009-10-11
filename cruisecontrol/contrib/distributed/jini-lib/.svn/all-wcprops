@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cruisecontrol/!svn/ver/2809/trunk/cruisecontrol/contrib/distributed/jini-lib
+END
+jsk-platform.jar
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/cruisecontrol/!svn/ver/2809/trunk/cruisecontrol/contrib/distributed/jini-lib/jsk-platform.jar
+END
+jsk-lib.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/cruisecontrol/!svn/ver/2809/trunk/cruisecontrol/contrib/distributed/jini-lib/jsk-lib.jar
+END
+start.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cruisecontrol/!svn/ver/2809/trunk/cruisecontrol/contrib/distributed/jini-lib/start.jar
+END
+tools.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cruisecontrol/!svn/ver/2809/trunk/cruisecontrol/contrib/distributed/jini-lib/tools.jar
+END
+reggie.jar
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cruisecontrol/!svn/ver/2809/trunk/cruisecontrol/contrib/distributed/jini-lib/reggie.jar
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/lib
+END
+core-3.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/lib/core-3.1.1.jar
+END
+jetty-ajp-6.1.11.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/lib/jetty-ajp-6.1.11.jar
+END
+jsp-2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/lib/jsp-2.1.jar
+END
+jetty-util-6.1.11.jar
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/lib/jetty-util-6.1.11.jar
+END
+servlet-api-2.5-6.1.11.jar
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/lib/servlet-api-2.5-6.1.11.jar
+END
+jetty-6.1.11.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/lib/jetty-6.1.11.jar
+END
+jsp-api-2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/lib/jsp-api-2.1.jar
+END

@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/cruisecontrol/!svn/ver/4338/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders
+END
+Maven2BuilderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/4137/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/Maven2BuilderTest.java
+END
+MockBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/cruisecontrol/!svn/ver/4138/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/MockBuilder.java
+END
+RakeScriptTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/4320/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/RakeScriptTest.java
+END
+NantBuilderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/cruisecontrol/!svn/ver/4154/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/NantBuilderTest.java
+END
+AntScriptTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/cruisecontrol/!svn/ver/4136/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/AntScriptTest.java
+END
+ExecScriptTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/4229/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/ExecScriptTest.java
+END
+CompositeBuilderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/cruisecontrol/!svn/ver/4136/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/CompositeBuilderTest.java
+END
+XcodeBuilderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/XcodeBuilderTest.java
+END
+MavenBuilderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/cruisecontrol/!svn/ver/4137/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/MavenBuilderTest.java
+END
+Maven2ScriptTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/Maven2ScriptTest.java
+END
+AntBuilderCreatingBuilderLoggerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svnroot/cruisecontrol/!svn/ver/4122/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/AntBuilderCreatingBuilderLoggerTest.java
+END
+nantbuilder-build1.txt
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/1917/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/nantbuilder-build1.txt
+END
+NantScriptTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/NantScriptTest.java
+END
+RakeBuilderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/cruisecontrol/!svn/ver/2872/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/RakeBuilderTest.java
+END
+AntBuilderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/4338/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/AntBuilderTest.java
+END
+MavenScriptTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/cruisecontrol/!svn/ver/4147/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/MavenScriptTest.java
+END
+ExecBuilderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/cruisecontrol/!svn/ver/4136/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/ExecBuilderTest.java
+END
+ScriptRunnerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/cruisecontrol/!svn/ver/4233/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/ScriptRunnerTest.java
+END

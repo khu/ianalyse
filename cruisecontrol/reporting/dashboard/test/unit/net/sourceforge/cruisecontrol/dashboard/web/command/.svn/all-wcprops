@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/4354/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/web/command
+END
+CCTrayBuildSummaryAdapterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/web/command/CCTrayBuildSummaryAdapterTest.java
+END
+ModificationCommandTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/web/command/ModificationCommandTest.java
+END
+RSSBuildSummaryAdapterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/web/command/RSSBuildSummaryAdapterTest.java
+END
+AddProjectCommandTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/web/command/AddProjectCommandTest.java
+END
+BuildCommandTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svnroot/cruisecontrol/!svn/ver/4354/trunk/cruisecontrol/reporting/dashboard/test/unit/net/sourceforge/cruisecontrol/dashboard/web/command/BuildCommandTest.java
+END

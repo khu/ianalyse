@@ -1,0 +1,259 @@
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+    "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<!--********************************************************************************
+ * CruiseControl, a Continuous Integration Toolkit
+ * Copyright (c) 2001, ThoughtWorks, Inc.
+ * 200 E. Randolph, 25th Floor
+ * Chicago, IL 60601 USA
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *     + Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *
+ *     + Redistributions in binary form must reproduce the above
+ *       copyright notice, this list of conditions and the following
+ *       disclaimer in the documentation and/or other materials provided
+ *       with the distribution.
+ *
+ *     + Neither the name of ThoughtWorks, Inc., CruiseControl, nor the
+ *       names of its contributors may be used to endorse or promote
+ *       products derived from this software without specific prior
+ *       written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ ********************************************************************************-->
+<web-app>
+    <display-name>CruiseControl Reporting App</display-name>
+    <description>The reporting application for CruiseControl. Provides a simple but rich
+        interface for viewing CruiseControl build reports.
+    </description>
+
+    <context-param>
+        <param-name>singleProject</param-name>
+        <param-value>false</param-value>
+        <description>Indicates if the CruiseControl instance is to report on only one project.
+            If it is, then you should set this to true.
+        </description>
+    </context-param>
+
+    <!--
+    <context-param>
+        <param-name>cacheRoot</param-name>
+        <param-value>/var/cache/tomcat4/cruisecontrol</param-value>
+        <description>Full path to a directory where caches of XSL transformations are written.
+            The web context must have permission to write to this directory. If not
+            specified, caches will be written in a subdir called _cache of the logDir.
+        </description>
+    </context-param>
+    -->
+
+    <context-param>
+      <!-- You can set this value via the user.log.dir property in Ant, when building the WAR file. -->
+      <param-name>logDir</param-name>
+      <param-value>@YOUR CRUISECONTROL LOG DIRECTORY@</param-value>
+      <description> This should be the full path to your CruiseControl log directory. If you
+          are in single project mode, this will contain only the logs for your project. If you
+          are in multi-project mode, it is expected that you will have multiple sub-directories
+          inside this log directory, one for each project.
+      </description>
+    </context-param>
+
+    <context-param>
+      <!-- You can set this value via the user.build.status.file property in Ant, when building the WAR file. -->
+      <param-name>currentBuildStatusFile</param-name>
+      <param-value>@CURRENT BUILD STATUS FILE@</param-value>
+      <description>This should be the path to your current build status file, which is relative
+          to the log directory (or, in single-project mode, relative to the project's log
+          directory)
+      </description>
+    </context-param>
+
+    <context-param>
+      <param-name>fileServlet.welcomeFiles</param-name>
+      <param-value>index.htm index.html</param-value>
+      <description>The list of space separated index files that should be automatically displayed
+          when browsing a directory displayed by the file servlet. The order matters.
+          Let empty or comment out to disable indexes.
+      </description>
+    </context-param>
+
+    <context-param>
+      <param-name>cruisecontrol.jmxport</param-name>
+      <param-value>@JMXPORT@</param-value>
+      <description>The port on which CruiseControl will connect to the JMX HttpAdaptor to "force" builds or view the
+          control panel. This value can be overriden using an environment variable with the same name.
+      </description>
+    </context-param>
+
+               <!--
+    <context-param>
+      <param-name>cruisecontrol.jmxhost</param-name>
+      <param-value>192.168.254.30</param-value>
+      <description>If your server doesn't know it's own proper IP address or it's name isn't resolvable by other machines on the network, set the IP address or resolvable name here. This will enable things like the "Force Builds" button to work.
+                       </description>
+    </context-param>
+               -->
+
+    <!--
+    <context-param>
+      <param-name>xslt.pmd.warning.threshold</param-name>
+      <param-value>3</param-value>
+      <description>PMD violations with a priority below this threshold are considered warnings and
+          are only reported by the total count on the build results page.
+      </description>
+    </context-param>
+    -->
+
+    <!--
+    <context-param>
+      <param-name>xslt.viewcvs.url</param-name>
+      <param-value>http://cvs.sourceforge.net/viewcvs.py/cruisecontrol</param-value>
+      <description>The URL of the ViewCVS website used by cvstagdiff.xsl, checkstyle-details.xsl
+          and pmd-details.xsl
+      </description>
+    </context-param>
+    -->
+
+    <context-param>
+      <param-name>xslt.cvstagdiff.success.show</param-name>
+      <param-value>true</param-value>
+      <description>Controls whether the ViewCVS differences report should be shown when the build
+          was successful. The default is to only show the modifications report for broken builds
+      </description>
+    </context-param>
+
+    <!--
+    <context-param>
+      <param-name>xslt.checkstyle.hide.warnings</param-name>
+      <param-value>true</param-value>
+      <description>Controls whether only CheckStyle errors or all CheckStyle errors and warnings
+          should be listed on the build results page. Set to 'true' for hiding the warnings. The
+          default is to list all errors and warnings
+      </description>
+    </context-param>
+    -->
+
+    <servlet>
+      <servlet-name>buildresults</servlet-name>
+      <display-name>Build Result Reporter</display-name>
+      <description>Presents build results in a human-readable and intuitive format.</description>
+      <jsp-file>/main.jsp</jsp-file>
+    </servlet>
+
+    <servlet>
+      <servlet-name>rss</servlet-name>
+      <display-name>Build Result RSS Feed</display-name>
+      <description>Presents build results in the RSS XML format.</description>
+      <jsp-file>/rss.jsp</jsp-file>
+    </servlet>
+
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <display-name>Index/Summary page</display-name>
+        <description>Presents a summary of all projects, allowing easy navigation to each.</description>
+        <jsp-file>/index.jsp</jsp-file>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ArtifactServlet</servlet-name>
+        <servlet-class>net.sourceforge.cruisecontrol.servlet.FileServlet</servlet-class>
+        <init-param>
+            <param-name>rootDir</param-name>
+            <param-value>@ARTIFACTS DIRECTORY@</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+    	<servlet-name>XmlServlet</servlet-name>
+    	<servlet-class>net.sourceforge.cruisecontrol.servlet.XmlServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>LogServlet</servlet-name>
+        <servlet-class>net.sourceforge.cruisecontrol.servlet.LogFileServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>webwork</servlet-name>
+        <servlet-class>com.opensymphony.webwork.dispatcher.ServletDispatcher</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>config</servlet-name>
+        <display-name>Project configuration UI</display-name>
+        <description>Wraps webwork configuration actions inside main page.</description>
+        <jsp-file>/main.jsp</jsp-file>
+    </servlet>
+
+    <!-- Used for charting... -->
+    <servlet>
+        <servlet-name>CewolfServlet</servlet-name>
+        <servlet-class>de.laures.cewolf.CewolfRenderer</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CewolfServlet</servlet-name>
+        <url-pattern>/cewolf/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LogServlet</servlet-name>
+        <url-pattern>/logs/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ArtifactServlet</servlet-name>
+        <url-pattern>/artifacts/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>buildresults</servlet-name>
+      <!-- Strictly speaking, this should be /buildresults for single-project mode. But it works anyway. -->
+      <url-pattern>/buildresults/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>webwork</servlet-name>
+        <url-pattern>*.jspa</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>config</servlet-name>
+        <url-pattern>/config/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>rss</servlet-name>
+      <url-pattern>/rss/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>XmlServlet</servlet-name>
+        <url-pattern>/xml/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+    	<welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

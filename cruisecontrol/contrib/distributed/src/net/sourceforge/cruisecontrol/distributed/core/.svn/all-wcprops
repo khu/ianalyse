@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/cruisecontrol/!svn/ver/4357/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core
+END
+CCDistVersion.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svnroot/cruisecontrol/!svn/ver/2917/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core/CCDistVersion.java
+END
+ProgressRemote.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svnroot/cruisecontrol/!svn/ver/4030/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core/ProgressRemote.java
+END
+ReggieUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svnroot/cruisecontrol/!svn/ver/4357/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core/ReggieUtil.java
+END
+ZipUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/cruisecontrol/!svn/ver/4155/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core/ZipUtil.java
+END
+PreferencesHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svnroot/cruisecontrol/!svn/ver/3008/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core/PreferencesHelper.java
+END
+ProgressRemoteImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svnroot/cruisecontrol/!svn/ver/4028/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core/ProgressRemoteImpl.java
+END
+ClassServerUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svnroot/cruisecontrol/!svn/ver/4164/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core/ClassServerUtil.java
+END
+RemoteResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svnroot/cruisecontrol/!svn/ver/3638/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core/RemoteResult.java
+END
+PropertiesHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svnroot/cruisecontrol/!svn/ver/3638/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core/PropertiesHelper.java
+END
+FileUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svnroot/cruisecontrol/!svn/ver/3160/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core/FileUtil.java
+END
+MulticastDiscovery.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svnroot/cruisecontrol/!svn/ver/4298/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/core/MulticastDiscovery.java
+END

@@ -1,0 +1,7 @@
+K 10
+svn:ignore
+V 39
+wrapper.dll
+wrapper.jar
+wrappertest.jar
+END

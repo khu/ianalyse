@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/cruisecontrol/!svn/ver/4203/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/util/threadpool
+END
+WorkerThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/2974/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/util/threadpool/WorkerThread.java
+END
+Log4jThreadGroup.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/cruisecontrol/!svn/ver/2994/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/util/threadpool/Log4jThreadGroup.java
+END
+ThreadQueueProperties.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/util/threadpool/ThreadQueueProperties.java
+END
+ThreadQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/4203/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/util/threadpool/ThreadQueue.java
+END

@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/4359/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard
+END
+Build.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/cruisecontrol/!svn/ver/4354/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/Build.java
+END
+BuildLiveDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/BuildLiveDetail.java
+END
+ViewableStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/ViewableStatus.java
+END
+ViewableStatusHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/ViewableStatusHelper.java
+END
+ModificationAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svnroot/cruisecontrol/!svn/ver/4354/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/ModificationAction.java
+END
+BuildMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/4359/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/BuildMessage.java
+END
+BuildTarget.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/BuildTarget.java
+END
+BuildTestSuite.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/BuildTestSuite.java
+END
+PreviousResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/PreviousResult.java
+END
+MessageLevel.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/MessageLevel.java
+END
+BuildSummary.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/4354/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/BuildSummary.java
+END
+ModificationKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svnroot/cruisecontrol/!svn/ver/4131/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/ModificationKey.java
+END
+LogFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/LogFile.java
+END
+BuildDetail.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svnroot/cruisecontrol/!svn/ver/4354/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/BuildDetail.java
+END
+BuildTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/BuildTask.java
+END
+CurrentStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/CurrentStatus.java
+END
+BuildSummaryStatistics.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/BuildSummaryStatistics.java
+END
+Projects.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/Projects.java
+END
+BuildTestCaseResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/BuildTestCaseResult.java
+END
+BuildTestCase.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/BuildTestCase.java
+END
+StoryTracker.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/3249/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/StoryTracker.java
+END

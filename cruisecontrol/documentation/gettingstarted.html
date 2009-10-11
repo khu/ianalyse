@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+   <title>CruiseControl Getting Started</title>
+   <style type="text/css" media="all">
+        @import "cruisecontrol.css";
+   </style>
+   <link href="print.css" type="text/css" rel="stylesheet" media="print"/>
+   <script type="text/javascript" src="tables.js"></script>
+</head>
+<body>
+<div class="header">
+    <div class="hostedby">
+        Hosted By:<br/>
+        <a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=23523&amp;type=1" width="88" height="31" alt="SourceForge"/></a>
+    </div>
+    <div class="logo"><img alt="CruiseControl" src="banner.png"/></div>
+</div>
+<div class="container">&nbsp;
+    <div id="menu">
+        <ul id="menulist">
+            <li class="top"><a href="index.html">home</a></li>
+            <li><a href="download.html">download</a></li>
+            <li><p id="menuselected" class="expandedmenu">getting started</p>
+                <ul>
+                    <li><a href="gettingstartedbindist.html">binary distribution</a></li>
+                    <li><a href="gettingstartedsourcedist.html">source distribution</a></li>
+                </ul>
+            </li>
+            <li><h2>documentation</h2></li>
+            <li><a class="expandmenu" href="overview.html">overview</a></li>
+            <li><a href="main/configxml.html">config.xml</a></li>
+            <li><a href="faq.html">faq</a></li>
+            <li><a class="external" href="http://confluence.public.thoughtworks.org/display/CC/Home">wiki</a></li>
+            <li><h2>contributing</h2></li>
+            <li><a class="expandmenu" href="developers.html">developers</a></li>
+            <li><a href="contact.html">mailing lists</a></li>
+            <li><a href="svn.html">source repository</a></li>
+            <li><a href="license.html">license</a></li>
+            <li><p id="menubottom">Release: %%VERSION%%</p></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1><span class="printonly">CruiseControl</span> Getting Started</h1>
+
+        <p>CruiseControl is available for download in three distributions:</p>
+
+        <ol>
+
+	  <li><a href="gettingstartedbindist.html"><strong>Binary
+	  Distribution</strong></a>: the binary distribution is a zip file
+	  containing CruiseControl ready to run including a sample
+	  project. This is the most popular distribution and the
+	  recommended starting point if this is your first exposure to
+	  CruiseControl.</li>
+
+	  <li><strong>Windows Installer</strong>: the Windows installer has the same
+	  content as the binary distribution but will additional
+	  install CruiseControl as a Windows service.</li>
+
+	  <li><a href="gettingstartedsourcedist.html"><strong>Source
+	  Distribution</strong></a>: in addition to providing source code the
+	  source distribution contains a number of contributed
+	  elements that aren't part of the precompiled
+	  distributions. These include the <a
+	  href="distributed/index.html">distributed builder</a>,
+	  plugins that <a
+	  href="main/configxml.html#buildingpluginsthatneedexternallibs">require
+	  external libraries</a> (Harvest, Sametime, Starteam, Yahoo),
+	  the debian packager, and more.</li>
+
+	</ol>
+
+	<p>There are getting started guides for the <a
+	href="gettingstartedbindist.html">binary</a> and <a
+	href="gettingstartedsourcedist.html">source</a>
+	distributions.</p>
+
+        <h2><a name="Where_to_go_Next">Where to go Next</a></h2>
+
+        <h3><a name="Documentation">Documentation</a></h3>
+
+        <p>For further details about the configuration file, look at the
+        <a href="main/configxml.html">Configuration Reference</a>. You can
+	learn more about the various pieces of CruiseControl by reading <a
+	href="">the overview</a>.</p>
+
+	<p>The CruiseControl <a class="external"
+	href="http://confluence.public.thoughtworks.org/display/CC/Home">wiki</a>
+	has a wealth of information, such as detailed <a
+	class="external"
+	href="http://confluence.public.thoughtworks.org/display/CC/CruiseControl+Scheduling+Scenarios">scheduling
+	scenarios</a>.</p>
+
+        <h3><a name="Mailing_Lists">Mailing Lists</a></h3>
+
+        <p>To ask questions or get help with any problems you are experiencing,
+        send an email to the <a href="contact.html">users mailing list</a>.</p>
+        <p>CruiseControl has been featured in several excellent books:</p>
+
+	<h3><a name="books">Books</a></h3>
+
+	<p><a class="external"
+        href="http://www.pragmaticprogrammer.com/sk/auto/">Pragmatic Project
+        Automation</a> by Mike Clark: An excellent book that covers several
+	automation subjects. Chapter 3: Scheduled Builds is <a class="external"
+        href="http://www.pragmaticprogrammer.com/starter_kit/au/scheduled.pdf">
+        available online as a PDF</a> and has a section called "Putting A Build
+	on CruiseControl" that walks through getting CC up and running.</p>
+
+	<p><a class="external" href="http://www.amazon.com/exec/obidos/ASIN/0321336380">Continuous
+	Integration: Improving Software Quality and Reducing Risk</a>
+	by Paul Duval, Steve Matyas, and Andrew Glover: this Jolt Award winning
+	book covers a wide range of continuous integration topics.</p>
+
+        <p><a href="http://www.amazon.com/exec/obidos/ASIN/0321356993">ClearCase,
+	Ant, and CruiseControl: The Java Developer's Guide to Accelerating
+	and Automating the Build Process</a> by Kevin Lee: by the author of
+	CruiseControl's <a href="main/configxml.html#ucm">UCM plugin</a>, this
+	is a book you can judge if it is for you by the title.</p>
+	
+      </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+#set($projectName = $buildCmd.build.projectName)
+<script type="text/javascript">
+Timer.LABEL_REMAINING = "Remaining:";
+Timer.LABEL_ELAPSED = "Elapsed:";
+Timer.LABEL_LONGER_BY = "Longer by:";
+var logRoot = "$esc.javascript(${logRoot})";
+</script>
+<div class="round_corner" id="build_detail_summary_container">
+    <div class="build_detail_summary">
+            <div class="control_panel" style="display:none">
+                <a id="${projectName}_forcebuild" class="force_build_link #if ($forceBuildEnabled) force_build_enabled #else force_build_disabled #end"></a>
+                <a id="${projectName}_config_panel" class="config_panel_link config_panel_enabled"></a>
+            </div>
+            <h3>${projectName} is now <span class='build_status'>${buildCmd.getViewableStatus()}</span></h3>
+            #parse("partial/partial_toolkit.vm")
+            <ul class="summary">
+                <li><span class="header">Building since:</span> $buildSince</li>
+                <li class="timer_area">
+                    <span class="header" id="${projectName}_time_elapsed_lable">Elapsed:</span>
+                    <span id="${projectName}_time_elapsed"><img src="$req.getContextPath()/images/yellow-wait.gif"/></span>
+                </li>
+                <li>
+                    <span class="header">Previous successful build:</span> $durationToSuccessfulBuild
+                </li>
+                <li class="timer_area">
+                    #if ($buildDuration != "0 second")
+                          <span class="header" id="${projectName}_time_remaining_lable">Remaining:</span>
+                          <span id="${projectName}_time_remaining"><img src="$req.getContextPath()/images/yellow-wait.gif"/></span>
+                    #end
+                </li>
+            </ul>
+            <div class="clear">&nbsp;</div>
+    </div>
+</div>
+<script type="text/javascript">
+json_to_css.update_build_detail_header(eval(${buildCmd.toJsonString()}));
+</script>
+<div class="build_detail_container">
+    
+    <div class="sub_tab_container_menu">
+        <ul>
+            <li class="current_tab tab_toggle"><a><span>Build Output</span></a></li>
+            <li class="tab_toggle"><a><span>Modifications</span></a></li>
+        </ul>
+    </div>
+    
+    <div class="sub_tab_container_content">
+    
+        #set($buildoutput_extra_attrs="")
+        #parse("build_detail/build_detail_partial_buildoutput.vm")
+
+        #set($modification_extra_attrs="style='display:none'")
+        #parse("build_detail/build_detail_partial_modification_building.vm")
+    
+    </div>
+    
+</div>
+    
+<script type="text/javascript">
+    #set($escaped_project_name = $esc.javascript(${projectName}))
+    var observer = new BuildDetailObserver('$escaped_project_name');
+    dashboard_periodical_executer.register(observer);
+    observer.update_live_output();
+    new LiveModificationExecuter('$escaped_project_name').live_modification();
+</script>
+
+#parse("partial/partial_flash_message.vm")
+

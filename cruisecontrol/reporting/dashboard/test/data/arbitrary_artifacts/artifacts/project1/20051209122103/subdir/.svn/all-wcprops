@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svnroot/cruisecontrol/!svn/ver/3147/trunk/cruisecontrol/reporting/dashboard/test/data/arbitrary_artifacts/artifacts/project1/20051209122103/subdir
+END
+jmock-cglib-1.1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svnroot/cruisecontrol/!svn/ver/3108/trunk/cruisecontrol/reporting/dashboard/test/data/arbitrary_artifacts/artifacts/project1/20051209122103/subdir/jmock-cglib-1.1.0.jar
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svnroot/cruisecontrol/!svn/ver/3147/trunk/cruisecontrol/reporting/dashboard/test/data/arbitrary_artifacts/artifacts/project1/20051209122103/subdir/index.html
+END
+add.png
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svnroot/cruisecontrol/!svn/ver/3108/trunk/cruisecontrol/reporting/dashboard/test/data/arbitrary_artifacts/artifacts/project1/20051209122103/subdir/add.png
+END
+artifact2.txt
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svnroot/cruisecontrol/!svn/ver/3108/trunk/cruisecontrol/reporting/dashboard/test/data/arbitrary_artifacts/artifacts/project1/20051209122103/subdir/artifact2.txt
+END
+content.html
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svnroot/cruisecontrol/!svn/ver/3147/trunk/cruisecontrol/reporting/dashboard/test/data/arbitrary_artifacts/artifacts/project1/20051209122103/subdir/content.html
+END

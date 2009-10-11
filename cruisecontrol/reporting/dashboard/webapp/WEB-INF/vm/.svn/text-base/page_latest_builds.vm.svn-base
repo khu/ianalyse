@@ -1,0 +1,35 @@
+#parse("tab/header.vm")
+<script type="text/javascript">
+	dashboard_periodical_executer.register(new MissingProjectObserver(), new BuildProfileObserver(), new TimerObserver(), new StatisticsObserver());
+</script>
+
+<div id="bd">
+    <div class="yui-ge build_summary_page" id="tabscontent">
+        #parse("partial/partial_warning.vm")
+       <!-- project summary -->
+        <div id="project_summary_panel" class="project_summary_panel yui-g">
+            #parse("latest_builds/build_summary_panel_partial.vm")
+        </div>
+        <!-- end project summary -->
+        <div id="tabContent2"  class="yui-g tabContent">
+            <div id="statusbar" class="build_status_bar_container">
+            #if ($buildCmds.size() > 0)
+                #foreach( $buildCmd in $buildCmds )
+                    <div id="${buildCmd.build.projectName}_profile_box">
+                        #set($build_date_text="${buildCmd.build.getConvertedTime()}")
+                        #parse("latest_builds/latest_builds_profile_${buildCmd.getViewableStatus()}.vm")
+                    </div>
+                #end
+            #else
+                <h2>No projects found</h2>
+            #end
+            </div>
+        </div>
+    </div>
+    <!-- end tabs content -->
+</div>
+
+
+#parse("partial/partial_flash_message.vm")
+<!-- end bd -->
+#parse("tab/footer.vm")

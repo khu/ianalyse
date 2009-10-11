@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cruisecontrol/!svn/ver/2519/trunk/cruisecontrol/contrib/NtServiceWrapper/bin
+END
+cruisecontrolWrapperNoWrapper.bat
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/cruisecontrol/!svn/ver/1519/trunk/cruisecontrol/contrib/NtServiceWrapper/bin/cruisecontrolWrapperNoWrapper.bat
+END
+cruisecontrol.bat
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/cruisecontrol/!svn/ver/1519/trunk/cruisecontrol/contrib/NtServiceWrapper/bin/cruisecontrol.bat
+END
+cruisecontrolWrapper.bat
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/cruisecontrol/!svn/ver/1519/trunk/cruisecontrol/contrib/NtServiceWrapper/bin/cruisecontrolWrapper.bat
+END
+InstallCruisecontrolWrapper-NT.bat
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/1519/trunk/cruisecontrol/contrib/NtServiceWrapper/bin/InstallCruisecontrolWrapper-NT.bat
+END
+UninstalCruisecontrolWrapper-NT.bat
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/cruisecontrol/!svn/ver/1519/trunk/cruisecontrol/contrib/NtServiceWrapper/bin/UninstalCruisecontrolWrapper-NT.bat
+END

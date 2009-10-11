@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts
+END
+prototype.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/prototype.js
+END
+missing_project_observer.js
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/missing_project_observer.js
+END
+dashboard_global.js
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/dashboard_global.js
+END
+Tooltip_ext.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/Tooltip_ext.js
+END
+effects.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/effects.js
+END
+build_profile.js
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/build_profile.js
+END
+timer.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/timer.js
+END
+build_detail.js
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/build_detail.js
+END
+slider.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/slider.js
+END
+json_to_css.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/json_to_css.js
+END
+toolkit.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/cruisecontrol/!svn/ver/3335/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/toolkit.js
+END
+dashboard_periodical_executer.js
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/dashboard_periodical_executer.js
+END
+builder.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/builder.js
+END
+build_profile_observer.js
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/build_profile_observer.js
+END
+timer_observer.js
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/timer_observer.js
+END
+live_modification_executer.js
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/live_modification_executer.js
+END
+build_detail_observer.js
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/build_detail_observer.js
+END
+nifty.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/nifty.js
+END
+build_bar_observer.js
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/build_bar_observer.js
+END
+Tooltip.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/Tooltip.js
+END
+word_break_inserter.js
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/word_break_inserter.js
+END
+transmessage.js
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/transmessage.js
+END
+build_base_observer.js
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/build_base_observer.js
+END
+scriptaculous.js
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/scriptaculous.js
+END
+statistics_observer.js
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/statistics_observer.js
+END
+tooltip_observer.js
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/tooltip_observer.js
+END
+dragdrop.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/dragdrop.js
+END
+controls.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/javascripts/controls.js
+END

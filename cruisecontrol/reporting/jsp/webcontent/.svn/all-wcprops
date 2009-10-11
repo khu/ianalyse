@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cruisecontrol/!svn/ver/4355/trunk/cruisecontrol/reporting/jsp/webcontent
+END
+main.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/cruisecontrol/!svn/ver/4207/trunk/cruisecontrol/reporting/jsp/webcontent/main.jsp
+END
+details.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/details.jsp
+END
+prototype.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/cruisecontrol/!svn/ver/2286/trunk/cruisecontrol/reporting/jsp/webcontent/prototype.js
+END
+testdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/testdetails.jsp
+END
+raw-xml.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cruisecontrol/!svn/ver/2393/trunk/cruisecontrol/reporting/jsp/webcontent/raw-xml.jsp
+END
+error.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/error.jsp
+END
+checkstyle.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/checkstyle.jsp
+END
+navigation.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cruisecontrol/!svn/ver/4350/trunk/cruisecontrol/reporting/jsp/webcontent/navigation.jsp
+END
+controlpanel.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/cruisecontrol/!svn/ver/4263/trunk/cruisecontrol/reporting/jsp/webcontent/controlpanel.jsp
+END
+old_index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/old_index.jsp
+END
+config.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/config.jsp
+END
+metrics.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cruisecontrol/!svn/ver/3960/trunk/cruisecontrol/reporting/jsp/webcontent/metrics.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/4207/trunk/cruisecontrol/reporting/jsp/webcontent/index.jsp
+END
+rss.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cruisecontrol/!svn/ver/2790/trunk/cruisecontrol/reporting/jsp/webcontent/rss.jsp
+END
+cc-config.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/cruisecontrol/!svn/ver/2384/trunk/cruisecontrol/reporting/jsp/webcontent/cc-config.js
+END
+pmd.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/pmd.jsp
+END
+plugins.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/plugins.jsp
+END
+buildresults.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/buildresults.jsp
+END

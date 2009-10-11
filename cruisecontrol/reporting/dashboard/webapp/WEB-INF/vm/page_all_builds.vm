@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    #parse("partial/partial_head.vm")
+<link href="$req.getContextPath()/css/build_common.css" rel="stylesheet" title="Dashboard style sheet" type="text/css"/>
+<link href="$req.getContextPath()/css/builds_tab.css" rel="stylesheet" title="Dashboard style sheet" type="text/css"/>
+<link href="$req.getContextPath()/css/build_list.css" rel="stylesheet" title="Dashboard style sheet" type="text/css"/>
+
+</head>
+<body>
+	<div id="doc3" class="yui-t7 all_builds">
+        #parse('menu/menu_builds.vm')
+        <div id="bd">
+            <div class="yui-ge">
+                <div class="yui-u first">
+                    #parse("partial/partial_warning.vm")
+                    <div class="buildlist_header round_top"><h1>$projectName</h1> &mdash; All builds</div>
+                    <div id="container">
+                    #foreach( $buildCmd in $buildCmds)
+                        <div class="$buildCmd.getViewableStatus() build_profile">
+                            <a class="block" href="$req.getContextPath()/tab/build/detail/$projectName/$buildCmd.build.buildLogFileDateTime">$buildCmd.build.getConvertedTime() $!buildCmd.build.label</a>
+                            <a class="block" href="$req.getContextPath()/tab/build/download/log/$projectName/$buildCmd.build.buildLogFilename">Download log</a>
+                        </div>
+                     #end
+                    </div>
+               </div>
+             </div>
+          </div>
+       </div>
+</body>
+</html>

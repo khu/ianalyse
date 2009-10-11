@@ -1,0 +1,215 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cruisecontrol/!svn/ver/4342/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol
+END
+CruiseControlControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/4150/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/CruiseControlControllerTest.java
+END
+PluginTypeTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/cruisecontrol/!svn/ver/4017/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/PluginTypeTest.java
+END
+MockProjectInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/cruisecontrol/!svn/ver/2804/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/MockProjectInterface.java
+END
+AttributeTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/AttributeTest.java
+END
+BuildQueueTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/BuildQueueTest.java
+END
+ModificationTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/cruisecontrol/!svn/ver/4017/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/ModificationTest.java
+END
+MockSchedule.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/cruisecontrol/!svn/ver/4153/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/MockSchedule.java
+END
+ForcingBuildShouldNotLockProjectInQueuedStateTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svnroot/cruisecontrol/!svn/ver/4342/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/ForcingBuildShouldNotLockProjectInQueuedStateTest.java
+END
+testconfig-preconf.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/cruisecontrol/!svn/ver/2758/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/testconfig-preconf.xml
+END
+ModificationSetTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/cruisecontrol/!svn/ver/4290/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/ModificationSetTest.java
+END
+LogTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/cruisecontrol/!svn/ver/4337/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/LogTest.java
+END
+PluginRegistryTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/PluginRegistryTest.java
+END
+MockModificationSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/cruisecontrol/!svn/ver/4132/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/MockModificationSet.java
+END
+CruiseControlConfigPreConfTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svnroot/cruisecontrol/!svn/ver/3781/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/CruiseControlConfigPreConfTest.java
+END
+BuildOutputBufferManagerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svnroot/cruisecontrol/!svn/ver/4313/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/BuildOutputBufferManagerTest.java
+END
+ProjectTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/4336/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/ProjectTest.java
+END
+BuildLoopInformationBuilderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/BuildLoopInformationBuilderTest.java
+END
+ProjectWrapperTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/2676/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/ProjectWrapperTest.java
+END
+ProjectStateTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/cruisecontrol/!svn/ver/3596/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/ProjectStateTest.java
+END
+CruiseControlConfigCustomPropertiesPluginTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svnroot/cruisecontrol/!svn/ver/4261/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/CruiseControlConfigCustomPropertiesPluginTest.java
+END
+TestBuild.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/TestBuild.xml
+END
+GenericPluginDetailTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/3944/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/GenericPluginDetailTest.java
+END
+PluginXMLHelperTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/cruisecontrol/!svn/ver/4271/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/PluginXMLHelperTest.java
+END
+MockProject.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/MockProject.java
+END
+CruiseControlConfigTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/cruisecontrol/!svn/ver/4287/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/CruiseControlConfigTest.java
+END
+testconfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/cruisecontrol/!svn/ver/4287/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/testconfig.xml
+END
+MainTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/cruisecontrol/!svn/ver/4103/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/MainTest.java
+END
+PauseBuilderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/PauseBuilderTest.java
+END
+CruiseControlConfigIncludeTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svnroot/cruisecontrol/!svn/ver/3514/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/CruiseControlConfigIncludeTest.java
+END
+BuilderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/4040/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/BuilderTest.java
+END
+ProgressImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/cruisecontrol/!svn/ver/4036/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/ProgressImplTest.java
+END
+ProjectXMLHelperTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/cruisecontrol/!svn/ver/4150/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/ProjectXMLHelperTest.java
+END
+test.properties
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/cruisecontrol/!svn/ver/2223/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/test.properties
+END
+ScheduleTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/cruisecontrol/!svn/ver/4157/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/ScheduleTest.java
+END
+ProjectConfigTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/test/net/sourceforge/cruisecontrol/ProjectConfigTest.java
+END

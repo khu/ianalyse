@@ -1,0 +1,5 @@
+#set($project_name_href='javascript:void(0)')
+#set($build_date_text='waiting for first build...')
+#set($previous_result_text="")
+
+#parse ("latest_builds/latest_builds_profile_partial.vm")

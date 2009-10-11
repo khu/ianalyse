@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cruisecontrol/!svn/ver/3973/trunk/cruisecontrol/contrib/packager
+END
+package.properties
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/cruisecontrol/!svn/ver/2633/trunk/cruisecontrol/contrib/packager/package.properties
+END
+override.properties
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cruisecontrol/!svn/ver/3249/trunk/cruisecontrol/contrib/packager/override.properties
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cruisecontrol/!svn/ver/3102/trunk/cruisecontrol/contrib/packager/README.txt
+END
+.subversion
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cruisecontrol/!svn/ver/3147/trunk/cruisecontrol/contrib/packager/.subversion
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cruisecontrol/!svn/ver/3973/trunk/cruisecontrol/contrib/packager/build.xml
+END

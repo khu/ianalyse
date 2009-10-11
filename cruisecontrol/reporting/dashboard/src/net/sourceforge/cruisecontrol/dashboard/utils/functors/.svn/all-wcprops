@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors
+END
+SuccessLogFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svnroot/cruisecontrol/!svn/ver/3108/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors/SuccessLogFilter.java
+END
+ReportAdapterFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors/ReportAdapterFilter.java
+END
+ReportableFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors/ReportableFilter.java
+END
+NearestLogFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svnroot/cruisecontrol/!svn/ver/3108/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors/NearestLogFilter.java
+END
+CompositeFilters.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors/CompositeFilters.java
+END
+AlphabeticalDescOrderComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svnroot/cruisecontrol/!svn/ver/3074/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors/AlphabeticalDescOrderComparator.java
+END
+CCLogFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svnroot/cruisecontrol/!svn/ver/3335/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors/CCLogFilter.java
+END
+OlderLogFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svnroot/cruisecontrol/!svn/ver/3108/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors/OlderLogFilter.java
+END
+SpecificLogFileFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors/SpecificLogFileFilter.java
+END
+BuildSummariesFilters.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svnroot/cruisecontrol/!svn/ver/3335/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors/BuildSummariesFilters.java
+END
+CCProjectFolderFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svnroot/cruisecontrol/!svn/ver/3108/trunk/cruisecontrol/reporting/dashboard/src/net/sourceforge/cruisecontrol/dashboard/utils/functors/CCProjectFolderFilter.java
+END

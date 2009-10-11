@@ -1,0 +1,31 @@
+#parse("build_detail/build_detail_partial_header.vm")
+
+<div class="build_detail_container">
+    
+    <div class="sub_tab_container_menu">
+        <ul>
+            <li class="current_tab tab_toggle"><a><span>Artifacts</span></a></li>
+            <li class="tab_toggle"><a><span>Modifications</span></a></li>
+            <li class="tab_toggle"><a><span>Build Log</span></a></li>
+            <li class="tab_toggle"><a><span>Tests</span></a></li>
+            #parse('build_detail/build_detail_partial_widgets_tab.vm')
+        </ul>
+    </div>
+    
+    <div class="sub_tab_container_content">    
+        
+        #set($artifacts_extra_attrs="")
+        #parse("build_detail/build_detail_partial_artifacts.vm")
+        
+        #set($modification_extra_attrs="style='display:none'")
+        #parse("build_detail/build_detail_partial_modification.vm")
+    
+        #set($log_extra_attrs="style='display:none'")
+        #parse("build_detail/build_detail_partial_log.vm")
+
+        #set($tests_extra_attrs="style='display:none'")
+        #parse("build_detail/build_detail_partial_tests.vm")
+
+		#parse('build_detail/build_detail_partial_widgets_content.vm')
+    </div>
+</div>

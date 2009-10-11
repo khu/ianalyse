@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/cruisecontrol/!svn/ver/4168/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/jmx
+END
+JMXBuildAgentUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/cruisecontrol/!svn/ver/4168/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/jmx/JMXBuildAgentUtility.java
+END
+JMXBuildAgentUtilityMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svnroot/cruisecontrol/!svn/ver/4165/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/jmx/JMXBuildAgentUtilityMBean.java
+END
+JMXBuildAgentUtilityMBeanDescription.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svnroot/cruisecontrol/!svn/ver/4165/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/jmx/JMXBuildAgentUtilityMBeanDescription.java
+END

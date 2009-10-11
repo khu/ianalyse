@@ -1,0 +1,11 @@
+Package: cruisecontrol
+Version: @VERSION@-@RELEASE@
+Section: devel
+Priority: optional
+Architecture: all
+Essential: no
+Maintainer: Buildix <buildix@thoughtworks.com>
+Depends: sun-java5-jdk, subversion 
+Provides: cruisecontrol
+Description: @SUMMARY@
+ @DESCRIPTION@

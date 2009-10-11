@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cruisecontrol/!svn/ver/2458/trunk/cruisecontrol/contrib/JavaServiceWrapper/lib
+END
+libwrapper.so
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/cruisecontrol/!svn/ver/2458/trunk/cruisecontrol/contrib/JavaServiceWrapper/lib/libwrapper.so
+END
+wrapper.dll
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/cruisecontrol/!svn/ver/2458/trunk/cruisecontrol/contrib/JavaServiceWrapper/lib/wrapper.dll
+END
+wrapper.jar
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/cruisecontrol/!svn/ver/2458/trunk/cruisecontrol/contrib/JavaServiceWrapper/lib/wrapper.jar
+END
+wrappertest.jar
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/cruisecontrol/!svn/ver/2458/trunk/cruisecontrol/contrib/JavaServiceWrapper/lib/wrappertest.jar
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/WEB-INF/tabs
+END
+builds-tab.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/WEB-INF/tabs/builds-tab.xml
+END
+dashboard-builds-shared.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/WEB-INF/tabs/dashboard-builds-shared.xml
+END
+dashboard-tab.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/webapp/WEB-INF/tabs/dashboard-tab.xml
+END

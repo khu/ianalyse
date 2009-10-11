@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svnroot/cruisecontrol/!svn/ver/4046/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests
+END
+DiscontinuedProjectTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/DiscontinuedProjectTest.java
+END
+SuccessfulBuildMoreThan24HourTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/SuccessfulBuildMoreThan24HourTest.java
+END
+BuildDetailTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svnroot/cruisecontrol/!svn/ver/4046/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/BuildDetailTest.java
+END
+FailedBuildMoreThan24HourTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/FailedBuildMoreThan24HourTest.java
+END
+DownloadTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/DownloadTest.java
+END
+ActiveBuildPageTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svnroot/cruisecontrol/!svn/ver/4046/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/ActiveBuildPageTest.java
+END
+NoDeadLinkTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svnroot/cruisecontrol/!svn/ver/4046/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/NoDeadLinkTest.java
+END
+TimeConvertedTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/TimeConvertedTest.java
+END
+InactiveProjectTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svnroot/cruisecontrol/!svn/ver/4046/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/InactiveProjectTest.java
+END
+LongTextLeakOutTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/LongTextLeakOutTest.java
+END
+TooltipTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/TooltipTest.java
+END
+LatestBuildTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/LatestBuildTest.java
+END
+AllSeleniumTests.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/AllSeleniumTests.java
+END
+SeleniumTestCase.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/reporting/dashboard/test/functional/net/sourceforge/cruisecontrol/dashboard/seleniumtests/SeleniumTestCase.java
+END

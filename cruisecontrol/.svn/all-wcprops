@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/cruisecontrol/!svn/ver/4361/trunk/cruisecontrol
+END
+xhtml-lat1.ent
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cruisecontrol/!svn/ver/4351/trunk/cruisecontrol/xhtml-lat1.ent
+END
+post-tests.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/post-tests.xml
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/cruisecontrol/!svn/ver/4078/trunk/cruisecontrol/.project
+END
+xhtml-symbol.ent
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cruisecontrol/!svn/ver/4351/trunk/cruisecontrol/xhtml-symbol.ent
+END
+release.bat
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/release.bat
+END
+release.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/cruisecontrol/!svn/ver/3142/trunk/cruisecontrol/release.sh
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cruisecontrol/!svn/ver/4274/trunk/cruisecontrol/build.properties
+END
+xhtml1-transitional.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cruisecontrol/!svn/ver/4351/trunk/cruisecontrol/xhtml1-transitional.dtd
+END
+xhtml1-strict.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/cruisecontrol/!svn/ver/4351/trunk/cruisecontrol/xhtml1-strict.dtd
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/cruisecontrol/!svn/ver/4351/trunk/cruisecontrol/build.xml
+END
+xhtml-special.ent
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/cruisecontrol/!svn/ver/4351/trunk/cruisecontrol/xhtml-special.ent
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/cruisecontrol/!svn/ver/4313/trunk/cruisecontrol/.classpath
+END
+license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/cruisecontrol/!svn/ver/3165/trunk/cruisecontrol/license.txt
+END
+project.properties
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/project.properties
+END
+project.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/cruisecontrol/!svn/ver/4274/trunk/cruisecontrol/project.xml
+END
+maven.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/maven.xml
+END
+RELEASENOTES.txt
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cruisecontrol/!svn/ver/4361/trunk/cruisecontrol/RELEASENOTES.txt
+END

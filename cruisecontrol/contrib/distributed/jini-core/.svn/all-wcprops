@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cruisecontrol/!svn/ver/2809/trunk/cruisecontrol/contrib/distributed/jini-core
+END
+jini-ext.jar
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/cruisecontrol/!svn/ver/2809/trunk/cruisecontrol/contrib/distributed/jini-core/jini-ext.jar
+END
+jini-core.jar
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/cruisecontrol/!svn/ver/2809/trunk/cruisecontrol/contrib/distributed/jini-core/jini-core.jar
+END

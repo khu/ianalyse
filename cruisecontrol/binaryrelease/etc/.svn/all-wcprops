@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc
+END
+jetty-plus.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty-plus.xml
+END
+webdefault.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/webdefault.xml
+END
+jetty-logging.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty-logging.xml
+END
+jetty-sslengine.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty-sslengine.xml
+END
+jetty-setuid.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty-setuid.xml
+END
+jetty-stats.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty-stats.xml
+END
+jetty-jmx.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty-jmx.xml
+END
+realm.properties
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/realm.properties
+END
+login.conf
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/login.conf
+END
+jetty-win32-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty-win32-service.xml
+END
+jetty-ssl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty-ssl.xml
+END
+jetty.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty.xml
+END
+login.properties
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/login.properties
+END
+keystore
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/keystore
+END
+jetty-bio.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty-bio.xml
+END
+jetty-ajp.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty-ajp.xml
+END
+jetty-jaas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jetty-jaas.xml
+END
+jdbcRealm.properties
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cruisecontrol/!svn/ver/4097/trunk/cruisecontrol/binaryrelease/etc/jdbcRealm.properties
+END

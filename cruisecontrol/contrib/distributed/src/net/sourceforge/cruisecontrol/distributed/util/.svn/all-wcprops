@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/cruisecontrol/!svn/ver/4314/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/util
+END
+InteractiveBuildUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svnroot/cruisecontrol/!svn/ver/4298/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/util/InteractiveBuildUtility.java
+END
+BuildAgentUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svnroot/cruisecontrol/!svn/ver/4314/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/util/BuildAgentUtility.java
+END
+JiniLookUpUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svnroot/cruisecontrol/!svn/ver/4155/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/util/JiniLookUpUtility.java
+END
+LookupServiceUI.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svnroot/cruisecontrol/!svn/ver/4165/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/util/LookupServiceUI.java
+END

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cruisecontrol/!svn/ver/4183/trunk/cruisecontrol/contrib/distributed/conf
+END
+README.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cruisecontrol/!svn/ver/4183/trunk/cruisecontrol/contrib/distributed/conf/README.html
+END
+cruise.properties
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/cruisecontrol/!svn/ver/2813/trunk/cruisecontrol/contrib/distributed/conf/cruise.properties
+END
+lookup-build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/cruisecontrol/!svn/ver/2963/trunk/cruisecontrol/contrib/distributed/conf/lookup-build.xml
+END
+user-defined.properties
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/cruisecontrol/!svn/ver/3888/trunk/cruisecontrol/contrib/distributed/conf/user-defined.properties
+END
+start-jini.config
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/cruisecontrol/!svn/ver/4161/trunk/cruisecontrol/contrib/distributed/conf/start-jini.config
+END
+agent.properties
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/cruisecontrol/!svn/ver/3010/trunk/cruisecontrol/contrib/distributed/conf/agent.properties
+END
+util-build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cruisecontrol/!svn/ver/4161/trunk/cruisecontrol/contrib/distributed/conf/util-build.xml
+END
+agent-build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/cruisecontrol/!svn/ver/2982/trunk/cruisecontrol/contrib/distributed/conf/agent-build.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/cruisecontrol/!svn/ver/2695/trunk/cruisecontrol/contrib/distributed/conf/log4j.properties
+END
+insecure.policy
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/cruisecontrol/!svn/ver/1770/trunk/cruisecontrol/contrib/distributed/conf/insecure.policy
+END
+transient-reggie.config
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/cruisecontrol/!svn/ver/2963/trunk/cruisecontrol/contrib/distributed/conf/transient-reggie.config
+END
+jini.logging
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/cruisecontrol/!svn/ver/2963/trunk/cruisecontrol/contrib/distributed/conf/jini.logging
+END

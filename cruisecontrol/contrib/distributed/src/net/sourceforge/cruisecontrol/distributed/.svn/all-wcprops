@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/cruisecontrol/!svn/ver/4357/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed
+END
+BuildAgentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svnroot/cruisecontrol/!svn/ver/4155/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/BuildAgentService.java
+END
+BuildAgentServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svnroot/cruisecontrol/!svn/ver/4314/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/BuildAgentServiceImpl.java
+END
+PropertyEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svnroot/cruisecontrol/!svn/ver/2917/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/PropertyEntry.java
+END
+SearchablePropertyEntries.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svnroot/cruisecontrol/!svn/ver/4155/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/SearchablePropertyEntries.java
+END
+BuildAgentUI.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/cruisecontrol/!svn/ver/4314/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/BuildAgentUI.java
+END
+BuildAgent.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/4326/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/BuildAgent.java
+END
+BuildAgentEntryOverrideUI.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svnroot/cruisecontrol/!svn/ver/4155/trunk/cruisecontrol/contrib/distributed/src/net/sourceforge/cruisecontrol/distributed/BuildAgentEntryOverrideUI.java
+END

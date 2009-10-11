@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/events
+END
+BuildResultEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/events/BuildResultEvent.java
+END
+BuildResultListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/events/BuildResultListener.java
+END
+BuildProgressEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/events/BuildProgressEvent.java
+END
+BuildProgressListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/events/BuildProgressListener.java
+END

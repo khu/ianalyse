@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cruisecontrol/!svn/ver/4288/trunk/cruisecontrol/documentation/main/helloWorld
+END
+p4-build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/cruisecontrol/!svn/ver/4180/trunk/cruisecontrol/documentation/main/helloWorld/p4-build.xml
+END
+starteam-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/cruisecontrol/!svn/ver/4288/trunk/cruisecontrol/documentation/main/helloWorld/starteam-config.xml
+END
+clearcase-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/cruisecontrol/!svn/ver/4288/trunk/cruisecontrol/documentation/main/helloWorld/clearcase-config.xml
+END
+p4-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/cruisecontrol/!svn/ver/4288/trunk/cruisecontrol/documentation/main/helloWorld/p4-config.xml
+END
+cvs-build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/cruisecontrol/!svn/ver/4180/trunk/cruisecontrol/documentation/main/helloWorld/cvs-build.xml
+END
+vss-build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/cruisecontrol/!svn/ver/4180/trunk/cruisecontrol/documentation/main/helloWorld/vss-build.xml
+END
+starteam-build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/cruisecontrol/!svn/ver/4180/trunk/cruisecontrol/documentation/main/helloWorld/starteam-build.xml
+END
+cvs-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/cruisecontrol/!svn/ver/4288/trunk/cruisecontrol/documentation/main/helloWorld/cvs-config.xml
+END
+vss-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/cruisecontrol/!svn/ver/4288/trunk/cruisecontrol/documentation/main/helloWorld/vss-config.xml
+END
+HelloWorld.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/cruisecontrol/!svn/ver/4288/trunk/cruisecontrol/documentation/main/helloWorld/HelloWorld.html
+END
+clearcase-build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/cruisecontrol/!svn/ver/4180/trunk/cruisecontrol/documentation/main/helloWorld/clearcase-build.xml
+END

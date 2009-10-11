@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/cruisecontrol/!svn/ver/4269/trunk/cruisecontrol/binaryrelease
+END
+cruisecontrol.bat
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cruisecontrol/!svn/ver/4217/trunk/cruisecontrol/binaryrelease/cruisecontrol.bat
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cruisecontrol/!svn/ver/3909/trunk/cruisecontrol/binaryrelease/config.xml
+END
+cruisecontrol.sh
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cruisecontrol/!svn/ver/4269/trunk/cruisecontrol/binaryrelease/cruisecontrol.sh
+END
+connectfour.zip
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cruisecontrol/!svn/ver/3249/trunk/cruisecontrol/binaryrelease/connectfour.zip
+END
+JETTY-WORKDIR-README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cruisecontrol/!svn/ver/2333/trunk/cruisecontrol/binaryrelease/JETTY-WORKDIR-README.txt
+END
+apache-ant-1.7.0-bin.zip
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cruisecontrol/!svn/ver/3254/trunk/cruisecontrol/binaryrelease/apache-ant-1.7.0-bin.zip
+END
+dashboard-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/binaryrelease/dashboard-config.xml
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/binaryrelease/README.txt
+END

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    #parse("partial/partial_head.vm")
+    <title>CruiseControl Configuration File Administration</title>
+    <link href="$req.getContextPath()/css/admin_tab.css" rel="stylesheet" type="text/css"/>
+    <link href="$req.getContextPath()/css/sub_tab.css" rel="stylesheet" title="Dashboard style sheet" type="text/css"/>
+</head>
+<body>
+    #parse("menu/menu_admin.vm")
+    
+    <div class="maincol">
+        #parse("partial/partial_warning.vm")
+
+        #set($about_css_class="current_tab")
+	    #set($configuration_css_class="")
+        #set($about_extra_attrs="")
+	    #set($configuration_extra_attrs="style='display:none'")
+	    
+        #if ($active == "configuration")
+        	#set($about_css_class="")
+	    	#set($configuration_css_class="current_tab")
+        	#set($about_extra_attrs="style='display:none'")
+        	#set($configuration_extra_attrs="")
+        #end
+        	
+        <div class="sub_tab_container_menu">
+            <ul>
+                <li class="tab_toggle $about_css_class"><a><span>About</span></a></li>
+                <li class="tab_toggle $configuration_css_class"><a><span>Configuration</span></a></li>
+            </ul>
+        </div>
+        
+        <div class="sub_tab_container_content">
+            #parse("admin/page_admin_about.vm")
+            #parse("admin/page_admin_configuration.vm")
+        </div>
+    </div>
+        
+    </div><!-- end of id='content' -->
+</body>
+</html>

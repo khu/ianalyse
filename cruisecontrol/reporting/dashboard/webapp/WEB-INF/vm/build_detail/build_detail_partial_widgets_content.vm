@@ -1,0 +1,11 @@
+#foreach($pluginDisplayName in $buildCmd.build.getPluginOutputs().keySet())
+    <div id="$pluginDisplayName.replace(' ','_').toLowerCase()" class="widget" style="display:none">
+        #if($buildCmd.build.getPluginOutputs().get($pluginDisplayName))
+            $buildCmd.build.getPluginOutputs().get($pluginDisplayName)
+        #else
+            <h2>No information for $pluginDisplayName</h2>
+        #end
+    </div>
+#end
+
+

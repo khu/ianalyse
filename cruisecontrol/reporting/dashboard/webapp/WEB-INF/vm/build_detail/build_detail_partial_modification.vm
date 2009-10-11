@@ -1,0 +1,21 @@
+<div id="modifications" class="widget" $modification_extra_attrs>
+    <h2>Modifications</h2>
+    #if( $buildCmd.modifications.size() == 0)
+        <p>No modifications found.</p>
+    #end
+    #foreach ($mod in $buildCmd.modifications)
+        <table class="modifications">
+
+            <tbody>
+                <tr class="comment"><td title="user" class="user">$mod.user</td><td>$mod.comment</td></tr>
+                #foreach ($file in $mod.modifiedFiles)
+
+                    <tr>
+                        <td>[rev. $file.revision]</td><td title="$file.action"><img src="$req.getContextPath()/images/table_${file.action}.gif" alt="$file.action"/>$file.fileName</td>
+                    </tr>
+
+                #end
+            </tbody>
+        </table>
+    #end
+</div>

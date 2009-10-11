@@ -1,0 +1,36 @@
+<cruisecontrol>
+    <property name="cruise.working.dir" value="/var/spool/cruisecontrol"/>
+
+    <plugin name="basicproject" classname="net.sourceforge.cruisecontrol.ProjectConfig">
+        <labelincrementer defaultLabel="${project.name}-1" separator="-"/>
+
+        <listeners>
+            <currentbuildstatuslistener file="${cruise.working.dir}/logs/${project.name}/status.txt"/>
+        </listeners>
+
+        <bootstrappers>
+            <svnbootstrapper LocalWorkingCopy="${cruise.working.dir}/projects/${project.name}"/>
+        </bootstrappers>
+
+        <modificationset quietperiod="30">
+            <svn LocalWorkingCopy="${cruise.working.dir}/projects/${project.name}"/>
+        </modificationset>
+
+        <schedule interval="300">
+            <ant antWorkingDir="${cruise.working.dir}/projects/${project.name}"
+                buildfile="build.xml"
+                />
+        </schedule>
+
+        <log>
+            <merge dir="${cruise.working.dir}/projects/${project.name}/target/test-results"/>
+        </log>
+
+        <publishers>
+            <artifactspublisher file="${cruise.working.dir}/projects/${project.name}/target/${project.name}.jar" dest="${cruise.working.dir}/artifacts/${project.name}"/>
+        </publishers>
+    </plugin>
+
+    <basicproject name="connectfour" buildafterfailed="false"/>
+
+</cruisecontrol>

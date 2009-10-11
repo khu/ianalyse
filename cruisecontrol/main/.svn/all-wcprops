@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/cruisecontrol/!svn/ver/4353/trunk/cruisecontrol/main
+END
+version.properties
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cruisecontrol/!svn/ver/2129/trunk/cruisecontrol/main/version.properties
+END
+project.properties
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cruisecontrol/!svn/ver/3017/trunk/cruisecontrol/main/project.properties
+END
+cruisecontrol.header
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/cruisecontrol.header
+END
+build.bat
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cruisecontrol/!svn/ver/4119/trunk/cruisecontrol/main/build.bat
+END
+maven.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/maven.xml
+END
+project.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cruisecontrol/!svn/ver/4110/trunk/cruisecontrol/main/project.xml
+END
+build.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/cruisecontrol/!svn/ver/4119/trunk/cruisecontrol/main/build.sh
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/main/log4j.properties
+END
+checkstyleSuppressions.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cruisecontrol/!svn/ver/4003/trunk/cruisecontrol/main/checkstyleSuppressions.xml
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cruisecontrol/!svn/ver/4321/trunk/cruisecontrol/main/build.xml
+END

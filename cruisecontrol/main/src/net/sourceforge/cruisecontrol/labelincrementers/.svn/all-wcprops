@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/cruisecontrol/!svn/ver/4303/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/labelincrementers
+END
+DefaultLabelIncrementer.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/labelincrementers/DefaultLabelIncrementer.java
+END
+PropertyFileLabelIncrementer.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svnroot/cruisecontrol/!svn/ver/2647/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/labelincrementers/PropertyFileLabelIncrementer.java
+END
+FormattedLabelIncrementer.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/labelincrementers/FormattedLabelIncrementer.java
+END
+P4ChangelistLabelIncrementer.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svnroot/cruisecontrol/!svn/ver/4303/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/labelincrementers/P4ChangelistLabelIncrementer.java
+END
+SVNLabelIncrementer.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/3975/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/labelincrementers/SVNLabelIncrementer.java
+END
+CVSLabelIncrementer.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/labelincrementers/CVSLabelIncrementer.java
+END
+EmptyLabelIncrementer.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/labelincrementers/EmptyLabelIncrementer.java
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cruisecontrol/!svn/ver/3334/trunk/cruisecontrol/contrib/windowsInstaller
+END
+cruise.nsi
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/cruisecontrol/!svn/ver/2599/trunk/cruisecontrol/contrib/windowsInstaller/cruise.nsi
+END
+build.bat
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cruisecontrol/!svn/ver/2495/trunk/cruisecontrol/contrib/windowsInstaller/build.bat
+END
+wrapper.conf
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/cruisecontrol/!svn/ver/3334/trunk/cruisecontrol/contrib/windowsInstaller/wrapper.conf
+END

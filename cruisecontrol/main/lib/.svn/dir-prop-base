@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 75
+starteam-sdk.jar
+sfee
+sfee.old
+ymsg_network_v0_6.jar
+ymsg_support_v0_6.jar
+
+END

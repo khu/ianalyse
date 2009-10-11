@@ -1,0 +1,4 @@
+user.spool.root=/var/spool/cruisecontrol
+user.log.dir=${user.spool.root}/logs
+cruise.build.artifacts.dir=${user.spool.root}/artifacts
+cruise.checkout.dir=${user.spool.root}/projects

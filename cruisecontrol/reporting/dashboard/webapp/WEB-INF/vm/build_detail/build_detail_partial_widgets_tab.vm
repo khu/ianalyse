@@ -1,0 +1,7 @@
+#foreach($pluginDisplayName in $buildCmd.build.getPluginOutputs().keySet())
+    #if($buildCmd.build.getPluginOutputs().size() > 0)
+        <li class="tab_toggle"><a><span>$pluginDisplayName</span></a></li>
+    #else
+        <h2>No information for $pluginDisplayName</h2>
+    #end
+#end

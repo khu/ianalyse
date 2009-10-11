@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/contrib/packager/redhat
+END
+cruisecontrol.spec
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/contrib/packager/redhat/cruisecontrol.spec
+END

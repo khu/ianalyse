@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/cruisecontrol/!svn/ver/4287/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/config
+END
+DefaultPropertiesPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/cruisecontrol/!svn/ver/4150/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/config/DefaultPropertiesPlugin.java
+END
+XMLConfigManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/cruisecontrol/!svn/ver/4148/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/config/XMLConfigManager.java
+END
+XmlResolver.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/cruisecontrol/!svn/ver/2763/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/config/XmlResolver.java
+END
+SystemPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/3361/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/config/SystemPlugin.java
+END
+ConfigurationPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/cruisecontrol/!svn/ver/3361/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/config/ConfigurationPlugin.java
+END
+ThreadsPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/cruisecontrol/!svn/ver/3361/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/config/ThreadsPlugin.java
+END
+PropertiesPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/cruisecontrol/!svn/ver/4150/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/config/PropertiesPlugin.java
+END
+IncludeProjectsPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/cruisecontrol/!svn/ver/3361/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/config/IncludeProjectsPlugin.java
+END
+PluginPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/cruisecontrol/!svn/ver/4287/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/config/PluginPlugin.java
+END
+DashboardConfigurationPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svnroot/cruisecontrol/!svn/ver/3880/trunk/cruisecontrol/main/src/net/sourceforge/cruisecontrol/config/DashboardConfigurationPlugin.java
+END

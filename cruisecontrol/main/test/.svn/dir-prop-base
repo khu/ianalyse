@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 38
+target
+antworkdir
+coverage.ec
+log.xml
+
+END

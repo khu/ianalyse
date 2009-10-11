@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cruisecontrol/!svn/ver/3953/trunk/cruisecontrol/reporting/jsp/webcontent/xsl
+END
+errors.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/errors.xsl
+END
+pmd.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/pmd.xsl
+END
+distributables.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/distributables.xsl
+END
+cvstagdiff.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/cvstagdiff.xsl
+END
+checkstyle-details.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/checkstyle-details.xsl
+END
+buildresults.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/buildresults.xsl
+END
+testdetails.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/cruisecontrol/!svn/ver/2785/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/testdetails.xsl
+END
+modifications.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/cruisecontrol/!svn/ver/3953/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/modifications.xsl
+END
+header.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/header.xsl
+END
+compile.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/compile.xsl
+END
+checkstyle.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/checkstyle.xsl
+END
+nant.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/nant.xsl
+END
+macker.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cruisecontrol/!svn/ver/1740/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/macker.xsl
+END
+unittests.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/unittests.xsl
+END
+pmd-details.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/pmd-details.xsl
+END
+fittests.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/fittests.xsl
+END
+maven.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/maven.xsl
+END
+javadoc.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/cruisecontrol/!svn/ver/2783/trunk/cruisecontrol/reporting/jsp/webcontent/xsl/javadoc.xsl
+END
