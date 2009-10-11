@@ -1,0 +1,2 @@
+kill `cat iAnalyse.pid`
+
