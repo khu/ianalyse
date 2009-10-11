@@ -4,7 +4,7 @@ from django.conf.urls.defaults import *
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('ianalyse.analyse.view',
     # Example:
     # (r'^ianalyse/', include('ianalyse.foo.urls')),
 
@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     # to INSTALLED_APPS to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    # Uncomment the next line to enable the admin:
-    # (r'^admin/', include(admin.site.urls)),
+    (r'^analyse/$',                          'index'),
+    (r'^analyse/(?P<build_name>\s+)/$',      'detail')
 )
+
