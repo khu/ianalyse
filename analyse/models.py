@@ -1,5 +1,6 @@
 from django.db import models
-
+import string
+import new
 
 class Build(models.Model):
     number = models.IntegerField()
@@ -15,7 +16,13 @@ class Build(models.Model):
         return self.name
 
     @staticmethod
-    def from_xml():
-            return "fuck"
+    def from_xml(input):
+        if isinstance(input, str) :
+            return Build(number = 1)
+        else:
+            print 'here'
+            b = Build()
+            b.number = 1
+            return b
 
 
