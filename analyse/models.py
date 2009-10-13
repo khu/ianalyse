@@ -1,9 +1,10 @@
 from django.db import models
 import string
-import new
+from elementtree import ElementTree 
+
 
 class Build(models.Model):
-    number = models.IntegerField()
+    number = models.TextField()
     name = models.TextField()
     scm_type = models.TextField()
     scm_revision = models.TextField()
@@ -18,7 +19,10 @@ class Build(models.Model):
     @staticmethod
     def from_xml(input):
         if isinstance(input, str) :
-            return Build(number = 1)
+           tree = ElementTree.fromstring(input)
+           for target in tree.findall(".//property"):
+               if (target.attrib['name'] == 'label'):
+                   return Build(number = target.attrib["value"])
         else:
             print 'here'
             b = Build()
