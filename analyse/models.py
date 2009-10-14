@@ -2,6 +2,7 @@ from django.db import models
 import string
 from elementtree import ElementTree
 from datetime import datetime
+import os
 
 class Build(models.Model):
     number = models.TextField()
@@ -44,3 +45,8 @@ class Build(models.Model):
 
 
 
+class BuildFactory :
+    @staticmethod
+    def create_builds():
+       root = os.environ["A"]
+       
