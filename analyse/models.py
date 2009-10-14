@@ -1,8 +1,7 @@
 from django.db import models
 import string
-from elementtree import ElementTree 
+from elementtree import ElementTree
 from datetime import datetime
-
 
 class Build(models.Model):
     number = models.TextField()
@@ -18,27 +17,30 @@ class Build(models.Model):
         return self.name
 
     @staticmethod
+    def parse_build(tree):
+        build = Build()
+        for target in tree.findall(".//property"):
+            if (target.attrib['name'] == 'label'):
+                build.number = target.attrib["value"];
+            elif (target.attrib['name'] == 'projectname'):
+                build.name = target.attrib["value"];
+            elif (target.attrib['name'] == 'cctimestamp'):
+                build.start_time = datetime.strptime(target.attrib["value"], "%Y%m%d%H%M%S")
+            elif (target.attrib['name'] == 'logfile'):
+                build.passed = target.attrib["value"].find('Lbuild') > -1
+            elif (target.attrib['name'] == 'lastsuccessfulbuild'):
+                build.last_pass = datetime.strptime(target.attrib["value"], "%Y%m%d%H%M%S")
+        return build
+
+    @staticmethod
     def from_xml(input):
         if isinstance(input, str) :
-           build = Build()
-           tree = ElementTree.fromstring(input)
-           for target in tree.findall(".//property"):
-               if (target.attrib['name'] == 'label'):
-                   build.number = target.attrib["value"];
-               elif (target.attrib['name'] == 'projectname'):
-                   build.name = target.attrib["value"];
-               elif (target.attrib['name'] == 'cctimestamp'):
-                   build.start_time = datetime.strptime(target.attrib["value"], "%Y%m%d%H%M%S")
-               elif (target.attrib['name'] == 'logfile'):
-                   build.passed = target.attrib["value"].find('Lbuild') > -1
-               elif (target.attrib['name'] == 'lastsuccessfulbuild'):
-                   build.last_pass = datetime.strptime(target.attrib["value"], "%Y%m%d%H%M%S")
-
-           return build      
+            tree = ElementTree.fromstring(input)
         else:
-            print 'here'
-            b = Build()
-            b.number = 1
-            return b
+            tree = ElementTree.parse(input)
+        return Build.parse_build(tree);
+
+
+
 
 
