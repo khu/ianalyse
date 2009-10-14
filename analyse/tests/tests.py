@@ -3,6 +3,8 @@ import unittest
 from analyse.models import Build
 import os
 from django.conf import settings
+from datetime import datetime
+
 
 class BuildTest(unittest.TestCase):
     PASSED_LOG = '''<cruisecontrol>
@@ -96,3 +98,16 @@ class BuildTest(unittest.TestCase):
     def testToParseThePassPassedLogForResult(self):
         build = Build.from_xml(BuildTest.PASSED_LOG)
         self.assertEqual(True, build.passed)
+
+    def testToParseTheFailedLogForBuildDate(self):
+        expecteddate = datetime(2009, 10, 11, 17, 39, 22);
+        build = Build.from_xml(BuildTest.PASSED_LOG)
+        self.assertEqual(expecteddate, build.start_time)
+
+    def testToParseTheFailedLogForBuildDate(self):
+        expecteddate = datetime(2009, 10, 11, 20, 11, 49);
+        build = Build.from_xml(BuildTest.FAILED_LOG)
+        self.assertEqual(expecteddate, build.last_pass)
+        
+
+    #dt= datetime.datetime.strptime(dt, "%Y-%m-%dT%H:%M:%S")
