@@ -35,18 +35,20 @@ class Build(models.Model):
 
     @staticmethod
     def from_xml(input):
-        if isinstance(input, str) :
-            tree = ElementTree.fromstring(input)
-        else:
-            tree = ElementTree.parse(input)
+        tree = ElementTree.fromstring(input)
         return Build.parse_build(tree);
 
-
-
-
+    @staticmethod
+    def from_file(input):
+        tree = ElementTree.parse(input)
+        return Build.parse_build(tree);
 
 class BuildFactory :
     @staticmethod
     def create_builds():
-       root = os.environ["A"]
+        builds = list();
+        root = "/Users/twer/Workspace/ianalyse/analyse/tests/fixtures/connectfour4";
+        for eachfile in os.listdir(root):
+            builds.append(Build.from_file(os.path.join (root, eachfile)))
+        return builds;
        
