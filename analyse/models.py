@@ -19,10 +19,20 @@ class Build(models.Model):
     @staticmethod
     def from_xml(input):
         if isinstance(input, str) :
+           build = Build()
            tree = ElementTree.fromstring(input)
            for target in tree.findall(".//property"):
                if (target.attrib['name'] == 'label'):
-                   return Build(number = target.attrib["value"])
+                   build.number = target.attrib["value"];
+               elif (target.attrib['name'] == 'projectname'):
+                   build.name = target.attrib["value"];
+               elif (target.attrib['name'] == 'cctimestamp'):
+                   build.start_time = target.attrib["value"];
+               elif (target.attrib['name'] == 'logfile'):
+                   build.passed = target.attrib["value"].find('Lbuild') > -1
+               elif (target.attrib['name'] == 'lastsuccessfulbuild'):
+                   build.lastsuccessfulbuild = target.attrib["value"]
+           return build      
         else:
             print 'here'
             b = Build()

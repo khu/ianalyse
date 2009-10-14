@@ -77,19 +77,22 @@ class BuildTest(unittest.TestCase):
     def setUp(self):
         self.root = settings.PROJECT_DIR
 
+    def testToParseTheProjectName(self):
+        build = Build.from_xml(BuildTest.FAILED_LOG)
+        self.assertEqual("connectfour4", build.name)
+
     def testToParseThePassLogForBuildNumber(self):
         build = Build.from_xml(BuildTest.PASSED_LOG)
-
         self.assertEqual("build.1", build.number)
 
     def testToParseThePassFailedLogForBuildNumber(self):
-        build = Build.from_xml(BuildTest.PASSED_LOG)
-
+        build = Build.from_xml(BuildTest.FAILED_LOG)
         self.assertEqual("build.18", build.number)
 
+    def testToParseThePassFailedLogForResult(self):
+        build = Build.from_xml(BuildTest.FAILED_LOG)
+        self.assertEqual(False, build.passed)
 
-    def testToRomanKnownValues1(self):
-        self.assertEqual(1, 1)
-
-    def testToRomanKnownValues2(self):
-        self.assertEqual(1, 1)
+    def testToParseThePassPassedLogForResult(self):
+        build = Build.from_xml(BuildTest.PASSED_LOG)
+        self.assertEqual(True, build.passed)
