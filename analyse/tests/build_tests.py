@@ -109,5 +109,6 @@ class BuildTest(unittest.TestCase):
         build = Build.from_xml(BuildTest.FAILED_LOG)
         self.assertEqual(expecteddate, build.last_pass)
         
+    
 
     #dt= datetime.datetime.strptime(dt, "%Y-%m-%dT%H:%M:%S")

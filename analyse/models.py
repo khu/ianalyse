@@ -10,8 +10,8 @@ class Build(models.Model):
     scm_type = models.TextField()
     scm_revision = models.TextField()
     start_time = models.DateTimeField('build start')
-    build_time = models.IntegerField('How long does this build take')
-    passed = models.BooleanField('Does the build pass')
+    build_time = models.IntegerField('How long does this build take', default=0)
+    passed = models.BooleanField('Does the build pass', default=False)
     last_pass = models.DateTimeField('When is the last successful date')
 
     def __unicode__(self):
@@ -50,5 +50,7 @@ class BuildFactory :
         root = "/Users/twer/Workspace/ianalyse/analyse/tests/fixtures/connectfour4";
         for eachfile in os.listdir(root):
             builds.append(Build.from_file(os.path.join (root, eachfile)))
+        for eachbuild in builds:
+            eachbuild.save()
         return builds;
        

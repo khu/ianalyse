@@ -17,3 +17,8 @@ class BuildFactoryTest(unittest.TestCase):
     def testToParseTheInformationCorrectly(self):
         builds = BuildFactory.create_builds();
         self.assertEqual('connectfour4', builds[0].name)
+
+    def testShouldParseAndPersit(self):
+        self.assertEqual(0, len(Build.objects.all()))
+        builds = BuildFactory.create_builds();
+        self.assertEqual(2, len(Build.objects.all()))
