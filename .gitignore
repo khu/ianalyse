@@ -2,3 +2,4 @@
 *.iws
 /**/*.pyc
 .DS_*
+results

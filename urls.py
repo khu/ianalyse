@@ -16,7 +16,9 @@ urlpatterns = patterns('',
                        (r'^analyse/$',                          'ianalyse.analyse.views.index'),
                        (r'^analyse/(?P<build_name>\s+)/$',      'ianalyse.analyse.views.detail'),
                        (r'^media/(?P<path>.*)$', 'django.views.static.serve',
-                       {'document_root': settings.MEDIA_ROOT, 'show_indexes': True})
+                       {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+                       (r'^results/(?P<path>.*)$', 'django.views.static.serve',
+                       {'document_root': settings.RESULTS_ROOT, 'show_indexes': True})
         )
 
 

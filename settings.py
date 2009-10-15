@@ -42,7 +42,17 @@ USE_I18N = True
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 
+RESULTS_ROOT = os.path.join(PROJECT_DIR, 'results')
+
+import os
+if not os.path.exists (RESULTS_ROOT):
+    os.makedirs(RESULTS_ROOT)
+
+
 MEDIA_URL = 'http://localhost:8000/media'
+
+# URL that handles for the generated result
+RESULTS_URL = 'http://localhost:8000/results'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
