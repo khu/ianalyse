@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import connection, models
 import string
 from elementtree import ElementTree
 from datetime import datetime
@@ -42,6 +42,22 @@ class Build(models.Model):
     def from_file(input):
         tree = ElementTree.parse(input)
         return Build.parse_build(tree);
+
+    @staticmethod
+    def pass_rate(name):
+        cursor = connection.cursor()
+        cursor.execute(
+                "select ((select CAST(count(1) AS REAL) from analyse_build where name = %s and passed = 1) / (select count(1) from analyse_build where name = %s))"
+                , [name, name])
+        rate = cursor.fetchone()
+        return rate[0]
+
+    @staticmethod
+    def total(name):
+        cursor = connection.cursor()
+        cursor.execute("select count(1) from analyse_build where name = %s", [name])
+        total = cursor.fetchone()
+        return total[0]
 
 class BuildFactory :
     @staticmethod

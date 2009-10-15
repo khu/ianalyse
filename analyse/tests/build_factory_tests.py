@@ -1,4 +1,4 @@
-import unittest
+from django.test import TestCase
 
 from analyse.models import Build
 from analyse.models import BuildFactory
@@ -6,7 +6,7 @@ import os
 from django.conf import settings
 from datetime import datetime
 
-class BuildFactoryTest(unittest.TestCase):
+class BuildFactoryTest(TestCase):
     def setUp(self):
         self.root = settings.PROJECT_DIR
         self.ccroot = self.root + 'analyse/test/fixtures/connectfour4'
@@ -22,3 +22,5 @@ class BuildFactoryTest(unittest.TestCase):
         self.assertEqual(0, len(Build.objects.all()))
         builds = BuildFactory.create_builds();
         self.assertEqual(2, len(Build.objects.all()))
+
+

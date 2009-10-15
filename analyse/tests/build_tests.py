@@ -1,4 +1,4 @@
-import unittest
+from django.test import TestCase
 
 from analyse.models import Build
 import os
@@ -6,7 +6,7 @@ from django.conf import settings
 from datetime import datetime
 
 
-class BuildTest(unittest.TestCase):
+class BuildTest(TestCase):
     PASSED_LOG = '''<cruisecontrol>
   <modifications />
   <info>
@@ -109,6 +109,7 @@ class BuildTest(unittest.TestCase):
         build = Build.from_xml(BuildTest.FAILED_LOG)
         self.assertEqual(expecteddate, build.last_pass)
         
-    
+        
+
 
     #dt= datetime.datetime.strptime(dt, "%Y-%m-%dT%H:%M:%S")
