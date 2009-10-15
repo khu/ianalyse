@@ -1,3 +1,26 @@
-We have totally {{total}} builds and our pass rate is {{pass_rate}}
+<html>
+<head>    
+<script type="text/javascript" src="{{ MEDIA_URL }}js/swfobject.js"></script>
+<script type="text/javascript">
+swfobject.embedSWF(
+  "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "my_chart", "550", "200",
+  "9.0.0", "expressInstall.swf",
+  {"data-file":"chart-3.php"}
+  );
+</script>
+
+</head>
+<body>
+
+<p>Hello World</p>
+We have totally {{total}} builds and our pass rate is {{pass_rate}} 
+
+<div id="my_chart"></div>
+
+
+</body>
+</html>
+
+
 
 
