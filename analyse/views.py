@@ -8,7 +8,8 @@ from analyse.models import *
 def index(request):
     builds = BuildFactory.create_builds();
     context = Context({
-        "total" : len(Build.objects.all())
+        "total" : Build.total('connectfour4'),
+        "pass_rate" : Build.pass_rate('connectfour4')
     })
     return render_to_response('analyse/index.html', context, context_instance = RequestContext(request))
 
