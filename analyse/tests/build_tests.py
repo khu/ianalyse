@@ -93,11 +93,11 @@ class BuildTest(TestCase):
 
     def testToParseThePassFailedLogForResult(self):
         build = Build.from_xml(BuildTest.FAILED_LOG)
-        self.assertEqual(False, build.passed)
+        self.assertEqual(False, build.is_passed)
 
     def testToParseThePassPassedLogForResult(self):
         build = Build.from_xml(BuildTest.PASSED_LOG)
-        self.assertEqual(True, build.passed)
+        self.assertEqual(True, build.is_passed)
 
     def testToParseTheFailedLogForBuildDate(self):
         expecteddate = datetime(2009, 10, 11, 17, 39, 22);

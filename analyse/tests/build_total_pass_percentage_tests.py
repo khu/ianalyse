@@ -13,7 +13,8 @@ class BuildTotalPassPercentageTest(TestCase):
 
     def testGenerateTotalPassRate(self):
         BuildFactory.create_builds();
-        self.assertEqual(0.5, Build.pass_rate('connectfour4'));
+        self.assertEqual(2, Build.total('connectfour4'));
+        self.assertEqual(1, Build.passed_count('connectfour4'));
 
     def testGenerateTotalBuilds(self):
         BuildFactory.create_builds();
