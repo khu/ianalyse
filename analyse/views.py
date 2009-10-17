@@ -8,9 +8,12 @@ def home(request):
 
 def index(request):
     proj_name = request.GET["project"];
+
     context = Context({
     "total" : Build.total(proj_name),
     "project" : Build.total(proj_name)
     })
+    BuildFactory.create_builds(proj_name)
     Build.analyse(proj_name).generate_chart()
     return render_to_response('analyse/index.html', context, context_instance = RequestContext(request))
+
