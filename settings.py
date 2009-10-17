@@ -95,3 +95,5 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'ianalyse.analyse'
 )
+
+CCLOGS = os.environ.get("CCLOGS")

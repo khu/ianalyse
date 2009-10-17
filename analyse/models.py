@@ -1,4 +1,4 @@
-from django.db import connection, models
+from django.db import connection, models,settings
 import string
 from elementtree import ElementTree
 from datetime import datetime
@@ -117,14 +117,15 @@ class ThreeWeeksStatistics :
 class BuildFactory :
 
     @staticmethod
-    def create_builds(pattern = None):
+    def create_builds (name = "", pattern = None):
         if pattern == None :
             pattern = "log.*.xml"
 
         builds = list();
 
-        root = "/Users/twer/Workspace/ianalyse/analyse/tests/fixtures/connectfour4";
-        for eachfile in os.listdir(root):   
+        root = os.path.join(settings.CCLOGS, name);
+
+        for eachfile in os.listdir(root):
             if None != re.match(pattern, eachfile) :
                 build = Build.from_file(os.path.join (root, eachfile))
                 build.save()

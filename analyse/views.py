@@ -6,7 +6,7 @@ from analyse.models import BuildFactory, Build
 
 
 def index(request):
-    builds = BuildFactory.create_builds();
+    builds = BuildFactory.create_builds('connectfour4');
     context = Context({
     "total" : Build.total('connectfour4')
     })

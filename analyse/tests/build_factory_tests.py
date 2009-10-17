@@ -11,18 +11,18 @@ class BuildFactoryTest(TestCase):
 
     def setUp(self):
         self.root = settings.PROJECT_DIR
-        self.ccroot = self.root + 'analyse/test/fixtures/connectfour4'
+        self.ccroot = self.root + 'analyse/test/fixtures-1/connectfour4'
 
     def testToParseAllTheLogs(self):
-        self.assertEqual(2, len(BuildFactory.create_builds(BuildFactoryTest.PATTERN)))
+        self.assertEqual(2, len(BuildFactory.create_builds("connectfour4", BuildFactoryTest.PATTERN)))
 
     def testToParseTheInformationCorrectly(self):
-        builds = BuildFactory.create_builds(BuildFactoryTest.PATTERN);
+        builds = BuildFactory.create_builds("connectfour4", BuildFactoryTest.PATTERN);
         self.assertEqual('connectfour4', builds[0].name)
 
     def testShouldParseAndPersit(self):
         self.assertEqual(0, len(Build.objects.all()))
-        builds = BuildFactory.create_builds(BuildFactoryTest.PATTERN);
+        builds = BuildFactory.create_builds("connectfour4", BuildFactoryTest.PATTERN);
         self.assertEqual(2, len(Build.objects.all()))
 
 
