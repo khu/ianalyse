@@ -15,5 +15,8 @@ def index(request):
     })
     BuildFactory.create_builds(proj_name)
     Build.analyse(proj_name).generate_chart()
+
+
+    Build.analyse_x(proj_name).generate_successful_rate_chart()
     return render_to_response('analyse/index.html', context, context_instance = RequestContext(request))
 
