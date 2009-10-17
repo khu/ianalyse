@@ -97,3 +97,4 @@ INSTALLED_APPS = (
 )
 
 CCLOGS = os.environ.get("CCLOGS")
+RESULT_ROOT = os.path.join(PROJECT_DIR, 'results')

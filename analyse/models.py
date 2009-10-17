@@ -6,6 +6,7 @@ import os
 from analyse.openFlashChart import Chart
 import re
 
+
 class Build(models.Model):
     number = models.TextField()
     name = models.TextField()
@@ -70,24 +71,31 @@ class Statistics :
         self.total = total
         self.passed = passed
 
-    def generate_chart(self):
-        chart = Chart()
+    def generate_chart(self, forced=False):
+        total_json_dir = os.path.join(settings.RESULT_ROOT, self.name)
+        total_json_file = os.path.join(total_json_dir, 'total.txt');
 
-        element1 = Chart()
-        element1.values =  [self.passed, self.total - self.passed]
-        element1.type = "pie"
-        element1.alpha = 0.6
-        element1.angle = 35
-        element1.tip = '#val# of #total#<br>#percent# of 100%';
-        element1.colours = ['#1C9E05','#FF368D']
+        if not(os.path.exists(total_json_file)) or forced :
+            chart = Chart()
 
-        chart.elements = [element1]
+            element1 = Chart()
+            element1.values =  [self.passed, self.total - self.passed]
+            element1.type = "pie"
+            element1.alpha = 0.6
+            element1.angle = 35
+            element1.tip = '#val# of #total#<br>#percent# of 100%';
+            element1.colours = ['#1C9E05','#FF368D']
 
-        f = open("/Users/twer/Workspace/ianalyse/results/area-2.txt", 'w')
-        try:
-            f.write(chart.create())
-        finally:
-            f.close()
+            chart.elements = [element1]
+
+            if not(os.path.exists(total_json_dir)):
+                os.makedirs(total_json_dir)
+
+            f = open(total_json_file, 'w')
+            try:
+                f.write(chart.create())
+            finally:
+                f.close()
 
 class ThreeWeeksStatistics :
     def __init__(self, name=None, total = 0, passed = 0):
