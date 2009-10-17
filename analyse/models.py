@@ -92,7 +92,7 @@ class Statistics :
             chart.elements = [element1]
 
             os.makedirs_p(total_json_dir)
-            os.write_to_file(total_json_file, chart.create)
+            os.write_to_file(total_json_file, chart.create())
 
 class ThreeWeeksStatistics :
     def __init__(self, name=None, builds = list()):

@@ -1,1 +1,3 @@
-python manage.py runserver 
+rm -fr results/*
+python manage.py testserver
+
