@@ -105,9 +105,6 @@ class ThreeWeeksStatistics :
     '''
     def successful_rate(self):
         chart = Chart()
-        stra = []
-        for i in range(110):
-            stra.append(str(i) + "%");
 
         element = Chart()
         element.type = "area"
@@ -116,29 +113,20 @@ class ThreeWeeksStatistics :
         element.colour = "#C4B86A"
         element.fill = "#1C9E05"
         element.fill_alpha = 0.7
-        element.values = [{ "x": 1230768000, "y": 12.103677462 }, { "x": 1230854400, "y": 12.2732435671 }, { "x": 1230940800, "y": 10.3528000201 }, { "x": 1231027200, "y": 8.10799376173 }]
-        #"stroke": 3, "colour": "#D7E4A3", "tick-length": 7, "grid-colour": "#A2ACBA", "min": 0, "max": 110, "steps": 20, "labels":
-
-        #"x_axis": { "min": 1230768000, "max": 1230940800, "steps": 86400, "labels": { "text": "#date:l jS, M Y#", "steps": 86400, "visible-steps": 2, "rotate": 90 }
+        element.values = [{ "x": 1230768000, "y": 12.103677462 }, { "x": 1230854400, "y": 12.2732435671 },
+                          { "x": 1230940800, "y": 10.3528000201 }, { "x": 1231027200, "y": 8.10799376173 }]
         chart.elements = [element]
-        chart.y_axis   = { "min": 0, "max": 110, "steps": 10,  "labels" : {"labels" : stra, "steps" : 20}}
-        chart.x_axis   = { "min": 1230768000, "max": 1230940800, "steps": 86400, "labels": { "text": "#date:l jS, M Y#", "steps": 86400, "visible-steps": 2, "rotate": 90 }}
+        all_percentage = []
+        for i in range(110):
+            all_percentage.append(str(i) + "%");
+        chart.y_axis   = { "min": 0, "max": 110, "steps": 10,  "labels" : {"labels" : all_percentage, "steps" : 20}}
+        chart.x_axis   = { "min": 1230768000, "max": 1230940800, "steps": 86400,
+                           "labels": { "text": "#date:l jS, M Y#", "steps": 86400, "visible-steps": 2, "rotate": 90 }}
         chart.title    = { "text": "Pass rate over time."}
         return chart.create()
 
-
-    #"x_axis": { "min": 1230768000, "max": 1230940800, "steps": 86400, "labels": { "text": "#date:l jS, M Y#", "steps": 86400, "visible-steps": 2, "rotate": 90 }
     def generate_successful_rate_chart(self):
         total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), 'successful_rate.txt');
-
-        print self.successful_rate()
-        a = '''
-        { "elements": [ { "type": "area", "width": 2, "dot-style": { "type": "hollow-dot" }, "colour": "#838A96", "fill": "#E01B49", "fill-alpha": 0.4,
-            "values": [ 0, 0.377471728511, 0.739894850386, 1.07282069945, 1.36297657271, 1.59879487114, 1.77087426334, 1.87235448698, 1.89918984578, 1.85031049867, 1.72766511097, 1.53614316726, 1.28338004305, 0.979452606461, 0.636477485296, 0.268128015314, -0.110910872512, -0.485528093851, -0.84078884226, -1.16252999279, -1.43792474109, -1.65599396759, -1.80804394039, -1.8880129069, -1.89271275679, -1.82195612186, -1.67856384587, -1.46825252636, -1.19940661196, -0.882744140886, -0.530889446578 ] } ],
-            "title": { "text": "Area Chart" },
-            "y_axis": { "min": -20, "max": 20, "steps": 2, "labels": {"labels" : ["a", "b", "c", "d", "e", "f"], "steps" : 2}, "offset": 0 }, "
-             x_axis": { "labels": { "steps": 4, "rotate": 270 }, "steps": 2 } }
-        '''
         os.write_to_file(total_json_file, self.successful_rate())
 
 class BuildFactory :

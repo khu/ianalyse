@@ -1,5 +1,6 @@
 # Django settings for ianalyse project.
 import util.osutils
+import util.datetimeutils
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
