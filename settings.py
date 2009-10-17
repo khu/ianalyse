@@ -1,4 +1,5 @@
 # Django settings for ianalyse project.
+import util.osutils
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -98,3 +99,4 @@ INSTALLED_APPS = (
 
 CCLOGS = os.environ.get("CCLOGS")
 RESULT_ROOT = os.path.join(PROJECT_DIR, 'results')
+
