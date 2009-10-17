@@ -4,6 +4,7 @@ from elementtree import ElementTree
 from datetime import datetime
 import os
 from analyse.openFlashChart import Chart
+import re
 
 class Build(models.Model):
     number = models.TextField()
@@ -88,14 +89,46 @@ class Statistics :
         finally:
             f.close()
 
+class ThreeWeeksStatistics :
+    def __init__(self, name=None, total = 0, passed = 0):
+        self.name = name
+        self.total = total
+        self.passed = passed
+
+    def generate_chart(self):
+        chart = Chart()
+
+        element1 = Chart()
+        element1.values =  [self.passed, self.total - self.passed]
+        element1.type = "pie"
+        element1.alpha = 0.6
+        element1.angle = 35
+        element1.tip = '#val# of #total#<br>#percent# of 100%';
+        element1.colours = ['#1C9E05','#FF368D']
+
+        chart.elements = [element1]
+
+        f = open("/Users/twer/Workspace/ianalyse/results/area-2.txt", 'w')
+        try:
+            f.write(chart.create())
+        finally:
+            f.close()
+
 class BuildFactory :
+
     @staticmethod
-    def create_builds():
+    def create_builds(pattern = None):
+        if pattern == None :
+            pattern = "log.*.xml"
+
         builds = list();
+
         root = "/Users/twer/Workspace/ianalyse/analyse/tests/fixtures/connectfour4";
-        for eachfile in os.listdir(root):
-            builds.append(Build.from_file(os.path.join (root, eachfile)))
-        for eachbuild in builds:
-            eachbuild.save()
+        for eachfile in os.listdir(root):   
+            if None != re.match(pattern, eachfile) :
+                build = Build.from_file(os.path.join (root, eachfile))
+                build.save()
+                builds.append(build)
         return builds;
-       
+
+        
