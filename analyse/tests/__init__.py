@@ -6,6 +6,7 @@ import analyse.tests.build_total_pass_percentage_tests
 import analyse.tests.statistics_generation_tests
 import analyse.tests.successful_rate_chart
 import analyse.tests.datetimeutils_tests
+import analyse.tests.builds_tests
 
 def suite():
     s = unittest.TestSuite()
@@ -19,4 +20,6 @@ def suite():
             analyse.tests.successful_rate_chart.SuccessfulRateChartTests))
     s.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(
             analyse.tests.datetimeutils_tests.DatetimeUtilsTest))
+    s.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(
+            analyse.tests.builds_tests.BuildsTest))
     return s

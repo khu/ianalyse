@@ -3,8 +3,10 @@ import string
 from elementtree import ElementTree
 from datetime import datetime
 import os
+import util.datetimeutils
 from analyse.openFlashChart import Chart
 import re
+import util.datetimeutils
 
 class Build(models.Model):
     number = models.TextField()
@@ -34,6 +36,9 @@ class Build(models.Model):
             elif (target.attrib['name'] == 'lastsuccessfulbuild'):
                 build.last_pass = datetime.strptime(target.attrib["value"], "%Y%m%d%H%M%S")
         return build
+
+    def day_of_start(self):
+        return  util.datetimeutils.begining_of_the_day(self.start_time)
 
     @staticmethod
     def from_xml(input):
@@ -65,7 +70,8 @@ class Build(models.Model):
 
     @staticmethod
     def analyse_x(name):
-        return ThreeWeeksStatistics(name = name, builds = list())
+        print Build.objects
+        return NDaysStatistics(name = name, builds = Build.objects.all())
 
 class Statistics :
 
@@ -94,15 +100,11 @@ class Statistics :
             os.makedirs_p(total_json_dir)
             os.write_to_file(total_json_file, chart.create())
 
-class ThreeWeeksStatistics :
+class NDaysStatistics :
     def __init__(self, name=None, builds = list()):
         self.name = name
         self.builds = builds
 
-    '''
-    { "elements": [ { "type": "area", "width": 2, "dot-style": { "type": "hollow-dot" }, "colour": "#838A96", "fill": "#E01B49", "fill-alpha": 0.4, "values": [{ "x": 1230768000, "y": 10.3677462 }, { "x": 1230854400, "y": 27.32435671 }, { "x": 1230940800, "y": 35.28000201 }] } ], "title": { "text": "Area Chart" }, "y_axis": { "stroke": 3, "colour": "#D7E4A3", "tick-length": 7, "grid-colour": "#A2ACBA", "min": 0, "max": 110, "steps": 20, "labels": { "labels": [
-        ], "steps": 20 } } , } }
-    '''
     def successful_rate(self):
         chart = Chart()
 
@@ -113,14 +115,28 @@ class ThreeWeeksStatistics :
         element.colour = "#C4B86A"
         element.fill = "#1C9E05"
         element.fill_alpha = 0.7
-        element.values = [{ "x": 1230768000, "y": 12.103677462 }, { "x": 1230854400, "y": 12.2732435671 },
-                          { "x": 1230940800, "y": 10.3528000201 }, { "x": 1231027200, "y": 8.10799376173 }]
+
+        arry = []
+        grped_builds = Builds(self.builds).group_by_each_day();
+        for day_of_start in grped_builds :
+            epoch = int(day_of_start.strftime('%s'))
+            usec = day_of_start.microsecond
+            result = epoch + (usec / 1000000.0)
+            print int(result)
+            pass_rate = grped_builds[day_of_start].pass_rate()
+            arry.append({"x" : int(result), "y" : pass_rate * 100})
+
+
+        print arry    
+        element.values = arry
         chart.elements = [element]
         all_percentage = []
+
         for i in range(110):
             all_percentage.append(str(i) + "%");
+
         chart.y_axis   = { "min": 0, "max": 110, "steps": 10,  "labels" : {"labels" : all_percentage, "steps" : 20}}
-        chart.x_axis   = { "min": 1230768000, "max": 1230940800, "steps": 86400,
+        chart.x_axis   = { "min": 1255237200, "max": 1255410000, "steps": 86400,
                            "labels": { "text": "#date:l jS, M Y#", "steps": 86400, "visible-steps": 2, "rotate": 90 }}
         chart.title    = { "text": "Pass rate over time."}
         return chart.create()
@@ -128,6 +144,26 @@ class ThreeWeeksStatistics :
     def generate_successful_rate_chart(self):
         total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), 'successful_rate.txt');
         os.write_to_file(total_json_file, self.successful_rate())
+
+class Builds(list):
+    def __init__(self, builds = list()):
+        self.builds = builds
+
+    def group_by_each_day(self):
+        grouped_builds = {}
+
+        for build in self.builds :
+            day_of_start = build.day_of_start()
+            if (day_of_start in grouped_builds):
+                grouped_builds[day_of_start].append(build)
+            else:
+                newbuilds = Builds()
+                newbuilds.append(build)
+                grouped_builds[day_of_start] = newbuilds
+        return grouped_builds
+
+    def pass_rate(self) :
+        return 0.5
 
 class BuildFactory :
 
