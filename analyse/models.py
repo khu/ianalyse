@@ -19,7 +19,7 @@ class Build(models.Model):
     last_pass = models.DateTimeField('When is the last successful date')
 
     def __unicode__(self):
-        return self.name
+        return self.name + " << " + str(self.is_passed) + " << " + str(self.start_time) + "\n" 
 
     @staticmethod
     def parse_build(tree):
@@ -70,7 +70,7 @@ class Build(models.Model):
 
     @staticmethod
     def analyse_x(name):
-        print Build.objects
+        print len(Build.objects.all())
         return NDaysStatistics(name = name, builds = Build.objects.all())
 
 class Statistics :
@@ -116,19 +116,10 @@ class NDaysStatistics :
         element.fill = "#1C9E05"
         element.fill_alpha = 0.7
 
-        arry = []
-        grped_builds = Builds(self.builds).group_by_each_day();
-        for day_of_start in grped_builds :
-            epoch = int(day_of_start.strftime('%s'))
-            usec = day_of_start.microsecond
-            result = epoch + (usec / 1000000.0)
-            print int(result)
-            pass_rate = grped_builds[day_of_start].pass_rate()
-            arry.append({"x" : int(result), "y" : pass_rate * 100})
-
-
-        print arry    
-        element.values = arry
+        builds = Builds()
+        builds.builds = self.builds
+        values, min_date, max_date = builds.pass_rate_by_day()
+        element.values = values
         chart.elements = [element]
         all_percentage = []
 
@@ -136,7 +127,7 @@ class NDaysStatistics :
             all_percentage.append(str(i) + "%");
 
         chart.y_axis   = { "min": 0, "max": 110, "steps": 10,  "labels" : {"labels" : all_percentage, "steps" : 20}}
-        chart.x_axis   = { "min": 1255237200, "max": 1255410000, "steps": 86400,
+        chart.x_axis   = { "min": min_date, "max": max_date, "steps": 86400,
                            "labels": { "text": "#date:l jS, M Y#", "steps": 86400, "visible-steps": 2, "rotate": 90 }}
         chart.title    = { "text": "Pass rate over time."}
         return chart.create()
@@ -145,26 +136,67 @@ class NDaysStatistics :
         total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), 'successful_rate.txt');
         os.write_to_file(total_json_file, self.successful_rate())
 
-class Builds(list):
-    def __init__(self, builds = list()):
-        self.builds = builds
+class Builds:
+    def __init__(self):
+        self.builds = []
 
     def group_by_each_day(self):
         grouped_builds = {}
 
         for build in self.builds :
             day_of_start = build.day_of_start()
-            if (day_of_start in grouped_builds):
-                grouped_builds[day_of_start].append(build)
-            else:
+            if (day_of_start not in grouped_builds):
                 newbuilds = Builds()
-                newbuilds.append(build)
+                newbuilds.builds.append(build)
                 grouped_builds[day_of_start] = newbuilds
+            else :
+                grouped_builds[day_of_start].builds.append(build)
+
         return grouped_builds
 
-    def pass_rate(self) :
-        return 0.5
+    def to_unix_timestamp(self, day_of_start):
+        epoch = int(day_of_start.strftime('%s'))
+        usec = day_of_start.microsecond
+        return epoch + (usec / 1000000.0)
 
+
+    def pass_rate_by_day(self) :
+        arry = []
+        builds = Builds()
+        builds.builds = self.builds
+        grped_builds = builds.group_by_each_day();
+        min_date = None;
+        max_date = None;
+        for day_of_start in grped_builds :
+            timestamp = int(self.to_unix_timestamp(day_of_start));
+            pass_rate = grped_builds[day_of_start].pass_rate()
+            arry.append({"x" : timestamp, "y" : pass_rate * 100})
+            if min_date == None :
+               min_date = timestamp;
+            if max_date == None :
+               max_date = timestamp;
+            if timestamp >  max_date :
+                max_date = timestamp
+            if timestamp < min_date :
+                min_date = timestamp;
+        return arry,min_date, max_date
+
+    def pass_count(self) :
+        count = 0
+        for build in self.builds :
+            if build.is_passed :
+                count = count + 1
+        return count
+
+    def pass_rate(self) :
+        if len(self.builds) == 0:
+            return 0
+            
+        return self.pass_count() / len(self.builds)
+
+    def __unicode__(self):
+        return "<Builds " + str(self.builds) + ">\n"
+        
 class BuildFactory :
 
     @staticmethod
@@ -183,4 +215,3 @@ class BuildFactory :
                 builds.append(build)
         return builds;
 
-        

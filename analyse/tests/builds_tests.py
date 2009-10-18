@@ -105,13 +105,29 @@ class BuildsTest(TestCase):
         self.another_passed_at_oct_11 = Build.from_xml(BuildsTest.ANOTHER_PASSED_LOG_AT_OCT_11)
 
     def testShouldGroupTheBuilds(self):
-        builds = Builds([self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed])
+        builds = Builds()
+        builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
         grouped_builds = builds.group_by_each_day()
         self.assertEquals(2, len(grouped_builds))
 
         atime = datetime.strptime("20091011000000", "%Y%m%d%H%M%S")
-        self.assertEquals(2, len(grouped_builds[atime]))
         btime = datetime.strptime("20091013000000", "%Y%m%d%H%M%S")
-        self.assertEquals(1, len(grouped_builds[btime]))
+        
+        self.assertEquals(2, len(grouped_builds[atime].builds))
+        btime = datetime.strptime("20091013000000", "%Y%m%d%H%M%S")
+        self.assertEquals(1, len(grouped_builds[btime].builds))
 
 
+    def testShouldCalculateThePassRate(self):
+        builds = Builds()
+        builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
+
+        atime = datetime.strptime("20091011000000", "%Y%m%d%H%M%S")
+        self.assertEquals(2, builds.group_by_each_day()[atime].pass_count())
+
+    def testShouldCalculateTheFailRate(self):
+        builds = Builds()
+        builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
+
+        atime = datetime.strptime("20091013000000", "%Y%m%d%H%M%S")
+        self.assertEquals(0, builds.group_by_each_day()[atime].pass_count())
