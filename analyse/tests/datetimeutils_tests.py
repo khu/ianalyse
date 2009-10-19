@@ -31,3 +31,12 @@ class DatetimeUtilsTest(TestCase):
         quiteNew =  datetime.strptime("20090927013000", "%Y%m%d%H%M%S")
 
         self.assertEquals(quiteNew, util.datetimeutils.days_ago_not_before(21, thirtySep, quiteNew))
+
+    def testShouldEvaluateTheSecondsToSeconds(self):
+        self.assertEquals(1, util.datetimeutils.evaluate_time_to_seconds("0 minute(s) 1 second(s)"))
+
+    def testShouldEvaluateTheMinutesToSeconds(self):
+        self.assertEquals(61, util.datetimeutils.evaluate_time_to_seconds("1 minute(s) 1 second(s)"))
+
+    def testShouldEvaluateTheHoursToSeconds(self):
+        self.assertEquals(3661, util.datetimeutils.evaluate_time_to_seconds("1 hour(s) 1 minute(s) 1 second(s)"))

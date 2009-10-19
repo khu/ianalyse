@@ -3,14 +3,20 @@
 <script type="text/javascript" src="{{ MEDIA_URL }}/js/swfobject.js"></script>
 <script type="text/javascript">
 swfobject.embedSWF(
-  "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "my_chart", "550", "200",
+  "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "total", "550", "200",
   "9.0.0", "expressInstall.swf",
   {"data-file":"/results/connectfour4/total.txt"}
   );
 swfobject.embedSWF(
-  "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "my_chart_2", "550", "500",
+  "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "successful_rate", "550", "500",
   "9.0.0", "expressInstall.swf",
   {"data-file":"/results/connectfour4/successful_rate.txt"}
+  );
+
+swfobject.embedSWF(
+  "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "build_times", "550", "500",
+  "9.0.0", "expressInstall.swf",
+  {"data-file":"/results/connectfour4/build_times.txt"}
   );
 
 </script>
@@ -19,9 +25,9 @@ swfobject.embedSWF(
 <body>
 <h2>ianalyse - We do CruiseControl reporting right</h2>
 <div>
-<div id="my_chart"></div>
-<div id="my_chart_2"></div>
-<span style="display:block">We have totally {{total}} builds</span>
+<div id="total"></div>
+<div id="successful_rate"></div>
+<div id="build_times"></div>
 </div>        
 </body>
 </html>

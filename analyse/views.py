@@ -16,7 +16,8 @@ def index(request):
     BuildFactory.create_builds(proj_name)
     Build.analyse(proj_name).generate_chart()
 
-
-    Build.analyse_x(proj_name).generate_successful_rate_chart()
+    stat  = Build.analyse_x(proj_name)
+    stat.generate_successful_rate_chart()
+    stat.generate_build_times_chart()
     return render_to_response('analyse/index.html', context, context_instance = RequestContext(request))
 

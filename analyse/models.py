@@ -21,6 +21,21 @@ class Build(models.Model):
     def __unicode__(self):
         return self.name + " << " + str(self.is_passed) + " << " + str(self.start_time) + "\n" 
 
+    #evaluate_time_to_seconds : function (time) {
+    #		if (!time) return;
+    #		time = time.replace("second", "", "gi");
+    #		time = time.replace("minute", "*60+", "gi");
+    #		time = time.replace("hour", " *3600+" , "gi");
+    #		time = time.replace(/s/gi, "");
+    #		time = time.replace(/\+$/gi, "");
+    #		try{
+    #			return eval(time) - 0
+    #		} catch (err) {
+    #			return 0
+    #		}
+    #	}
+    
+
     @staticmethod
     def parse_build(tree):
         build = Build()
@@ -35,6 +50,11 @@ class Build(models.Model):
                 build.is_passed = target.attrib["value"].find('Lbuild') > -1
             elif (target.attrib['name'] == 'lastsuccessfulbuild'):
                 build.last_pass = datetime.strptime(target.attrib["value"], "%Y%m%d%H%M%S")
+
+
+        build_time = tree.findall(".//build")[0].attrib["time"];
+        build_time = util.datetimeutils.evaluate_time_to_seconds(build_time)
+        build.build_time = build_time
         return build
 
     def day_of_start(self):
@@ -71,6 +91,8 @@ class Build(models.Model):
     @staticmethod
     def analyse_x(name):
         return NDaysStatistics(name = name, builds = Build.objects.all())
+
+
 
 class Statistics :
 
@@ -132,6 +154,36 @@ class NDaysStatistics :
         chart.title    = { "text": "Pass rate over time."}
         return chart.create()
 
+    def build_times(self):
+        chart = Chart()
+
+        element = Chart()
+        element.type = "line"
+        element.dot_style = { "type": "hollow-dot" }
+        element.width = 2
+        element.colour = "#0000ff"
+        element.fill = "#1C9E05"
+        element.fill_alpha = 0.7
+
+        builds = Builds()
+        builds.builds = self.builds
+        values, min_date, max_date, max_time = builds.build_times()
+
+        element.values = values
+        chart.elements = [element]
+        all_percentage = []
+
+        chart.y_axis   = { "min": 0, "max": max_time + 10, "steps": 50,  "labels" : {"steps" : 20}}
+        chart.x_axis   = { "min": min_date, "max": max_date, "steps": 86400,
+                           "labels": { "text": "#date:l jS, M Y#", "steps": 86400, "visible-steps": 2, "rotate": 90 }}
+        chart.title    = { "text": "Build time over time."}
+        return chart.create()
+
+
+    def generate_build_times_chart(self):
+        total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), 'build_times.txt');
+        os.write_to_file(total_json_file, self.build_times())
+
     def generate_successful_rate_chart(self):
         total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), 'successful_rate.txt');
         os.write_to_file(total_json_file, self.successful_rate())
@@ -181,6 +233,30 @@ class Builds:
             if timestamp < min_date :
                 min_date = timestamp;
         return arry,min_date, max_date
+
+    def build_times(self):
+        arry = []
+        min_date = None;
+        max_date = None;
+        max_time = None
+        for build in self.builds :
+            timestamp = int(self.to_unix_timestamp(build.start_time));
+            arry.append({"x" : timestamp, "y" : build.build_time})
+            if min_date == None :
+               min_date = timestamp;
+            if max_date == None :
+               max_date = timestamp;
+            if timestamp >  max_date :
+                max_date = timestamp
+            if timestamp < min_date :
+                min_date = timestamp;
+            if max_time == None :
+               max_time = build.build_time
+            if build.build_time > max_time :
+               max_time = build.build_time
+
+        return arry,min_date, max_date, max_time
+
 
     def pass_count(self) :
         count = 0

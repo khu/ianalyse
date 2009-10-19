@@ -138,3 +138,11 @@ class BuildsTest(TestCase):
 
         atime = datetime.strptime("20091011000000", "%Y%m%d%H%M%S")
         self.assertEquals(1, builds.group_by_each_day()[atime].pass_rate())
+
+    def testShouldTheBuildsTimes(self):
+        builds = Builds()
+        builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
+
+        atime = datetime.strptime("20091011000000", "%Y%m%d%H%M%S")
+        values, min, max = builds.build_times()
+        self.assertEquals(3, len(values))

@@ -34,7 +34,7 @@
     <property name="logdir" value="/Users/twer/Desktop/cruisecontrol-bin-2.8.2/logs/connectfour4" />
     <property name="logfile" value="log20091013220324.xml" />
   </info>
-  <build time="0 minute(s) 0 second(s)" error="exec error">
+  <build time="1 minute(s) 2 second(s)" error="exec error">
     <target name="exec">
       <task name="echa">
         <message priority="error"><![CDATA[Could not execute command: echa with arguments: haha]]></message>
