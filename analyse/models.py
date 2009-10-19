@@ -70,7 +70,6 @@ class Build(models.Model):
 
     @staticmethod
     def analyse_x(name):
-        print len(Build.objects.all())
         return NDaysStatistics(name = name, builds = Build.objects.all())
 
 class Statistics :
@@ -119,6 +118,7 @@ class NDaysStatistics :
         builds = Builds()
         builds.builds = self.builds
         values, min_date, max_date = builds.pass_rate_by_day()
+
         element.values = values
         chart.elements = [element]
         all_percentage = []
@@ -167,6 +167,7 @@ class Builds:
         grped_builds = builds.group_by_each_day();
         min_date = None;
         max_date = None;
+
         for day_of_start in grped_builds :
             timestamp = int(self.to_unix_timestamp(day_of_start));
             pass_rate = grped_builds[day_of_start].pass_rate()
@@ -191,7 +192,7 @@ class Builds:
     def pass_rate(self) :
         if len(self.builds) == 0:
             return 0
-            
+
         return self.pass_count() / len(self.builds)
 
     def __unicode__(self):

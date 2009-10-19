@@ -118,16 +118,23 @@ class BuildsTest(TestCase):
         self.assertEquals(1, len(grouped_builds[btime].builds))
 
 
-    def testShouldCalculateThePassRate(self):
+    def testShouldCalculateThePassCount(self):
         builds = Builds()
         builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
 
         atime = datetime.strptime("20091011000000", "%Y%m%d%H%M%S")
         self.assertEquals(2, builds.group_by_each_day()[atime].pass_count())
 
-    def testShouldCalculateTheFailRate(self):
+    def testShouldCalculateTheFailCount(self):
         builds = Builds()
         builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
 
         atime = datetime.strptime("20091013000000", "%Y%m%d%H%M%S")
         self.assertEquals(0, builds.group_by_each_day()[atime].pass_count())
+
+    def testShouldCalculateThePassRate(self):
+        builds = Builds()
+        builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
+
+        atime = datetime.strptime("20091011000000", "%Y%m%d%H%M%S")
+        self.assertEquals(1, builds.group_by_each_day()[atime].pass_rate())
