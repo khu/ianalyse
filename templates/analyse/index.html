@@ -22,9 +22,17 @@ swfobject.embedSWF(
 </script>
 
 </head>
+
 <body>
 <h2>ianalyse - We do CruiseControl reporting right</h2>
 <div>
+
+<p>
+    <h1>Total Runs   :  {{ total_count }}</h1>
+    <h1>Pass rate    : {{ pass_rate }}</h1>
+    <h1>Avg Duration : {{ avg_time }}</h1>
+
+</p>
 <div id="total"></div>
 <div id="successful_rate"></div>
 <div id="build_times"></div>

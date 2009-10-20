@@ -8,14 +8,10 @@ def home(request):
 
 def index(request):
     proj_name = request.GET["project"];
-
-    context = Context({
-    "total" : Build.total(proj_name),
-    "project" : Build.total(proj_name)
-    })
+    
     BuildFactory.create_builds(proj_name)
 
-    Build.analyse_all(proj_name)
-
-    return render_to_response('analyse/index.html', context, context_instance = RequestContext(request))
+    over_all_result = {}
+    Build.analyse_all(proj_name, over_all_result)
+    return render_to_response('analyse/index.html', Context(over_all_result), context_instance = RequestContext(request))
 

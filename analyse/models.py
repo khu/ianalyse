@@ -64,6 +64,29 @@ class Build(models.Model):
         return rate[0]
 
     @staticmethod
+    def total_count(name):
+        cursor = connection.cursor()
+        cursor.execute("select count(1) from analyse_build where name = %s", [name])
+        rate = cursor.fetchone()
+        return rate[0]
+
+    @staticmethod
+    def pass_rate(name):
+        cursor = connection.cursor()
+        cursor.execute(
+                "select (select CAST(count(1) AS REAL) from analyse_build where name = %s and is_passed = 1) / (select count(1) from analyse_build where name = %s)",
+                [name, name])
+        rate = cursor.fetchone()
+        return rate[0]
+
+    @staticmethod
+    def avg_build_time(name):
+        cursor = connection.cursor()
+        cursor.execute("select avg(build_time) from analyse_build where name = %s", [name])
+        return  cursor.fetchone()[0]
+
+
+    @staticmethod
     def total(name):
         cursor = connection.cursor()
         cursor.execute("select count(1) from analyse_build where name = %s", [name])
@@ -71,9 +94,13 @@ class Build(models.Model):
         return total[0]
 
     @staticmethod
-    def analyse_all(name):
+    def analyse_all(name, results):
         stat = OverallStatistics(name = name, total = Build.total(name), passed = Build.passed_count(name))
         stat.generate_pass_rate()
+
+        results["total_count"] = Build.total_count(name)
+        results["avg_time"] = Build.avg_build_time(name)
+        results["pass_rate"] = Build.pass_rate(name)
 
         stat = NDaysStatistics(name = name, builds = Build.objects.order_by('start_time'))
         stat.generate_successful_rate()
