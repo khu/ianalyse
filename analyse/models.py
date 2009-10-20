@@ -19,22 +19,7 @@ class Build(models.Model):
     last_pass = models.DateTimeField('When is the last successful date')
 
     def __unicode__(self):
-        return self.name + " << " + str(self.is_passed) + " << " + str(self.start_time) + "\n" 
-
-    #evaluate_time_to_seconds : function (time) {
-    #		if (!time) return;
-    #		time = time.replace("second", "", "gi");
-    #		time = time.replace("minute", "*60+", "gi");
-    #		time = time.replace("hour", " *3600+" , "gi");
-    #		time = time.replace(/s/gi, "");
-    #		time = time.replace(/\+$/gi, "");
-    #		try{
-    #			return eval(time) - 0
-    #		} catch (err) {
-    #			return 0
-    #		}
-    #	}
-    
+        return self.name + " << " + str(self.is_passed) + " << " + str(self.start_time) + "\n"
 
     @staticmethod
     def parse_build(tree):
@@ -180,13 +165,17 @@ class NDaysStatistics :
         return chart.create()
 
 
-    def generate_build_times_chart(self):
-        total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), 'build_times.txt');
-        os.write_to_file(total_json_file, self.build_times())
+    def __getattr__(self, name):
+        if not name.startswith("generate_"):
+            raise AttributeError(name)
+        field = name[len("generate_"):]
+        result = getattr(self, field)()
+        total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), field + '.txt');
+        print total_json_file
+        os.write_to_file(total_json_file, result)
+        return lambda : {}
+    
 
-    def generate_successful_rate_chart(self):
-        total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), 'successful_rate.txt');
-        os.write_to_file(total_json_file, self.successful_rate())
 
 class Builds:
     def __init__(self):
@@ -267,7 +256,7 @@ class Builds:
 
     def __unicode__(self):
         return "<Builds " + str(self.builds) + ">\n"
-        
+
 class BuildFactory :
 
     @staticmethod

@@ -17,7 +17,9 @@ def index(request):
     Build.analyse(proj_name).generate_chart()
 
     stat  = Build.analyse_x(proj_name)
-    stat.generate_successful_rate_chart()
-    stat.generate_build_times_chart()
+
+    stat.generate_successful_rate()
+    stat.generate_build_times()
+    
     return render_to_response('analyse/index.html', context, context_instance = RequestContext(request))
 
