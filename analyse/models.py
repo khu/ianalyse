@@ -224,14 +224,12 @@ class Builds:
             timestamp = int(self.to_unix_timestamp(day_of_start));
             pass_rate = grped_builds[day_of_start].pass_rate()
             arry.append({"x" : timestamp, "y" : pass_rate * 100})
-            if min_date == None :
+            if min_date == None or timestamp < min_date:
                min_date = timestamp;
-            if max_date == None :
+
+            if max_date == None or timestamp >  max_date:
                max_date = timestamp;
-            if timestamp >  max_date :
-                max_date = timestamp
-            if timestamp < min_date :
-                min_date = timestamp;
+
         return arry,min_date, max_date
 
     def build_times(self):
@@ -242,17 +240,13 @@ class Builds:
         for build in self.builds :
             timestamp = int(self.to_unix_timestamp(build.start_time));
             arry.append({"x" : timestamp, "y" : build.build_time})
-            if min_date == None :
+            if min_date == None or timestamp < min_date:
                min_date = timestamp;
-            if max_date == None :
+
+            if max_date == None or timestamp >  max_date:
                max_date = timestamp;
-            if timestamp >  max_date :
-                max_date = timestamp
-            if timestamp < min_date :
-                min_date = timestamp;
-            if max_time == None :
-               max_time = build.build_time
-            if build.build_time > max_time :
+
+            if max_time == None or build.build_time > max_time:
                max_time = build.build_time
 
         return arry,min_date, max_date, max_time
