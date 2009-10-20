@@ -14,12 +14,8 @@ def index(request):
     "project" : Build.total(proj_name)
     })
     BuildFactory.create_builds(proj_name)
-    Build.analyse(proj_name).generate_chart()
 
-    stat  = Build.analyse_x(proj_name)
+    Build.analyse_all(proj_name)
 
-    stat.generate_successful_rate()
-    stat.generate_build_times()
-    
     return render_to_response('analyse/index.html', context, context_instance = RequestContext(request))
 

@@ -71,41 +71,48 @@ class Build(models.Model):
         return total[0]
 
     @staticmethod
-    def analyse(name):
-        return Statistics(name = name, total = Build.total(name), passed = Build.passed_count(name))
+    def analyse_all(name):
+        stat = OverallStatistics(name = name, total = Build.total(name), passed = Build.passed_count(name))
+        stat.generate_pass_rate()
 
-    @staticmethod
-    def analyse_x(name):
-        return NDaysStatistics(name = name, builds = Build.objects.order_by('start_time'))
+        stat = NDaysStatistics(name = name, builds = Build.objects.order_by('start_time'))
+        stat.generate_successful_rate()
+        stat.generate_build_times()
+
+        return
 
 
 
-class Statistics :
+class OverallStatistics :
 
     def __init__(self, name=None, total = 0, passed = 0):
         self.name = name
         self.total = total
         self.passed = passed
 
-    def generate_chart(self, forced=False):
-        total_json_dir = os.path.join(settings.RESULT_ROOT, self.name)
-        total_json_file = os.path.join(total_json_dir, 'total.txt');
+    def pass_rate(self):
+        chart = Chart()
 
-        if not(os.path.exists(total_json_file)) or forced :
-            chart = Chart()
+        element1 = Chart()
+        element1.values =  [self.passed, self.total - self.passed]
+        element1.type = "pie"
+        element1.alpha = 0.6
+        element1.angle = 35
+        element1.tip = '#val# of #total#<br>#percent# of 100%';
+        element1.colours = ['#1C9E05','#FF368D']
 
-            element1 = Chart()
-            element1.values =  [self.passed, self.total - self.passed]
-            element1.type = "pie"
-            element1.alpha = 0.6
-            element1.angle = 35
-            element1.tip = '#val# of #total#<br>#percent# of 100%';
-            element1.colours = ['#1C9E05','#FF368D']
+        chart.elements = [element1]
+        return chart.create()
 
-            chart.elements = [element1]
-
-            os.makedirs_p(total_json_dir)
-            os.write_to_file(total_json_file, chart.create())
+    def __getattr__(self, name):
+        if not name.startswith("generate_"):
+            raise AttributeError(name)
+        field = name[len("generate_"):]
+        result = getattr(self, field)()
+        os.makedirs_p(os.path.join(settings.RESULT_ROOT, self.name))
+        total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), field + '.txt');
+        os.write_to_file(total_json_file, result)
+        return lambda : {}
 
 class NDaysStatistics :
     def __init__(self, name=None, builds = list()):
@@ -172,7 +179,6 @@ class NDaysStatistics :
         field = name[len("generate_"):]
         result = getattr(self, field)()
         total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), field + '.txt');
-        print total_json_file
         os.write_to_file(total_json_file, result)
         return lambda : {}
     
