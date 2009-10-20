@@ -7,6 +7,7 @@ import util.datetimeutils
 from analyse.openFlashChart import Chart
 import re
 import util.datetimeutils
+import analyse.ordered_dic
 
 class Build(models.Model):
     number = models.TextField()
@@ -75,7 +76,7 @@ class Build(models.Model):
 
     @staticmethod
     def analyse_x(name):
-        return NDaysStatistics(name = name, builds = Build.objects.all())
+        return NDaysStatistics(name = name, builds = Build.objects.order_by('start_time'))
 
 
 
@@ -115,7 +116,7 @@ class NDaysStatistics :
         chart = Chart()
 
         element = Chart()
-        element.type = "area"
+        element.type = "line"
         element.dot_style = { "type": "hollow-dot" }
         element.width = 2
         element.colour = "#C4B86A"
@@ -182,7 +183,7 @@ class Builds:
         self.builds = []
 
     def group_by_each_day(self):
-        grouped_builds = {}
+        grouped_builds = analyse.ordered_dic.ordered_dict()
 
         for build in self.builds :
             day_of_start = build.day_of_start()
@@ -209,7 +210,7 @@ class Builds:
         min_date = None;
         max_date = None;
 
-        for day_of_start in grped_builds :
+        for day_of_start in grped_builds.order() :
             timestamp = int(self.to_unix_timestamp(day_of_start));
             pass_rate = grped_builds[day_of_start].pass_rate()
             arry.append({"x" : timestamp, "y" : pass_rate * 100})
@@ -220,7 +221,7 @@ class Builds:
                max_date = timestamp;
 
         return arry,min_date, max_date
-
+        
     def build_times(self):
         arry = []
         min_date = None;
