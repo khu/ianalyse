@@ -4,7 +4,7 @@ from analyse.models import Build, Builds
 import os
 from django.conf import settings
 from datetime import datetime
-
+import util.datetimeutils
 
 class BuildsTest(TestCase):
     PASSED_LOG_AT_OCT_11 = '''<cruisecontrol>
@@ -21,7 +21,7 @@ class BuildsTest(TestCase):
     <property name="logdir" value="/Users/twer/Desktop/cruisecontrol-bin-2.8.2/logs/connectfour4" />
     <property name="logfile" value="log20091011173922Lbuild.1.xml" />
   </info>
-  <build time="0 minute(s) 0 second(s)">
+  <build time="1 minute(s) 0 second(s)">
     <target name="exec">
       <task name="echo">
         <message priority="info"><![CDATA[haha]]></message>
@@ -36,14 +36,14 @@ class BuildsTest(TestCase):
     <property name="lastbuild" value="20091011000000" />
     <property name="lastsuccessfulbuild" value="20091011000000" />
     <property name="builddate" value="2009-10-11T10:39:22" />
-    <property name="cctimestamp" value="20091011173922" />
+    <property name="cctimestamp" value="20091011173900" />
     <property name="label" value="build.1" />
     <property name="interval" value="300" />
     <property name="lastbuildsuccessful" value="true" />
     <property name="logdir" value="/Users/twer/Desktop/cruisecontrol-bin-2.8.2/logs/connectfour4" />
     <property name="logfile" value="log20091011173922Lbuild.1.xml" />
   </info>
-  <build time="0 minute(s) 0 second(s)">
+  <build time="0 minute(s) 2 second(s)">
     <target name="exec">
       <task name="echo">
         <message priority="info"><![CDATA[haha]]></message>
@@ -88,7 +88,7 @@ class BuildsTest(TestCase):
     <property name="logdir" value="/Users/twer/Desktop/cruisecontrol-bin-2.8.2/logs/connectfour4" />
     <property name="logfile" value="log20091013220324.xml" />
   </info>
-  <build time="0 minute(s) 0 second(s)" error="exec error">
+  <build time="0 minute(s) 4 second(s)" error="exec error">
     <target name="exec">
       <task name="echa">
         <message priority="error"><![CDATA[Could not execute command: echa with arguments: haha]]></message>
@@ -96,7 +96,6 @@ class BuildsTest(TestCase):
     </target>
   </build>
 </cruisecontrol>'''
-
 
     def setUp(self):
         self.root                     = settings.PROJECT_DIR
@@ -112,11 +111,10 @@ class BuildsTest(TestCase):
 
         atime = datetime.strptime("20091011000000", "%Y%m%d%H%M%S")
         btime = datetime.strptime("20091013000000", "%Y%m%d%H%M%S")
-        
+
         self.assertEquals(2, len(grouped_builds[atime].builds))
         btime = datetime.strptime("20091013000000", "%Y%m%d%H%M%S")
         self.assertEquals(1, len(grouped_builds[btime].builds))
-
 
     def testShouldCalculateThePassCount(self):
         builds = Builds()
@@ -144,5 +142,9 @@ class BuildsTest(TestCase):
         builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
 
         atime = datetime.strptime("20091011000000", "%Y%m%d%H%M%S")
-        values, min, max = builds.build_times()
+        values, min, max, max_time = builds.build_times()
         self.assertEquals(3, len(values))
+
+        self.assertEquals (util.datetimeutils.cctimestamp_to_unix_timestamp("20091011173900"), min)
+        self.assertEquals (util.datetimeutils.cctimestamp_to_unix_timestamp("20091013220324"), max)
+        self.assertEquals (60, max_time)
