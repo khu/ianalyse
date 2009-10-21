@@ -1,42 +1,57 @@
 <html>
-<head>    
-<script type="text/javascript" src="{{ MEDIA_URL }}/js/swfobject.js"></script>
-<script type="text/javascript">
-swfobject.embedSWF(
-  "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "total", "550", "200",
-  "9.0.0", "expressInstall.swf",
-  {"data-file":"/results/connectfour4/pass_rate.txt"}
-  );
-swfobject.embedSWF(
-  "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "successful_rate", "550", "500",
-  "9.0.0", "expressInstall.swf",
-  {"data-file":"/results/connectfour4/successful_rate.txt"}
-  );
+<head>
+    <script type="text/javascript" src="{{ MEDIA_URL }}/js/swfobject.js"></script>
+    <script type="text/javascript">
+        swfobject.embedSWF(
+                "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "total", "550", "200",
+                "9.0.0", "expressInstall.swf",
+        {"data-file":"/results/connectfour4/pass_rate.txt"}
+                );
+        swfobject.embedSWF(
+                "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "successful_rate", "550", "500",
+                "9.0.0", "expressInstall.swf",
+        {"data-file":"/results/connectfour4/successful_rate.txt"}
+                );
 
-swfobject.embedSWF(
-  "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "build_times", "550", "500",
-  "9.0.0", "expressInstall.swf",
-  {"data-file":"/results/connectfour4/build_times.txt"}
-  );
+        swfobject.embedSWF(
+                "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "build_times", "550", "500",
+                "9.0.0", "expressInstall.swf",
+        {"data-file":"/results/connectfour4/build_times.txt"}
+                );
 
-</script>
-
+    </script>
+    <title>ianalyse - Take a closer look at your project</title>
 </head>
 
 <body>
-<h2>ianalyse - We do CruiseControl reporting right</h2>
+<h2>ianalyse - Take a closer look at your project</h2>
+
 <div>
+    <div>
+        <h1>{{project_name}}</h1>
+        <dl>
+            <dt>Started at: </dt>
+            <dd>{{started_build_at}}</dd>
+            <dt>Last Built at: </dt>
+            <dd>{{last_built_at}}</dd>
+        </dl>
+    </div>
 
-<p>
-    <h1>Total Runs   :  {{ total_count }}</h1>
-    <h1>Pass rate    : {{ pass_rate }}</h1>
-    <h1>Avg Duration : {{ avg_time }}</h1>
+    <div>
+        <div>
+            Pass rate : {{ pass_rate }}
+        </div>
+        <div>
+            <span>Total Runs : {{ total_count }}</span>
+            <span>Avg Duration : {{ avg_time }}</span>
+        </div>
+    </div>
+</div>
 
-</p>
 <div id="total"></div>
 <div id="successful_rate"></div>
 <div id="build_times"></div>
-</div>        
+
 </body>
 </html>
 

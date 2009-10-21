@@ -85,6 +85,17 @@ class Build(models.Model):
         cursor.execute("select avg(build_time) from analyse_build where name = %s", [name])
         return  cursor.fetchone()[0]
 
+    @staticmethod
+    def started_build_at(name):
+        cursor = connection.cursor()
+        cursor.execute("select min(start_time) from analyse_build where name = %s", [name])
+        return  cursor.fetchone()[0]
+
+    @staticmethod
+    def last_built_at(name):
+        cursor = connection.cursor()
+        cursor.execute("select max(start_time) from analyse_build where name = %s", [name])
+        return  cursor.fetchone()[0]
 
     @staticmethod
     def total(name):
@@ -101,6 +112,8 @@ class Build(models.Model):
         results["total_count"] = Build.total_count(name)
         results["avg_time"] = Build.avg_build_time(name)
         results["pass_rate"] = Build.pass_rate(name)
+        results["started_build_at"] = Build.started_build_at(name)
+        results["last_built_at"] = Build.last_built_at(name)
 
         stat = NDaysStatistics(name = name, builds = Build.objects.order_by('start_time'))
         stat.generate_successful_rate()
