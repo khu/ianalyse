@@ -5,18 +5,18 @@
         swfobject.embedSWF(
                 "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "total", "550", "200",
                 "9.0.0", "expressInstall.swf",
-        {"data-file":"/results/connectfour4/pass_rate.txt"}
+        {"data-file":"/results/{{project_name}}/pass_rate.txt"}
                 );
         swfobject.embedSWF(
                 "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "successful_rate", "550", "500",
                 "9.0.0", "expressInstall.swf",
-        {"data-file":"/results/connectfour4/successful_rate.txt"}
+        {"data-file":"/results/{{project_name}}/successful_rate.txt"}
                 );
 
         swfobject.embedSWF(
                 "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "build_times", "550", "500",
                 "9.0.0", "expressInstall.swf",
-        {"data-file":"/results/connectfour4/build_times.txt"}
+        {"data-file":"/results/{{project_name}}/build_times.txt"}
                 );
 
     </script>

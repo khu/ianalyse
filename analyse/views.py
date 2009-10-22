@@ -9,7 +9,7 @@ def home(request):
 def index(request):
     proj_name = request.GET["project"];
     
-    BuildFactory.create_builds(proj_name)
+    #BuildFactory.create_builds(proj_name)
 
     over_all_result = {
         "project_name" : proj_name

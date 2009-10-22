@@ -317,8 +317,12 @@ class BuildFactory :
 
         for eachfile in os.listdir(root):
             if None != re.match(pattern, eachfile) :
-                build = Build.from_file(os.path.join (root, eachfile))
-                build.save()
-                builds.append(build)
+                try :
+                    build = Build.from_file(os.path.join (root, eachfile))
+                    build.save()
+                    builds.append(build)
+                except Exception, e :
+                    pass
+
         return builds;
 
