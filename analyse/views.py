@@ -8,12 +8,21 @@ def home(request):
 
 def index(request):
     proj_name = request.GET["project"];
-    
-    #BuildFactory.create_builds(proj_name)
-
     over_all_result = {
-        "project_name" : proj_name
+    "project_name" : proj_name
     }
+    Build.view_all(proj_name, over_all_result)
+    return render_to_response('analyse/index.html', Context(over_all_result), context_instance = RequestContext(request)
+            )
+
+def generate(request) :
+    proj_name = request.GET["project"];
+    over_all_result = {
+    "project_name" : proj_name
+    }
+    BuildFactory.create_builds(proj_name)
     Build.analyse_all(proj_name, over_all_result)
-    return render_to_response('analyse/index.html', Context(over_all_result), context_instance = RequestContext(request))
+    return render_to_response('analyse/index.html', Context(over_all_result), context_instance = RequestContext(request)
+            )
+
 

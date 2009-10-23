@@ -106,14 +106,9 @@ class Build(models.Model):
 
     @staticmethod
     def analyse_all(name, results):
+        Build.view_all(name, results)
         stat = OverallStatistics(name = name, total = Build.total(name), passed = Build.passed_count(name))
         stat.generate_pass_rate()
-
-        results["total_count"] = Build.total_count(name)
-        results["avg_time"] = Build.avg_build_time(name)
-        results["pass_rate"] = Build.pass_rate(name)
-        results["started_build_at"] = Build.started_build_at(name)
-        results["last_built_at"] = Build.last_built_at(name)
 
         stat = NDaysStatistics(name = name, builds = Build.objects.order_by('start_time'))
         stat.generate_successful_rate()
@@ -121,6 +116,14 @@ class Build(models.Model):
 
         return
 
+    @staticmethod
+    def view_all(name, results):
+        results["total_count"] = Build.total_count(name)
+        results["avg_time"] = Build.avg_build_time(name)
+        results["pass_rate"] = Build.pass_rate(name)
+        results["started_build_at"] = Build.started_build_at(name)
+        results["last_built_at"] = Build.last_built_at(name)
+        return
 
 
 class OverallStatistics :

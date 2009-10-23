@@ -15,6 +15,7 @@ urlpatterns = patterns('',
 
                        (r'^analyse/$',                          'ianalyse.analyse.views.home'),
                        (r'^analyse/index.html',                 'ianalyse.analyse.views.index'),
+                       (r'^analyse/generate.html',                 'ianalyse.analyse.views.generate'),
                        (r'^media/(?P<path>.*)$', 'django.views.static.serve',
                        {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
                        (r'^results/(?P<path>.*)$', 'django.views.static.serve',
