@@ -9,6 +9,11 @@ import re
 import util.datetimeutils
 import analyse.ordered_dic
 
+from xml.sax.handler import ContentHandler
+from xml.sax import parse, parseString
+import sys
+from analyse.saxhandlers import *
+
 class Build(models.Model):
     number = models.TextField()
     name = models.TextField()
@@ -22,39 +27,20 @@ class Build(models.Model):
     def __unicode__(self):
         return self.name + " << " + str(self.is_passed) + " << " + str(self.start_time) + "\n"
 
-    @staticmethod
-    def parse_build(tree):
-        build = Build()
-        for target in tree.findall(".//property"):
-            if (target.attrib['name'] == 'label'):
-                build.number = target.attrib["value"];
-            elif (target.attrib['name'] == 'projectname'):
-                build.name = target.attrib["value"];
-            elif (target.attrib['name'] == 'cctimestamp'):
-                build.start_time = datetime.strptime(target.attrib["value"], "%Y%m%d%H%M%S")
-            elif (target.attrib['name'] == 'logfile'):
-                build.is_passed = target.attrib["value"].find('Lbuild') > -1
-            elif (target.attrib['name'] == 'lastsuccessfulbuild'):
-                build.last_pass = datetime.strptime(target.attrib["value"], "%Y%m%d%H%M%S")
-
-
-        build_time = tree.findall(".//build")[0].attrib["time"];
-        build_time = util.datetimeutils.evaluate_time_to_seconds(build_time)
-        build.build_time = build_time
-        return build
-
     def day_of_start(self):
-        return  util.datetimeutils.begining_of_the_day(self.start_time)
+        return util.datetimeutils.begining_of_the_day(self.start_time)
 
     @staticmethod
     def from_xml(input):
-        tree = ElementTree.fromstring(input)
-        return Build.parse_build(tree);
+        build = Build()
+        parseString(input, MultipleHandlers(build))
+        return build
 
     @staticmethod
     def from_file(input):
-        tree = ElementTree.parse(input)
-        return Build.parse_build(tree);
+        build = Build()
+        parse(input, MultipleHandlers(build))
+        return build
 
     @staticmethod
     def passed_count(name):
@@ -74,7 +60,8 @@ class Build(models.Model):
     def pass_rate(name):
         cursor = connection.cursor()
         cursor.execute(
-                "select (select CAST(count(1) AS REAL) from analyse_build where name = %s and is_passed = 1) / (select count(1) from analyse_build where name = %s)",
+                "select (select CAST(count(1) AS REAL) from analyse_build where name = %s and is_passed = 1) / (select count(1) from analyse_build where name = %s)"
+                ,
                 [name, name])
         rate = cursor.fetchone()
         return rate[0]
@@ -124,7 +111,6 @@ class Build(models.Model):
         results["started_build_at"] = Build.started_build_at(name)
         results["last_built_at"] = Build.last_built_at(name)
         return
-
 
 class OverallStatistics :
 
@@ -215,7 +201,6 @@ class NDaysStatistics :
         chart.title    = { "text": "Build time over time."}
         return chart.create()
 
-
     def __getattr__(self, name):
         if not name.startswith("generate_"):
             raise AttributeError(name)
@@ -224,8 +209,6 @@ class NDaysStatistics :
         total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), field + '.txt');
         os.write_to_file(total_json_file, result)
         return lambda : {}
-    
-
 
 class Builds:
     def __init__(self):
@@ -250,7 +233,6 @@ class Builds:
         usec = day_of_start.microsecond
         return epoch + (usec / 1000000.0)
 
-
     def pass_rate_by_day(self) :
         arry = []
         builds = Builds()
@@ -264,13 +246,13 @@ class Builds:
             pass_rate = grped_builds[day_of_start].pass_rate()
             arry.append({"x" : timestamp, "y" : pass_rate * 100})
             if min_date == None or timestamp < min_date:
-               min_date = timestamp;
+                min_date = timestamp;
 
             if max_date == None or timestamp >  max_date:
-               max_date = timestamp;
+                max_date = timestamp;
 
         return arry,min_date, max_date
-        
+
     def build_times(self):
         arry = []
         min_date = None;
@@ -280,16 +262,15 @@ class Builds:
             timestamp = int(self.to_unix_timestamp(build.start_time));
             arry.append({"x" : timestamp, "y" : build.build_time})
             if min_date == None or timestamp < min_date:
-               min_date = timestamp;
+                min_date = timestamp;
 
             if max_date == None or timestamp >  max_date:
-               max_date = timestamp;
+                max_date = timestamp;
 
             if max_time == None or build.build_time > max_time:
-               max_time = build.build_time
+                max_time = build.build_time
 
         return arry,min_date, max_date, max_time
-
 
     def pass_count(self) :
         count = 0
