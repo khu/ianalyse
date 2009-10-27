@@ -24,33 +24,39 @@
 </head>
 
 <body>
-<h2>ianalyse - Take a closer look at your project</h2>
+<h1>ianalyse  - Take a closer look at your project</h1>
 
 <div>
-    <div>
+    <div style="float:left">
         <h1>{{project_name}}</h1>
-        <dl>
-            <dt>Started at: </dt>
-            <dd>{{started_build_at}}</dd>
-            <dt>Last Built at: </dt>
-            <dd>{{last_built_at}}</dd>
-        </dl>
+        <span>{{ total_count }} runs between {{started_build_at}} and {{last_built_at}}</span>
     </div>
-
-    <div>
-        <div>
-            Pass rate : {{ pass_rate }}
-        </div>
-        <div>
-            <span>Total Runs : {{ total_count }}</span>
-            <span>Avg Duration : {{ avg_time }}</span>
-        </div>
+    <div style="float:left;padding-left:150px;">
+            <dl style="display:block;">
+                <dt style="display:inline">Pass rate:</dt>
+                <dd style="display:inline">{{ pass_rate }}</dd>
+                <dt style="display:inline">Avg Duration:</dt>
+                <dd style="display:inline">{{ avg_time }}</dd>
+            </dl>
     </div>
-</div>
+    <div style="clear:both;"></div>
 
-<div id="total"></div>
-<div id="successful_rate"></div>
-<div id="build_times"></div>
+    <div id="reports">
+        <p>
+
+        <div id="total"></div>
+        </p>
+
+        <p>
+
+        <div id="successful_rate"></div>
+        </p>
+
+        <p>
+
+        <div id="build_times"></div>
+        </p>
+    </div>
 
 </body>
 </html>

@@ -167,7 +167,7 @@ class NDaysStatistics :
 
         element = Chart()
         element.type = "line"
-        element.dot_style = { "type": "hollow-dot" }
+        element.dot_style = { "type": "dot" }
         element.width = 2
         element.colour = "#C4B86A"
         element.fill = "#1C9E05"
@@ -195,7 +195,7 @@ class NDaysStatistics :
 
         element = Chart()
         element.type = "line"
-        element.dot_style = { "type": "hollow-dot" }
+        element.dot_style = { "type": "dot" }
         element.width = 2
         element.colour = "#0000ff"
         element.fill = "#1C9E05"
