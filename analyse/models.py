@@ -100,6 +100,7 @@ class Build(models.Model):
         stat = NDaysStatistics(name = name, builds = Build.objects.order_by('start_time'))
         stat.generate_successful_rate()
         stat.generate_build_times()
+        stat.generate_per_build_time()
 
         return
 
@@ -147,6 +148,9 @@ class NDaysStatistics :
     def __init__(self, name=None, builds = list()):
         self.name = name
         self.builds = builds
+
+    def per_build_time(self):
+        return '''{"elements":[{"type":"bar_glass","values":[9,8,7,6,{"top":5,"colour":"#ff0000","tip":"Hello #val#"},4,3,2,1]}],"title":{"text":"Wed Oct 28 2009"}}'''
 
     def successful_rate(self):
         chart = Chart()

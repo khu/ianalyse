@@ -18,6 +18,12 @@
                 "9.0.0", "expressInstall.swf",
         {"data-file":"/results/{{project_name}}/build_times.txt"}
                 );
+        swfobject.embedSWF(
+                "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "per_build_time", "550", "500",
+                "9.0.0", "expressInstall.swf",
+        {"data-file":"/results/{{project_name}}/per_build_time.txt"}
+                );
+
 
     </script>
     <title>ianalyse - Take a closer look at your project</title>
@@ -55,6 +61,9 @@
         <p>
 
         <div id="build_times"></div>
+        </p>
+
+        <div id="per_build_time"></div>
         </p>
     </div>
 
