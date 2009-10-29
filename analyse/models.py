@@ -150,7 +150,19 @@ class NDaysStatistics :
         self.builds = builds
 
     def per_build_time(self):
-        return '''{"elements":[{"type":"bar_glass","values":[9,8,7,6,{"top":5,"colour":"#ff0000","tip":"Hello #val#"},4,3,2,1]}],"title":{"text":"Wed Oct 28 2009"}}'''
+        builds = Builds()
+        builds.builds = self.builds
+
+        chart = Chart()
+
+        values, max_time = builds.per_build_time();
+        element = Chart()
+        element.type = "bar_glass"
+        element.values = values
+
+        chart.elements = [element]
+        chart.y_axis   = { "min": 0, "max": max_time + 10, "steps": 10}
+        return chart.create()
 
     def successful_rate(self):
         chart = Chart()
@@ -276,6 +288,22 @@ class Builds:
 
         return arry,min_date, max_date, max_time
 
+    def per_build_time(self):
+        arry = []
+        max_time = None
+        for build in self.builds :
+            timestamp = int(self.to_unix_timestamp(build.start_time));
+            color = None;
+            if build.is_passed:
+                color = '#1C9E05'
+            else:
+                color = '#FF368D'
+            arry.append({"top" : build.build_time, "colour": color})
+
+            if max_time == None or build.build_time > max_time:
+                max_time = build.build_time
+        return arry, max_time
+
     def pass_count(self) :
         count = 0
         for build in self.builds :
@@ -291,6 +319,8 @@ class Builds:
 
     def __unicode__(self):
         return "<Builds " + str(self.builds) + ">\n"
+
+
 
 class BuildFactory :
 

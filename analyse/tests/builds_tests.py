@@ -148,3 +148,20 @@ class BuildsTest(TestCase):
         self.assertEquals (util.datetimeutils.cctimestamp_to_unix_timestamp("20091011173900"), min)
         self.assertEquals (util.datetimeutils.cctimestamp_to_unix_timestamp("20091013220324"), max)
         self.assertEquals (60, max_time)
+
+    def testShouldCalculateTheBuildPerDay(self):
+        builds = Builds()
+        builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
+
+        values, max_time = builds.per_build_time()
+        
+        self.assertEquals('#1C9E05', values[0]['colour']);
+        self.assertEquals('#1C9E05', values[1]['colour']);
+        self.assertEquals('#FF368D', values[2]['colour']);
+        self.assertEquals(60, values[0]['top']);
+        self.assertEquals(2,  values[1]['top']);
+        self.assertEquals(4,  values[2]['top']);
+        self.assertEquals(60, max_time);
+
+
+
