@@ -23,6 +23,10 @@ class Config:
             except Exception, e:
                 return 14
         return self.__readattr__(anonymous)
+        
+    def csv_settings(self):
+        def anonymous(config): return config.items("CSV")
+        return self.__readattr__(anonymous) 
 
     def __readattr__(self, func):
        config = ConfigParser.ConfigParser()

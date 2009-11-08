@@ -33,8 +33,10 @@ class ConfigTests(TestCase):
         self.assertEquals(14, self.config.days())
 	
     def testShouldAggregateTheColumnNamesAndXpathsAsDic(self):
-	    pass                                   
-	
-    def testShouldAlwaysReadFromTheFile(self):
-	    pass
-	
+        self.assertEquals('start time', self.config.csv_settings()[0][0])
+        self.assertEquals('//property[@name=\'start time\']/@value', self.config.csv_settings()[0][1])
+        self.assertEquals('buid time', self.config.csv_settings()[1][0])
+        self.assertEquals('//build/@time', self.config.csv_settings()[1][1])
+
+
+		
