@@ -8,6 +8,7 @@ from analyse.openFlashChart import Chart
 import re
 import util.datetimeutils
 import analyse.ordered_dic
+from analyse.config import Config
 
 from xml.sax.handler import ContentHandler
 from xml.sax import parse, parseString
@@ -102,7 +103,7 @@ class Build(models.Model):
         stat = OverallStatistics(name = name, total = Build.total(name), passed = Build.passed_count(name))
         stat.generate_pass_rate()
 
-        stat = NDaysStatistics(name = name, builds = Build.objects.order_by('start_time'))
+        stat = TopNStatistics(name = name, builds = Build.objects.order_by('start_time'))
         stat.generate_successful_rate()
         stat.generate_build_times()
         stat.generate_per_build_time()
@@ -149,7 +150,7 @@ class OverallStatistics :
         os.write_to_file(total_json_file, result)
         return lambda : {}
 
-class NDaysStatistics :
+class TopNStatistics :
     def __init__(self, name=None, builds = list()):
         self.name = name
         self.builds = builds
@@ -357,15 +358,13 @@ class BuildFactory :
         return builds;
 
     @staticmethod
-    def filter(root):
-        pattern = "log.*.xml"
-        logs = list();
-        pass
-        
-        
-    @staticmethod
-    def filter(root):
-        pattern = "log.*.xml"
-        logs = list();
-        pass
-        
+    def filter(root, buids = Config().builds()): 
+        files = os.sort_by_rule(root,"log([0-9]*).*.xml", 'asc')
+        required_builds = buids                 
+        len_of_files = len(files)
+
+        if required_builds < len_of_files :                 
+            for i in range(0, len_of_files - required_builds) :
+                files.pop(0)
+
+        return files

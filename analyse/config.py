@@ -16,12 +16,12 @@ class Config:
         def anonymous(config): return config.get('Basic', 'logdir', 0)
         return self.__readattr__(anonymous)
     
-    def days(self):
+    def builds(self):
         def anonymous(config): 
             try:                                        
-                return config.getint('Basic', 'days')
+                return config.getint('Basic', 'builds')
             except Exception, e:
-                return 14
+                return 30
         return self.__readattr__(anonymous)
         
     def csv_settings(self):

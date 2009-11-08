@@ -1,5 +1,5 @@
 from django.test import TestCase
-from analyse.models import Build, BuildFactory, NDaysStatistics, Builds
+from analyse.models import Build, BuildFactory, TopNStatistics, Builds
 import os
 from django.conf import settings
 from datetime import datetime
@@ -16,7 +16,7 @@ class SuccessfulRateChartTests(TestCase):
     def testGenerateTotalPassRate(self):
         builds = BuildFactory.create_builds('connectfour4', SuccessfulRateChartTests.PATTERN);
         
-        ndaysStat = NDaysStatistics('connectfour4', builds)
+        ndaysStat = TopNStatistics('connectfour4', builds)
         json_str = ndaysStat.successful_rate()
         json_obj = cjson.decode(json_str)
 

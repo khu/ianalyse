@@ -28,21 +28,24 @@ class BuildFactoryTest(TestCase):
 
 
     def testShouldNotThrowExceptionWhenProcessingXmlFile(self):
-        self.ccroot = self.root + 'analyse/test/fixtures-1/cclive-release-jdk1.5'
+        self.ccroot = self.root + '/analyse/tests/fixtures/cclive-release-jdk1.5'
 
         builds = BuildFactory.create_builds("cclive-release-jdk1.5", "log20080624064201Lbuild.70.xml")
         
         self.assertEqual(True, True)
    
-    # def testShouldFilterTheVeryClose1DayFiles(self):
-    #     self.ccroot = self.root + 'analyse/test/fixtures-1/cclive-release-jdk1.5'
-    #     self.assertEquals(3, len(BuildFactory.filter(self.ccroot, 1)))
-    # 
-    # def testShouldFilterTheVeryClose2DayFiles(self):
-    #     self.ccroot = self.root + 'analyse/test/fixtures-1/cclive-release-jdk1.5'
-    #     self.assertEquals(6, len(BuildFactory.filter(self.ccroot, 2)))
-    # 
-    # def testShouldSortTheLogFileBasedOnItsTimestamp(self):
-    #     self.ccroot = self.root + 'analyse/test/fixtures-1/cclive-release-jdk1.5'
-    #     BuildFactory.sort(self.ccroot, 2)
-    #     self.assertEquals(6, len())  
+    def testShouldFilter1Files(self):
+        self.ccroot = self.root + '/analyse/tests/fixtures/cclive-release-jdk1.5'
+        files = BuildFactory.filter(self.ccroot, 1)
+        self.assertEquals(1, len(files))
+        self.assertEquals('log20080924062941.xml', files[0])
+    
+    def testShouldFilterThe5Files(self):
+        self.ccroot = self.root + '/analyse/tests/fixtures/cclive-release-jdk1.5'
+        files = BuildFactory.filter(self.ccroot, 5)
+        self.assertEquals(5, len(files))
+        self.assertEquals('log20080923021338.xml', files[0])
+        self.assertEquals('log20080923232508.xml', files[1])
+        self.assertEquals('log20080924001513.xml', files[2])
+        self.assertEquals('log20080924052506.xml', files[3])
+        self.assertEquals('log20080924062941.xml', files[4])

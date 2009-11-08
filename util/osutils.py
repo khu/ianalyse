@@ -33,9 +33,8 @@ def list_matched_files(root, pattern):
     return files
     
 def sort_by_rule(root, rule, order):   
-    pattern = "log([0-9]*).*.xml"
     files = list();
-    all_files = list_matched_files(root, pattern)
+    all_files = list_matched_files(root, rule)
     return sorted(all_files, eval('compare_files_' + order)) 
 
 def __compare_files(file1, file2, order):

@@ -26,11 +26,11 @@ class ConfigTests(TestCase):
         self.assertEquals('/var/logs', self.config.logdir())
 	
     def testShouldReturnNDaysIfDefined(self):
-        self.assertEquals(3, self.config.days())
+        self.assertEquals(3, self.config.builds())
 	
     def testShouldReturn14DaysAsDefaultValue(self):
         self.config = Config(os.path.abspath(os.path.join(settings.PROJECT_DIR, 'analyse/tests/fixtures/config/no_days.cfg')))
-        self.assertEquals(14, self.config.days())
+        self.assertEquals(30, self.config.builds())
 	
     def testShouldAggregateTheColumnNamesAndXpathsAsDic(self):
         self.assertEquals('start time', self.config.csv_settings()[0][0])
