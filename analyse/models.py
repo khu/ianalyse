@@ -41,6 +41,7 @@ class Build(models.Model):
         build = Build()
         parse(input, MultipleHandlers(build))
         return build
+    
 
     @staticmethod
     def passed_count(name):
@@ -165,8 +166,6 @@ class NDaysStatistics :
         chart.y_axis = { "min": 0, "max": max_time + 10, "steps": 50}
         chart.x_axis = {"labels" : {"labels" : labels, "visible-steps": 2, "rotate": 90}}
         return chart.create()
-        #return '''{"y_axis": {"max": 72, "labels": {"steps": 20}, "steps": 50, "min": 0}, "x_axis": {"max": 1255489404, "labels": {"text": "#date:l jS, M Y#", "rotate": 90, "steps": 86400, "visible-steps": 2}, "steps": 86400, "min": 1255300762}, "elements": [{"colour": "#0000ff", "width": 2, "fill-alpha": 0.7, "values": [{"y": 60, "x": 1255300762}, {"y": 62, "x": 1255489404}], "dot-style": {"type": "dot"}, "type": "bar_glass", "fill": "#1C9E05"}], "title": {"text": "Build time over time."}}'''
-
 
     def successful_rate(self):
         chart = Chart()
@@ -335,6 +334,8 @@ class BuildFactory :
     def create_builds (name = "", pattern = None):
         if pattern == None :
             pattern = "log.*.xml"
+                                               
+        Build.objects.all().delete()
 
         builds = list();
 
