@@ -28,6 +28,9 @@ class Config:
         def anonymous(config): return config.items("CSV")
         return self.__readattr__(anonymous) 
 
+    def view_all(self, results):
+        results['config_file'] = self.abspath()
+
     def __readattr__(self, func):
        config = ConfigParser.ConfigParser()
        config.read(self.abspath())

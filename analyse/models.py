@@ -113,7 +113,7 @@ class Build(models.Model):
     def view_all(name, results):
         results["total_count"] = Build.total_count(name)
         results["avg_time"] = Build.avg_build_time(name)             
-        results["pass_rate"] = "%.2f%%" % float(Build.pass_rate(name))
+        results["pass_rate"] = "%.2f%%" % (Build.pass_rate(name) * 100)
         results["started_build_at"] = Build.started_build_at(name)
         results["last_built_at"] = Build.last_built_at(name)
         return
