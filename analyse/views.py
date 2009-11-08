@@ -16,13 +16,13 @@ def index(request):
             )
 
 def generate(request) :
-    proj_name = request.GET["project"];
+    proj_name = request.POST["project"];
     over_all_result = {
-    "project_name" : proj_name
+        "project_name" : proj_name
     }
     BuildFactory.create_builds(proj_name)
     Build.analyse_all(proj_name, over_all_result)
-    return render_to_response('analyse/index.html', Context(over_all_result), context_instance = RequestContext(request)
-            )
+    return redirect('index.html?project=' + proj_name)
+
 
 
