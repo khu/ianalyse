@@ -356,3 +356,16 @@ class BuildFactory :
 
         return builds;
 
+    @staticmethod
+    def filter(root):
+        pattern = "log.*.xml"
+        logs = list();
+        pass
+        
+        
+    @staticmethod
+    def filter(root):
+        pattern = "log.*.xml"
+        logs = list();
+        pass
+        

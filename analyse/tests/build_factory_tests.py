@@ -33,6 +33,16 @@ class BuildFactoryTest(TestCase):
         builds = BuildFactory.create_builds("cclive-release-jdk1.5", "log20080624064201Lbuild.70.xml")
         
         self.assertEqual(True, True)
-
-
-
+   
+    # def testShouldFilterTheVeryClose1DayFiles(self):
+    #     self.ccroot = self.root + 'analyse/test/fixtures-1/cclive-release-jdk1.5'
+    #     self.assertEquals(3, len(BuildFactory.filter(self.ccroot, 1)))
+    # 
+    # def testShouldFilterTheVeryClose2DayFiles(self):
+    #     self.ccroot = self.root + 'analyse/test/fixtures-1/cclive-release-jdk1.5'
+    #     self.assertEquals(6, len(BuildFactory.filter(self.ccroot, 2)))
+    # 
+    # def testShouldSortTheLogFileBasedOnItsTimestamp(self):
+    #     self.ccroot = self.root + 'analyse/test/fixtures-1/cclive-release-jdk1.5'
+    #     BuildFactory.sort(self.ccroot, 2)
+    #     self.assertEquals(6, len())  

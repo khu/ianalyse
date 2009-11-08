@@ -1,6 +1,7 @@
 import os
 import shutil          
-import re                                            
+import re 
+import util.datetimeutils                             
 from datetime import datetime
 
 def touch(path):
@@ -31,23 +32,24 @@ def list_matched_files(root, pattern):
             files.append(file)
     return files
     
-def sort_by_rule(root, rule, order = 'asc'):   
+def sort_by_rule(root, rule, order):   
     pattern = "log([0-9]*).*.xml"
     files = list();
     all_files = list_matched_files(root, pattern)
-    return sorted(all_files, eval('compare_files_' + order))
+    return sorted(all_files, eval('compare_files_' + order)) 
 
 def __compare_files(file1, file2, order):
     pattern = "log([0-9]*).*.xml"
     m1 = re.match(pattern, file1)
     date1 = datetime.strptime(m1.group(1), "%Y%m%d%H%M%S")
-    m2 = re.match(pattern, file1)
+    m2 = re.match(pattern, file2)
     date2 = datetime.strptime(m2.group(1), "%Y%m%d%H%M%S")
-    if order == 'desc':
-        return  date1 > date2
-    else: 
-        return  date1 < date2
 
+    if order == 'desc':                                   
+        return cmp(date2, date1)
+    else:                                                  
+        return cmp(date1, date2)
+        
 def compare_files_asc(file1, file2):
     return __compare_files(file1, file2, 'asc')
 
