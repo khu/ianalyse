@@ -26,7 +26,7 @@ class ConfigTests(TestCase):
         self.assertEquals('/var/logs', self.config.logdir())
 	
     def testShouldReturnNDaysIfDefined(self):
-	    pass
+        self.assertEquals('3', self.config.days())
 	
     def testShouldReturn14DaysAsDefaultValue(self):
 	    pass

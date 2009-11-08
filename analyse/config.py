@@ -17,3 +17,7 @@ class Config:
         config.read(self.abspath())
         return config.get('Basic', 'logdir', 0)
     
+    def days(self):
+        config = ConfigParser.ConfigParser()
+        config.read(self.abspath())
+        return config.get('Basic', 'days', 0)
