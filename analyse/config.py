@@ -13,11 +13,19 @@ class Config:
         return os.path.exists(self.abspath())
     
     def logdir(self): 
-        config = ConfigParser.ConfigParser()
-        config.read(self.abspath())
-        return config.get('Basic', 'logdir', 0)
+        def anonymous(config): return config.get('Basic', 'logdir', 0)
+        return self.__readattr__(anonymous)
     
     def days(self):
-        config = ConfigParser.ConfigParser()
-        config.read(self.abspath())
-        return config.get('Basic', 'days', 0)
+        def anonymous(config): 
+            try:                                        
+                return config.getint('Basic', 'days')
+            except Exception, e:
+                return 14
+        return self.__readattr__(anonymous)
+
+    def __readattr__(self, func):
+       config = ConfigParser.ConfigParser()
+       config.read(self.abspath())
+       return func(config)
+        
