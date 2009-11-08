@@ -153,7 +153,7 @@ class BuildsTest(TestCase):
         builds = Builds()
         builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
 
-        values, max_time = builds.per_build_time()
+        values, labels, max_time = builds.per_build_time()
         
         self.assertEquals('#1C9E05', values[0]['colour']);
         self.assertEquals('#1C9E05', values[1]['colour']);
@@ -161,6 +161,9 @@ class BuildsTest(TestCase):
         self.assertEquals(60, values[0]['top']);
         self.assertEquals(2,  values[1]['top']);
         self.assertEquals(4,  values[2]['top']);
+        self.assertEquals('2009-10-11 17:39:22', labels[0])
+        self.assertEquals('2009-10-11 17:39:00', labels[1])
+        self.assertEquals('2009-10-13 22:03:24', labels[2])
         self.assertEquals(60, max_time);
 
 

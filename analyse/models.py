@@ -155,14 +155,18 @@ class NDaysStatistics :
 
         chart = Chart()
 
-        values, max_time = builds.per_build_time();
+        values, labels, max_time = builds.per_build_time();
         element = Chart()
         element.type = "bar_glass"
         element.values = values
+        
 
         chart.elements = [element]
-        chart.y_axis   = { "min": 0, "max": max_time + 10, "steps": 10}
+        chart.y_axis = { "min": 0, "max": max_time + 10, "steps": 10}
+        chart.x_axis = {"labels" : {"labels" : labels}}
         return chart.create()
+        #return '''{"y_axis": {"max": 72, "labels": {"steps": 20}, "steps": 50, "min": 0}, "x_axis": {"max": 1255489404, "labels": {"text": "#date:l jS, M Y#", "rotate": 90, "steps": 86400, "visible-steps": 2}, "steps": 86400, "min": 1255300762}, "elements": [{"colour": "#0000ff", "width": 2, "fill-alpha": 0.7, "values": [{"y": 60, "x": 1255300762}, {"y": 62, "x": 1255489404}], "dot-style": {"type": "dot"}, "type": "bar_glass", "fill": "#1C9E05"}], "title": {"text": "Build time over time."}}'''
+
 
     def successful_rate(self):
         chart = Chart()
@@ -287,9 +291,11 @@ class Builds:
                 max_time = build.build_time
 
         return arry,min_date, max_date, max_time
-
+    
+    #'''{"elements":[{"type":"bar_glass","values":[9,8,7,6,5,4,4]},{"type":"tags","values":[{"x":0,"y":9},{"x":1,"y":8},{"x":2,"y":7},{"x":3,"y":6},{"x":4,"y":5},{"x":5,"y":4},{"x":6,"y":4}],"font":"Verdana","font-size":10,"colour":"#000000","align-x":"center","text":"#y#"}],"title":{"text":"Sun Nov 08 2009"},"x_axis":{"labels":{"labels":["Mon","Tue","Wed","Thur","Fri","Sat","Sun"]}}}'''
     def per_build_time(self):
         arry = []
+        labels = []
         max_time = None
         for build in self.builds :
             timestamp = int(self.to_unix_timestamp(build.start_time));
@@ -297,12 +303,13 @@ class Builds:
             if build.is_passed:
                 color = '#1C9E05'
             else:
-                color = '#FF368D'
-            arry.append({"top" : build.build_time, "colour": color})
+                color = '#FF368D'                           
 
+            arry.append({"top" : build.build_time, "colour": color})
+            labels.append(str(build.start_time))
             if max_time == None or build.build_time > max_time:
                 max_time = build.build_time
-        return arry, max_time
+        return arry, labels, max_time
 
     def pass_count(self) :
         count = 0
