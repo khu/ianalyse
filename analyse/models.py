@@ -65,7 +65,11 @@ class Build(models.Model):
                 ,
                 [name, name])
         rate = cursor.fetchone()
-        return rate[0]
+        if rate[0] == None:
+        	return 0.0
+	else:
+		return rate[0]
+
 
     @staticmethod
     def avg_build_time(name):
@@ -108,8 +112,8 @@ class Build(models.Model):
     @staticmethod
     def view_all(name, results):
         results["total_count"] = Build.total_count(name)
-        results["avg_time"] = Build.avg_build_time(name)
-        results["pass_rate"] = Build.pass_rate(name)
+        results["avg_time"] = Build.avg_build_time(name)             
+        results["pass_rate"] = "%.2f%%" % float(Build.pass_rate(name))
         results["started_build_at"] = Build.started_build_at(name)
         results["last_built_at"] = Build.last_built_at(name)
         return
