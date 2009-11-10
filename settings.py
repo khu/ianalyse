@@ -2,6 +2,7 @@
 import util.osutils
 import util.datetimeutils
 
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -98,6 +99,7 @@ INSTALLED_APPS = (
     'ianalyse.analyse'
 )
 
-CCLOGS = os.environ.get("CCLOGS")
+
+
 RESULT_ROOT = os.path.join(PROJECT_DIR, 'results')
 

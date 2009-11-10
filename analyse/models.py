@@ -294,9 +294,8 @@ class Builds:
             if max_time == None or build.build_time > max_time:
                 max_time = build.build_time
 
-        return arry,min_date, max_date, max_time
-    
-    #'''{"elements":[{"type":"bar_glass","values":[9,8,7,6,5,4,4]},{"type":"tags","values":[{"x":0,"y":9},{"x":1,"y":8},{"x":2,"y":7},{"x":3,"y":6},{"x":4,"y":5},{"x":5,"y":4},{"x":6,"y":4}],"font":"Verdana","font-size":10,"colour":"#000000","align-x":"center","text":"#y#"}],"title":{"text":"Sun Nov 08 2009"},"x_axis":{"labels":{"labels":["Mon","Tue","Wed","Thur","Fri","Sat","Sun"]}}}'''
+        return arry,min_date, max_date, max_time    
+
     def per_build_time(self):
         arry = []
         labels = []
@@ -344,7 +343,7 @@ class BuildFactory :
 
         builds = list();
 
-        root = os.path.join(settings.CCLOGS, name);
+        root = os.path.join(Config().logdir(), name);
 
         for eachfile in os.listdir(root):
             if None != re.match(pattern, eachfile) :
@@ -358,9 +357,8 @@ class BuildFactory :
         return builds;
 
     @staticmethod
-    def filter(root, buids = Config().builds()): 
+    def filter(root, required_builds = Config().builds()): 
         files = os.sort_by_rule(root,"log([0-9]*).*.xml", 'asc')
-        required_builds = buids                 
         len_of_files = len(files)
 
         if required_builds < len_of_files :                 

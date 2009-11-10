@@ -3,8 +3,15 @@ from django.conf import settings
 import ConfigParser
 
 class Config:
-    def __init__(self, config_file = os.path.join(settings.PROJECT_DIR, 'ianalyse.cfg')):
-        self.config_file = config_file
+    def __init__(self, config_file = None):
+        config = config_file
+        if None ==  config_file :
+            config = os.environ.get("CONFIG_FILE")
+
+        if None == config :
+            config = os.path.join(settings.PROJECT_DIR, 'ianalyse.cfg')
+
+        self.config_file = config
     
     def abspath(self):
         return os.path.abspath(self.config_file)                                        
