@@ -78,7 +78,9 @@ class BuildTest(TestCase):
 
     def setUp(self):
         self.root = settings.PROJECT_DIR
+        self.ccroot = self.root + '/analyse/tests/fixtures/connectfour4'
 
+    #should replace those test method with file based test, since pass in string never used in production environment.
     def testToParseTheProjectName(self):
         build = Build.from_xml(BuildTest.FAILED_LOG)
         self.assertEqual("connectfour4", build.name)
@@ -108,8 +110,11 @@ class BuildTest(TestCase):
         expecteddate = datetime(2009, 10, 11, 20, 11, 49);
         build = Build.from_xml(BuildTest.FAILED_LOG)
         self.assertEqual(expecteddate, build.last_pass)
-        
-        
-
-
-    #dt= datetime.datetime.strptime(dt, "%Y-%m-%dT%H:%M:%S")
+    
+    def testToSelectValuesAsArrayByApplyingXPath(self):
+        file = self.ccroot + '/log20091011173922Lbuild.1.xml'
+        values = Build.select_values(file)
+        self.assertEquals('connectfour4', values[0])
+        self.assertEquals('1 minute(s) 0 second(s)', values[2])
+        self.assertEquals('build.1', values[1])
+        self.assertEquals(None, values[3])

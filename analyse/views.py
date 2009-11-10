@@ -25,5 +25,3 @@ def generate(request) :
     Build.analyse_all(proj_name, over_all_result)
     return redirect('index.html?project=' + proj_name)
 
-
-

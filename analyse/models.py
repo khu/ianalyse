@@ -14,6 +14,8 @@ from xml.sax.handler import ContentHandler
 from xml.sax import parse, parseString
 import sys
 from analyse.saxhandlers import *
+from lxml import etree
+import StringIO
 
 class Build(models.Model):
     number = models.TextField()
@@ -42,7 +44,19 @@ class Build(models.Model):
         build = Build()
         parse(input, MultipleHandlers(build))
         return build
-    
+
+    @staticmethod
+    def select_values(file):
+        tree = etree.parse(file)
+        root = tree.getroot()
+        result = []
+        for setting in Config().csv_settings() :
+            try:
+                select_xpath = etree.XPath(setting[1])
+                result.append(select_xpath(root)[0])
+            except Exception, e:
+                result.append(None)
+        return result
 
     @staticmethod
     def passed_count(name):
@@ -326,7 +340,7 @@ class Builds:
             return 0
 
         return self.pass_count() / len(self.builds)
-
+        
     def __unicode__(self):
         return "<Builds " + str(self.builds) + ">\n"
 
@@ -366,3 +380,5 @@ class BuildFactory :
                 files.pop(0)
 
         return files
+
+        
