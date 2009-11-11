@@ -346,17 +346,17 @@ class Builds:
 
 
     @staticmethod
-    def create_builds (name = "", pattern = None):
+    def create_builds (name = "", pattern = None, required_builds = Config().builds()):
         if pattern == None :
             pattern = "log.*.xml"
 
         Build.objects.all().delete()
-
+           
         builds = list();
 
         root = os.path.join(Config().logdir(), name);
-
-        for eachfile in os.listdir(root):
+        
+        for eachfile in Builds.filter(root, required_builds):
             if None != re.match(pattern, eachfile) :
                 try :
                     build = Build.from_file(os.path.join (root, eachfile))
@@ -368,7 +368,7 @@ class Builds:
         return builds;
   
     @staticmethod
-    def filter(root, required_builds = Config().builds()): 
+    def filter(root, required_builds): 
           files = os.sort_by_rule(root,"log([0-9]*).*.xml", 'asc')
           len_of_files = len(files)
 

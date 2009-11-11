@@ -3,6 +3,7 @@ from django.conf import settings
 import ConfigParser
 
 class Config:
+    DEFAULT_FILES_TO_PROCESS = 30
     def __init__(self, config_file = None):
         config = config_file
         if None ==  config_file :
@@ -28,7 +29,7 @@ class Config:
             try:                                        
                 return config.getint('Basic', 'builds')
             except Exception, e:
-                return 30
+                return Config.DEFAULT_FILES_TO_PROCESS
         return self.__readattr__(anonymous)
         
     def csv_settings(self):
