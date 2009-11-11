@@ -1,5 +1,5 @@
 from django.test import TestCase
-from analyse.models import Build, BuildFactory, OverallStatistics
+from analyse.models import Build, Builds, OverallStatistics
 import os
 from django.conf import settings
 from datetime import datetime

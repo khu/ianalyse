@@ -345,14 +345,11 @@ class Builds:
         return "<Builds " + str(self.builds) + ">\n"
 
 
-
-class BuildFactory :
-
     @staticmethod
     def create_builds (name = "", pattern = None):
         if pattern == None :
             pattern = "log.*.xml"
-                                               
+
         Build.objects.all().delete()
 
         builds = list();
@@ -369,16 +366,20 @@ class BuildFactory :
                     pass
 
         return builds;
-
+  
     @staticmethod
     def filter(root, required_builds = Config().builds()): 
-        files = os.sort_by_rule(root,"log([0-9]*).*.xml", 'asc')
-        len_of_files = len(files)
+          files = os.sort_by_rule(root,"log([0-9]*).*.xml", 'asc')
+          len_of_files = len(files)
 
-        if required_builds < len_of_files :                 
-            for i in range(0, len_of_files - required_builds) :
-                files.pop(0)
+          if required_builds < len_of_files :                 
+              for i in range(0, len_of_files - required_builds) :
+                  files.pop(0)
 
-        return files
+          return files
+
+
+
+  
 
         

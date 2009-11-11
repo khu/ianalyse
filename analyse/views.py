@@ -1,7 +1,7 @@
 from django.template import Context, loader, RequestContext
 from django.shortcuts import render_to_response, redirect
 from django.http import HttpResponse
-from analyse.models import BuildFactory, Build
+from analyse.models import Builds, Build
 from analyse.config import Config
 
 def home(request):
@@ -21,7 +21,7 @@ def generate(request) :
     over_all_result = {
         "project_name" : proj_name
     }
-    BuildFactory.create_builds(proj_name)
+    Builds.create_builds(proj_name)
     Build.analyse_all(proj_name, over_all_result)
     return redirect('index.html?project=' + proj_name)
 

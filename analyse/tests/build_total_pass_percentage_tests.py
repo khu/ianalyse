@@ -1,6 +1,6 @@
 from django.test import TestCase
 from analyse.models import Build
-from analyse.models import BuildFactory
+from analyse.models import Builds
 import os
 from django.conf import settings
 from datetime import datetime
@@ -14,11 +14,11 @@ class BuildTotalPassPercentageTest(TestCase):
         self.ccroot = self.root + 'analyse/test/fixtures-1/connectfour4'
 
     def testGenerateTotalPassRate(self):
-        BuildFactory.create_builds('connectfour4', BuildTotalPassPercentageTest.PATTERN);
+        Builds.create_builds('connectfour4', BuildTotalPassPercentageTest.PATTERN);
         self.assertEqual(2, Build.total('connectfour4'));
         self.assertEqual(1, Build.passed_count('connectfour4'));
 
     def testGenerateTotalBuilds(self):
-        BuildFactory.create_builds('connectfour4', BuildTotalPassPercentageTest.PATTERN);
+        Builds.create_builds('connectfour4', BuildTotalPassPercentageTest.PATTERN);
         self.assertEqual(2, Build.total('connectfour4'));
 
