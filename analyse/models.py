@@ -366,7 +366,23 @@ class Builds:
                     pass
 
         return builds;
-  
+
+    @staticmethod  
+    def select_values_from(name = "", pattern = None, required_builds = Config().builds()):
+        if pattern == None :
+            pattern = "log.*.xml"
+        
+        root = os.path.join(Config().logdir(), name);
+        values = []
+        for eachfile in Builds.filter(root, required_builds):
+            if None != re.match(pattern, eachfile) :
+                try :
+                    value = Build.select_values(os.path.join (root, eachfile))
+                    values.append(value)
+                except Exception, e :
+                    pass
+        return values
+        
     @staticmethod
     def filter(root, required_builds): 
           files = os.sort_by_rule(root,"log([0-9]*).*.xml", 'asc')
@@ -377,9 +393,3 @@ class Builds:
                   files.pop(0)
 
           return files
-
-
-
-  
-
-        

@@ -56,4 +56,17 @@ class BuildFactoryTest(TestCase):
         self.assertEquals(2, len(builds))
         self.assertEquals(datetime(2008, 9, 24, 5, 25, 6), builds[0].start_time)
         self.assertEquals(datetime(2008, 9, 24, 6, 29, 41), builds[1].start_time)
-    
+
+    def testShouldSelectValuesFromFiles(self) :
+        self.ccroot = self.root + '/analyse/tests/fixtures/cclive-release-jdk1.5'
+        values = Builds.select_values_from(self.ccroot, required_builds = 2)
+        self.assertEquals(2, len(values))
+        
+        self.assertEquals('cclive-release-jdk1.5', values[0][0])
+        self.assertEquals('build.6', values[0][1])
+        self.assertEquals('6 minutes 28 seconds', values[0][2])
+        self.assertEquals(None, values[0][3])
+        self.assertEquals('cclive-release-jdk1.5', values[1][0])
+        self.assertEquals('build.6', values[1][1])
+        self.assertEquals('6 minutes 45 seconds', values[1][2])
+        self.assertEquals(None, values[1][3])
