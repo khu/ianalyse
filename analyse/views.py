@@ -23,5 +23,6 @@ def generate(request) :
     }
     Builds.create_builds(proj_name)
     Build.analyse_all(proj_name, over_all_result)
+    Builds.create_csv(proj_name)
     return redirect('index.html?project=' + proj_name)
 

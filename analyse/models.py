@@ -16,6 +16,7 @@ import sys
 from analyse.saxhandlers import *
 from lxml import etree
 import StringIO
+import csv
 
 class Build(models.Model):
     number = models.TextField()
@@ -393,3 +394,13 @@ class Builds:
                   files.pop(0)
 
           return files
+
+    @staticmethod
+    def create_csv(name):
+        arrays = Builds.select_values_from(name)
+        writer = csv.writer(open(os.path.join(settings.RESULT_ROOT, name + '.csv')), 'w'), delimiter=',')
+        writer.writerows(arrays)
+
+
+
+
