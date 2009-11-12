@@ -5,6 +5,7 @@ from django.conf import settings
 from datetime import datetime
 import django.test.testcases
 import	cjson
+from analyse.tests.testutil import TestUtils
 
 class SuccessfulRateChartTests(TestCase):
     PATTERN = "log20091011173922Lbuild.1.xml|log20091013220324.xml"
@@ -14,7 +15,7 @@ class SuccessfulRateChartTests(TestCase):
         self.ccroot = self.root + 'analyse/test/fixtures-1/connectfour4'
 
     def testGenerateTotalPassRate(self):
-        builds = Builds.create_builds('connectfour4', SuccessfulRateChartTests.PATTERN);
+        builds = Builds.create_builds(TestUtils().connectfour_config(), SuccessfulRateChartTests.PATTERN);
         
         ndaysStat = TopNStatistics('connectfour4', builds)
         json_str = ndaysStat.successful_rate()

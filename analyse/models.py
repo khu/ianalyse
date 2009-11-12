@@ -347,20 +347,18 @@ class Builds:
 
 
     @staticmethod
-    def create_builds (name = "", pattern = None, required_builds = Config().builds()):
+    def create_builds(config = Config(), pattern = None, required_builds = Config().builds()):
         if pattern == None :
             pattern = "log.*.xml"
 
         Build.objects.all().delete()
            
         builds = list();
-
-        root = os.path.join(Config().logdir(), name);
-        
-        for eachfile in Builds.filter(root, required_builds):
+                 
+        for eachfile in Builds.filter(config.logdir(), required_builds):
             if None != re.match(pattern, eachfile) :
                 try :
-                    build = Build.from_file(os.path.join (root, eachfile))
+                    build = Build.from_file(config.logfile(eachfile))
                     build.save()
                     builds.append(build)
                 except Exception, e :
@@ -369,16 +367,15 @@ class Builds:
         return builds;
 
     @staticmethod  
-    def select_values_from(name = "", pattern = None, required_builds = Config().builds()):
+    def select_values_from(config = Config(), pattern = None, required_builds = Config().builds()):
         if pattern == None :
             pattern = "log.*.xml"
-        
-        root = os.path.join(Config().logdir(), name);
+
         values = []
-        for eachfile in Builds.filter(root, required_builds):
+        for eachfile in Builds.filter(config.logdir(), required_builds):
             if None != re.match(pattern, eachfile) :
                 try :
-                    value = Build.select_values(os.path.join (root, eachfile))
+                    value = Build.select_values(config.logfile(eachfile))
                     values.append(value)
                 except Exception, e :
                     pass
@@ -398,7 +395,7 @@ class Builds:
     @staticmethod
     def create_csv(name):
         arrays = Builds.select_values_from(name)
-        writer = csv.writer(open(os.path.join(settings.RESULT_ROOT, name + '.csv')), 'w'), delimiter=',')
+        writer = csv.writer(open(os.path.join(settings.RESULT_ROOT, name + '.csv'), 'w'), delimiter=',')
         writer.writerows(arrays)
 
 

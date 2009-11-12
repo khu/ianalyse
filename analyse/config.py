@@ -24,6 +24,9 @@ class Config:
         def anonymous(config): return config.get('Basic', 'logdir', 0)
         return self.__readattr__(anonymous)
     
+    def logfile(self, name):
+        return os.path.join(self.logdir(), name)
+    
     def builds(self):
         def anonymous(config): 
             try:                                        
