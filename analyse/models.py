@@ -394,8 +394,9 @@ class Builds:
 
     @staticmethod
     def create_csv(name):
-        arrays = Builds.select_values_from(name)
-        writer = csv.writer(open(os.path.join(settings.RESULT_ROOT, name + '.csv'), 'w'), delimiter=',')
+        arrays = Builds.select_values_from()
+        folder = os.path.join(settings.RESULT_ROOT, name)
+        writer = csv.writer(open(os.path.join(folder, name + '.csv'), 'w'), delimiter=',')
         writer.writerows(arrays)
 
 

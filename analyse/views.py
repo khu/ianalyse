@@ -21,7 +21,7 @@ def generate(request) :
     over_all_result = {
         "project_name" : proj_name
     }
-    Builds.create_builds(proj_name)
+    print Builds.create_builds()
     Build.analyse_all(proj_name, over_all_result)
     Builds.create_csv(proj_name)
     return redirect('index.html?project=' + proj_name)
