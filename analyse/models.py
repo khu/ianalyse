@@ -160,8 +160,9 @@ class OverallStatistics :
             raise AttributeError(name)
         field = name[len("generate_"):]
         result = getattr(self, field)()
-        os.makedirs_p(os.path.join(settings.RESULT_ROOT, self.name))
-        total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), field + '.txt');
+        project_root = Config().result_dir(self.name)
+        os.makedirs_p(project_root)
+        total_json_file = os.path.join(project_root, field + '.txt');
         os.write_to_file(total_json_file, result)
         return lambda : {}
 
@@ -228,6 +229,7 @@ class TopNStatistics :
 
         builds = Builds()
         builds.builds = self.builds
+        
         values, min_date, max_date, max_time = builds.build_times()
 
         element.values = values
@@ -245,7 +247,9 @@ class TopNStatistics :
             raise AttributeError(name)
         field = name[len("generate_"):]
         result = getattr(self, field)()
-        total_json_file = os.path.join(os.path.join(settings.RESULT_ROOT, self.name), field + '.txt');
+        
+        total_json_file = os.path.join(Config().result_dir(self.name), field + '.txt');
+        
         os.write_to_file(total_json_file, result)
         return lambda : {}
 
@@ -395,7 +399,7 @@ class Builds:
     @staticmethod
     def create_csv(name):
         arrays = Builds.select_values_from()
-        folder = os.path.join(settings.RESULT_ROOT, name)
+        folder = Config().result_dir(name)
         writer = csv.writer(open(os.path.join(folder, name + '.csv'), 'w'), delimiter=',')
         writer.writerows(arrays)
 

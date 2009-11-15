@@ -4,6 +4,7 @@ from django.conf.urls.defaults import *
 # from django.contrib import admin
 # admin.autodiscover()
 import settings
+from analyse.config import Config
 
 urlpatterns = patterns('',
                        # Example:
@@ -19,7 +20,7 @@ urlpatterns = patterns('',
                        (r'^media/(?P<path>.*)$', 'django.views.static.serve',
                        {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
                        (r'^results/(?P<path>.*)$', 'django.views.static.serve',
-                       {'document_root': settings.RESULTS_ROOT, 'show_indexes': True})
+                       {'document_root': Config().results_dir(), 'show_indexes': True})
         )
 
 

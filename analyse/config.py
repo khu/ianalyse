@@ -14,6 +14,10 @@ class Config:
 
         self.config_file = config
     
+    def project_name(self):
+        def anonymous(config): return config.get('Basic', 'name', 0)
+        return self.__readattr__(anonymous)
+            
     def abspath(self):
         return os.path.abspath(self.config_file)                                        
     
@@ -42,8 +46,11 @@ class Config:
     def view_all(self, results):
         results['config_file'] = self.abspath()
 
+    def results_dir(self):
+        return os.path.join(settings.PROJECT_DIR, 'results')
+
     def result_dir(self, name):
-       return os.path.join(os.path.join(settings.PROJECT_DIR, 'results'), name)
+       return os.path.join(self.results_dir(), name)
 
     def has_result(self, name):
         if not os.path.exists(self.result_dir(name)) :
@@ -56,4 +63,4 @@ class Config:
        config = ConfigParser.ConfigParser()
        config.read(self.abspath())
        return func(config)
-        
+

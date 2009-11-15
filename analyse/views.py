@@ -8,22 +8,31 @@ def home(request):
     return redirect('index.html')
 
 def index(request):
-    proj_name = request.GET["project"];
-    over_all_result = {
-    "project_name" : proj_name
-    }
-    Build.view_all(proj_name, over_all_result)
-                                                                          
-    Config().view_all(over_all_result)
-    return render_to_response('analyse/index.html', Context(over_all_result), context_instance = RequestContext(request))
+    config = Config()
+    proj_name = config.project_name()
 
-def generate(request) :
-    proj_name = request.POST["project"];
+    print "[" + proj_name +"]"
+    print config.has_result(proj_name)
+    
     over_all_result = {
         "project_name" : proj_name
     }
-    print Builds.create_builds()
+    config.view_all(over_all_result)    
+    if config.has_result(proj_name) :
+        Build.view_all(proj_name, over_all_result)                                                                  
+        return render_to_response('analyse/index.html', Context(over_all_result), context_instance = RequestContext(request))
+    else :
+        return render_to_response('analyse/setup.html', Context(over_all_result), context_instance = RequestContext(request))
+
+
+def generate(request) :
+    config = Config()
+    proj_name = config.project_name()
+    over_all_result = {
+        "project_name" : proj_name
+    }
+    Builds.create_builds()
     Build.analyse_all(proj_name, over_all_result)
     Builds.create_csv(proj_name)
-    return redirect('index.html?project=' + proj_name)
+    return redirect('index.html')
 
