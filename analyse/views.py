@@ -12,7 +12,8 @@ def index(request):
     over_all_result = {
     "project_name" : proj_name
     }
-    Build.view_all(proj_name, over_all_result)                                                                          
+    Build.view_all(proj_name, over_all_result)
+                                                                          
     Config().view_all(over_all_result)
     return render_to_response('analyse/index.html', Context(over_all_result), context_instance = RequestContext(request))
 

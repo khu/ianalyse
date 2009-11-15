@@ -45,12 +45,6 @@ USE_I18N = True
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 
-RESULTS_ROOT = os.path.join(PROJECT_DIR, 'results')
-
-import os
-if not os.path.exists (RESULTS_ROOT):
-    os.makedirs(RESULTS_ROOT)
-
 
 MEDIA_URL = 'http://localhost:8000/media'
 
@@ -99,7 +93,4 @@ INSTALLED_APPS = (
     'ianalyse.analyse'
 )
 
-
-
-RESULT_ROOT = os.path.join(PROJECT_DIR, 'results')
 

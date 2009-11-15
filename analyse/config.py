@@ -42,6 +42,16 @@ class Config:
     def view_all(self, results):
         results['config_file'] = self.abspath()
 
+    def result_dir(self, name):
+       return os.path.join(os.path.join(settings.PROJECT_DIR, 'results'), name)
+
+    def has_result(self, name):
+        if not os.path.exists(self.result_dir(name)) :
+             return False
+
+        total_generated_json_files = 4        
+        return len(os.listdir(self.result_dir(name))) >= total_generated_json_files
+
     def __readattr__(self, func):
        config = ConfigParser.ConfigParser()
        config.read(self.abspath())
