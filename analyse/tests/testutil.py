@@ -1,5 +1,7 @@
 from analyse.config import Config
 from django.db import settings
+import os
+import util.osutils
 
 class TestUtils:
     def connectfour(self):
@@ -17,3 +19,8 @@ class TestUtils:
         config = Config()
         config.logdir = self.cclive_release_jdk
         return config
+    
+    def cleanup_results(self):
+        results_dir = Config().results_dir()
+        os.rmdir_p(results_dir)
+        

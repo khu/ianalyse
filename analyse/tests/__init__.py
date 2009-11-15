@@ -9,6 +9,8 @@ import analyse.tests.datetimeutils_tests
 import analyse.tests.osutils_tests
 import analyse.tests.builds_tests
 import analyse.tests.config_tests
+import analyse.tests.functional_tests
+
 
 def suite():
     s = unittest.TestSuite()
@@ -21,4 +23,5 @@ def suite():
     s.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(analyse.tests.builds_tests.BuildsTest))
     s.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(analyse.tests.config_tests.ConfigTests))
     s.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(analyse.tests.osutils_tests.OSUtilsTests))
+    s.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(analyse.tests.functional_tests.FunctionalTests))
     return s

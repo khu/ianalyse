@@ -5,6 +5,8 @@ from analyse.config import Config
 
 
 class ConfigTests(TestCase):   
+    original = os.environ["CONFIG_FILE"]
+    
     def setUp(self):
         self.config = Config(os.path.abspath(os.path.join(settings.PROJECT_DIR, 'analyse/tests/fixtures/config/ianalyse.cfg')))
         
@@ -12,6 +14,7 @@ class ConfigTests(TestCase):
          project1 = self.config.result_dir('project1')
          if os.path.exists(project1) :
             os.rmdir_p(project1)
+         os.environ["CONFIG_FILE"] = ConfigTests.original
          
     def testShouldReturnTheAbsolutePathOfTheDefaultConfigFile(self):
         expected = os.path.abspath(os.path.join(settings.PROJECT_DIR, 'ianalyse.cfg'))

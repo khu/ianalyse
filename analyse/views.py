@@ -11,9 +11,6 @@ def index(request):
     config = Config()
     proj_name = config.project_name()
 
-    print "[" + proj_name +"]"
-    print config.has_result(proj_name)
-    
     over_all_result = {
         "project_name" : proj_name
     }

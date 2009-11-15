@@ -6,7 +6,8 @@ class Config:
     DEFAULT_FILES_TO_PROCESS = 30
     def __init__(self, config_file = None):
         config = config_file
-        if None ==  config_file :
+        
+        if None ==  config_file :            
             config = os.environ.get("CONFIG_FILE")
 
         if None == config :
