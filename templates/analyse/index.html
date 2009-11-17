@@ -4,79 +4,19 @@
 
 {% block extrahead %}
 <script type="text/javascript" src="{{ MEDIA_URL }}/js/swfobject.js"></script>
+
 <script type="text/javascript">
     swfobject.embedSWF(
-            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "total", "550", "200",
+            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "total_pass_rate", "150", "150",
             "9.0.0", "expressInstall.swf",
     {"data-file":"/results/{{project_name}}/pass_rate.txt"}
             );
-    swfobject.embedSWF(
-            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "successful_rate", "550", "500",
-            "9.0.0", "expressInstall.swf",
-    {"data-file":"/results/{{project_name}}/successful_rate.txt"}
-            );
-
-    swfobject.embedSWF(
-            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "build_times", "550", "500",
-            "9.0.0", "expressInstall.swf",
-    {"data-file":"/results/{{project_name}}/build_times.txt"}
-            );
-    swfobject.embedSWF(
-            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "per_build_time", "550", "500",
-            "9.0.0", "expressInstall.swf",
-    {"data-file":"/results/{{project_name}}/per_build_time.txt"}
-            );
-
-
 </script>
 {% endblock %}
-
 {% block content %}
-<h1>ianalyse  - Take a closer look at your project</h1>
-          
-<p>
-{{config_file}}
-</p>
-<form action="generate.html" method="POST">
-    <input type="hidden" name="project" value="{{project_name}}">
-    <input type="submit" value="Refresh the report" />
-</form>
-
-<div>
-    <div style="float:left">
-        <h1>{{project_name}}</h1>
-        <span>{{ total_count }} runs between {{started_build_at}} and {{last_built_at}}</span>
-    </div>
-    <div style="float:left;padding-left:150px;">
-            <dl style="display:block;">
-                <dt style="display:inline">Pass rate:</dt>
-                <dd style="display:inline">{{ pass_rate }}</dd>
-                <dt style="display:inline">Avg Duration:</dt>
-                <dd style="display:inline">{{ avg_time }}</dd>
-            </dl>
-    </div>
-    <div style="clear:both;"></div>
-
-    <a href="/results/{{project_name}}/{{project_name}}.csv">Download the {{project_name}}.csv</a>
-
-    <div id="reports">
-        <p>
-
-        <div id="total"></div>
-        </p>
-
-        <p>
-
-        <div id="successful_rate"></div>
-        </p>
-
-        <p>
-
-        <div id="build_times"></div>
-        </p>
-
-        <div id="per_build_time"></div>
-        </p>
-    </div>
-
+<ul id="preview_container">
+	<li class="preview">
+		<b id="total_pass_rate"></b>
+	</li>
+</ul>
 {% endblock %}

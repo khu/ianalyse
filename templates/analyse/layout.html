@@ -1,12 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="en">
 <head>
-
     <title>{% block title %}{% endblock %}</title>
+    <link href="{{ MEDIA_URL }}/css/ianalyse.css" media="screen" rel="stylesheet" type="text/css" />
     {% block extrahead %}{% endblock %}
 </head>
 <body>
-    <h1 id="top">{% block headline %}{% endblock %}</h1>
+    {% include "analyse/header.html" %}
+
     {% block content %}{% endblock %}
+
+    {% include "analyse/footer.html" %}
 </body>
 </html>
