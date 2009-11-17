@@ -1,35 +1,37 @@
-<html>
-<head>
-    <script type="text/javascript" src="{{ MEDIA_URL }}/js/swfobject.js"></script>
-    <script type="text/javascript">
-        swfobject.embedSWF(
-                "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "total", "550", "200",
-                "9.0.0", "expressInstall.swf",
-        {"data-file":"/results/{{project_name}}/pass_rate.txt"}
-                );
-        swfobject.embedSWF(
-                "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "successful_rate", "550", "500",
-                "9.0.0", "expressInstall.swf",
-        {"data-file":"/results/{{project_name}}/successful_rate.txt"}
-                );
+{% extends "analyse/layout.html" %}
 
-        swfobject.embedSWF(
-                "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "build_times", "550", "500",
-                "9.0.0", "expressInstall.swf",
-        {"data-file":"/results/{{project_name}}/build_times.txt"}
-                );
-        swfobject.embedSWF(
-                "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "per_build_time", "550", "500",
-                "9.0.0", "expressInstall.swf",
-        {"data-file":"/results/{{project_name}}/per_build_time.txt"}
-                );
+{% block title %}ianalyse - Take a closer look at your project{% endblock %}
+
+{% block extrahead %}
+<script type="text/javascript" src="{{ MEDIA_URL }}/js/swfobject.js"></script>
+<script type="text/javascript">
+    swfobject.embedSWF(
+            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "total", "550", "200",
+            "9.0.0", "expressInstall.swf",
+    {"data-file":"/results/{{project_name}}/pass_rate.txt"}
+            );
+    swfobject.embedSWF(
+            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "successful_rate", "550", "500",
+            "9.0.0", "expressInstall.swf",
+    {"data-file":"/results/{{project_name}}/successful_rate.txt"}
+            );
+
+    swfobject.embedSWF(
+            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "build_times", "550", "500",
+            "9.0.0", "expressInstall.swf",
+    {"data-file":"/results/{{project_name}}/build_times.txt"}
+            );
+    swfobject.embedSWF(
+            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "per_build_time", "550", "500",
+            "9.0.0", "expressInstall.swf",
+    {"data-file":"/results/{{project_name}}/per_build_time.txt"}
+            );
 
 
-    </script>
-    <title>ianalyse - Take a closer look at your project</title>
-</head>
+</script>
+{% endblock %}
 
-<body>
+{% block content %}
 <h1>ianalyse  - Take a closer look at your project</h1>
           
 <p>
@@ -76,10 +78,5 @@
         <div id="per_build_time"></div>
         </p>
     </div>
-    
-</body>
-</html>
 
-
-
-
+{% endblock %}
