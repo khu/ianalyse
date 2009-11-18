@@ -1,0 +1,36 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+html, body {
+    color:black;
+    height:100%;
+}
+
+body {
+    -x-system-font:none;
+    background-color:white;
+    font-family:helvetica,arial,freesans,clean,sans-serif;
+    font-size:13.34px;
+    font-size-adjust:none;
+    font-stretch:normal;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    line-height:normal;
+    text-align:center;
+}
+
+
+#footer {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:#BBCCD9 repeat-x scroll 0 0;
+    color:#CADCEA;
+    height:8.6em;
+    overflow:hidden;
+}
+
+
