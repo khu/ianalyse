@@ -19,7 +19,6 @@
     background:#BBCCD9 repeat-x scroll 0 0;
     color:#CADCEA;
     height:8.6em;
-    min-width:75em;
     overflow:hidden;
 }
 
@@ -93,8 +92,37 @@ ul.usernav {
     margin:0;
 }
 
+.category ul.nav {
+    float:right;
+}
+
+ul.nav {
+    margin:1px 0 0;
+    white-space:nowrap;
+}
+
+ul.nav li {
+    display:inline;
+    font-size:12px;
+    list-style-type:none;
+    margin:0 15px 0 0;
+}
+
+.category {
+    clear:right;
+    float:right;
+    margin-top:15px;
+    width:500px;
+}
+
+#header ul.nav li a {
+    color:#4183C4;
+    font-weight:bold;
+    text-decoration:none;
+}
+
 ul.usernav li {
-    -moz-background-clip:border;        
+    -moz-background-clip:border;
     -moz-background-inline-policy:continuous;
     -moz-background-origin:padding;
     background:transparent url(/images/modules/header/userbox/bar_separator.gif) no-repeat scroll 5px 0;
@@ -102,4 +130,9 @@ ul.usernav li {
     list-style-type:none;
     margin:0;
     padding:0 0 0 15px;
+}
+
+.preview .name {
+    display : block;
+    text-align : center;
 }
