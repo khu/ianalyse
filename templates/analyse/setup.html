@@ -1,23 +1,19 @@
-<html>
-<head>
-    <title>ianalyse - Take a closer look at your project</title>
-</head>
+{% extends "analyse/layout.html" %}
 
-<body>
-	<p>Opps, Seems you did not configure ianalyse properly or generate the necessary data for display.</p>
-	<p>
-		<span>You should be able to configure the project by editing this file:</span>
-		<span>{{config_file}}</span>
-	</p>
-	<p>
-		<span>Once you configure everything properly, please click this button to start using ianalyse</span>
-		<form action="generate.html" method="POST">
-		    <input type="submit" value="Refresh the report" />
-		</form>
-	</p>
-</body>
-</html>
+{% block title %}ianalyse - Take a closer look at your project{% endblock %}
 
+{% block extrahead %}
+<link href="{{ MEDIA_URL }}/css/setup.css" media="screen" rel="stylesheet" type="text/css"/>
+{% endblock %}
 
-
-
+{% block content %}
+<h1 id="setup_announce">Did you configure this file properly?</h1>
+<p>
+	<div id="config_file">{{config_file}}</div>
+</p>
+<p>
+	<form  id="generate_reports" action="generate.html" method="POST">
+	    <input  type="submit" value="Start to generate the report" />
+	</form>
+</p>
+{% endblock %}

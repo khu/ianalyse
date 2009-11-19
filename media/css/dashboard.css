@@ -1,8 +1,13 @@
 #preview_container {
-    margin-left  : 30px;
-    margin-right : 30px;
-    list-style-type : none;
-    min-height : 400px;
+    border-bottom:5px solid #DDDDDD;
+    border-top:5px solid #DDDDDD;
+    overflow:hidden;
+    padding:2em 0 2.5em;    
+}
+
+#preview_container h2 {
+    margin-bottom:0.5em;
+    border:0 none !important;
 }
 
 #preview_container .preview {
@@ -12,7 +17,22 @@
     height : 150px;
 }
 
+#preview_container .previews {
+    list-style-type:none;
+    margin:0 auto;
+    text-align:center;
+    width:68em;
+}
+
+#preview_container .previews .preview {
+    float:left;
+    margin:0 1em 2em 0;
+    text-align:center;
+    width:275px;
+}
+
 .preview .name {
     display : block;
     text-align : center;
 }
+

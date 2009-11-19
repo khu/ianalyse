@@ -1,0 +1,34 @@
+#setup_announce {
+    color:#133855;
+    font-family:"HelveticaNeue-Light",Helvetica,Arial,FreeSans,sans-serif;
+    font-size:240%;
+    font-weight:normal;
+    padding:0.75em 0;
+    text-align:center;
+}
+
+#config_file {
+    border:3px solid #B4B4B4;
+    font-size:180%;
+    height:1em;
+    margin-top:0.1em;
+    margin-left:5em;
+    margin-right:5em;
+    padding:0.2em 0;
+}
+
+#generate_reports input {
+    margin-top:1em;
+    margin-bottom:1em;
+}
+
+
+#start_to_generate {
+    border:3px solid #B4B4B4;
+    font-size:180%;
+    height:1em;
+    margin-top:1em;
+    margin-left:15em;
+    margin-right:15em;
+    display:block;
+}

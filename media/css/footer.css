@@ -1,0 +1,11 @@
+
+#footer {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:#BBCCD9 url(/images/modules/footer/bg.png) repeat-x scroll 0 0;
+    color:#CADCEA;
+    height:8.6em;
+    min-width:75em;
+    overflow:hidden;
+}

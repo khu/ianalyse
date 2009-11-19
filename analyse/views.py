@@ -11,16 +11,23 @@ def index(request):
     config = Config()
     proj_name = config.project_name()
 
+    if not config.has_result(proj_name) :
+        return redirect('setup.html')        
+
     over_all_result = {
         "project_name" : proj_name
     }
-    config.view_all(over_all_result)    
-    if config.has_result(proj_name) :
-        Build.view_all(proj_name, over_all_result)                                                                  
-        return render_to_response('analyse/index.html', Context(over_all_result), context_instance = RequestContext(request))
-    else :
-        return render_to_response('analyse/setup.html', Context(over_all_result), context_instance = RequestContext(request))
+    Build.view_all(proj_name, over_all_result)                                                                  
+    return render_to_response('analyse/index.html', Context(over_all_result), context_instance = RequestContext(request))
 
+def setup(request):
+    config = Config()
+    proj_name = config.project_name()
+    over_all_result = {
+        "project_name" : proj_name
+    }
+    config.view_all(over_all_result)
+    return render_to_response('analyse/setup.html', Context(over_all_result), context_instance = RequestContext(request))
 
 def generate(request) :
     config = Config()
