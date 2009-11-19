@@ -1,0 +1,38 @@
+#repos {
+    margin-bottom:1em;
+    margin-top:1em;
+}
+
+#repos .public {
+    background-color:#F0F0F0;
+    border:1px solid #D8D8D8;
+}
+
+.site {
+    margin:0 auto;
+    padding:0 15px;
+    text-align:left;
+    width:920px;
+}
+
+#repos .repo .meta table td.label {
+    color:#888888;
+    padding-right:0.25em;
+    vertical-align:bottom;
+}
+
+#repos .repo .title .path {
+    font-size:140%;
+    color:#4183C4;
+    text-decoration:none;
+
+}
+
+#download_button {
+    font-size:0.6em;    
+}
+
+.push {
+    height:8.6em;
+    padding-bottom:4em;
+}

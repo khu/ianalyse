@@ -1,4 +1,3 @@
-
 #footer {
     -moz-background-clip:border;
     -moz-background-inline-policy:continuous;
@@ -8,4 +7,9 @@
     height:8.6em;
     min-width:75em;
     overflow:hidden;
+}
+
+#footer a {
+    color:white;
+    text-decoration:underline;
 }
