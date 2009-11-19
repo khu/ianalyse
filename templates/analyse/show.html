@@ -1,0 +1,73 @@
+{% extends "analyse/layout.html" %}
+
+{% block title %}ianalyse - Take a closer look at your project{% endblock %}
+
+{% block extrahead %}
+<script type="text/javascript" src="{{ MEDIA_URL }}/js/swfobject.js"></script>
+<link href="{{ MEDIA_URL }}/css/dashboard.css" media="screen" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript">
+    swfobject.embedSWF(
+            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "successful_rate", "550", "500",
+            "9.0.0", "expressInstall.swf",
+    {"data-file":"/results/{{project_name}}/successful_rate.txt"}
+            );
+
+    swfobject.embedSWF(
+            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "build_times", "550", "500",
+            "9.0.0", "expressInstall.swf",
+    {"data-file":"/results/{{project_name}}/build_times.txt"}
+            );
+    swfobject.embedSWF(
+            "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "per_build_time", "550", "500",
+            "9.0.0", "expressInstall.swf",
+    {"data-file":"/results/{{project_name}}/per_build_time.txt"}
+            );
+</script>
+{% endblock %}
+{% block content %}
+<div class="site">
+	<div id="repos">
+		<div class="repo public" id="repo_details">
+		    <div class="title">
+		      	 <div class="path">
+			        <span>
+						{{project_name}}				
+					</span>
+					<span id="download_button">
+						<a href="/results/{{project_name}}/{{project_name}}.csv">(Export as CSV)</a>
+					</a>
+			      </div>
+				</span>
+			      <div class="meta">
+				      <table>
+						<tr>
+							<td class="label" style="vertical-align: top;">Description:</td>
+					        <td>
+								<span>{{ total_count }} runs between {{started_build_at}} and {{last_built_at}}</span>
+				            </td>
+						</tr>
+				        <tr>
+				          <td class="label" style="vertical-align:top">Pass rate:</td>
+				          <td>
+				            <span>{{ pass_rate }}</span>
+				          </td>
+				        </tr>
+				        <tr>
+				          <td class="label" style="vertical-align:top">Avg Duration:</td>
+				          <td>
+				            <span>{{ avg_time }}(s)</span>
+				          </td>
+				        </tr>
+				      </table>
+				  </div>
+			 </div>
+		</div>
+	</div>
+	<b id="successful_rate"></b>
+	<b id="build_times"></b>
+	<b id="per_build_time"></b>	
+	<div class="push"></div>
+</div>
+
+{% endblock %}

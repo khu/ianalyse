@@ -40,3 +40,16 @@ def generate(request) :
     Builds.create_csv(proj_name)
     return redirect('index.html')
 
+def show(request):
+    config = Config()
+    project_id = request.GET['id']
+
+    if not config.has_result(project_id) :
+        return redirect('setup.html')
+
+    over_all_result = {
+        "project_name" : project_id
+        "type"         : 'pass_rate'
+    }
+    Build.view_all(project_id, over_all_result)                                                                  
+    return render_to_response('analyse/show.html', Context(over_all_result), context_instance = RequestContext(request))
