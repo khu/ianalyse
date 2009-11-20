@@ -5,6 +5,7 @@ import os
 from django.conf import settings
 from datetime import datetime
 import util.datetimeutils
+from analyse.tests.testutil import TestUtils
 
 class BuildsTest(TestCase):
     PASSED_LOG_AT_OCT_11 = '''<cruisecontrol>
@@ -98,11 +99,15 @@ class BuildsTest(TestCase):
 </cruisecontrol>'''
 
     def setUp(self):
+        self.testutils                = TestUtils()
         self.root                     = settings.PROJECT_DIR
-        self.failed                   = Build.from_xml(BuildsTest.FAILED_LOG)
-        self.passed_at_oct_11         = Build.from_xml(BuildsTest.PASSED_LOG_AT_OCT_11)
-        self.another_passed_at_oct_11 = Build.from_xml(BuildsTest.ANOTHER_PASSED_LOG_AT_OCT_11)
+        self.failed                   = Build.from_file(self.testutils.write_to_temp('FAILED_LOG.xml', BuildsTest.FAILED_LOG))
+        self.passed_at_oct_11         = Build.from_file(self.testutils.write_to_temp('PASSED_LOG_AT_OCT_11.xml', BuildsTest.PASSED_LOG_AT_OCT_11))
+        self.another_passed_at_oct_11 = Build.from_file(self.testutils.write_to_temp('ANOTHER_PASSED_LOG_AT_OCT_11.xml', BuildsTest.ANOTHER_PASSED_LOG_AT_OCT_11))
 
+    def tearDown(self):
+        self.testutils.cleantemp()
+        
     def testShouldGroupTheBuilds(self):
         builds = Builds()
         builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]

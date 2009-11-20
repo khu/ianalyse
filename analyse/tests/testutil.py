@@ -36,4 +36,17 @@ class TestUtils:
             results[file] = os.path.getmtime(os.path.join(result_dir, file))
         return results
         
+    def cleantemp(self):
+        temp_dir = os.path.join(settings.PROJECT_DIR, 'temp')
+        if os.path.exists(temp_dir):
+            os.rmdir_p(temp_dir)
+    
+    def write_to_temp(self, file, content):
+        temp_dir = os.path.join(settings.PROJECT_DIR, 'temp')
+        os.makedirs_p(temp_dir)
+        temp_file = os.path.join(temp_dir, file)
+        os.touch(temp_file)
+        f = open(temp_file, 'w')
+        f.write(content)
+        return temp_file
         
