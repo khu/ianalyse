@@ -17,7 +17,7 @@ class ConfigTests(TestCase):
          os.environ["CONFIG_FILE"] = ConfigTests.original
          
     def testShouldReturnTheAbsolutePathOfTheDefaultConfigFile(self):
-        expected = os.path.abspath(os.path.join(settings.PROJECT_DIR, 'ianalyse.cfg'))
+        expected = os.path.abspath(os.path.join(settings.PROJECT_DIR, 'configs/ianalyse.cfg'))
         os.environ.pop("CONFIG_FILE")
         config = Config()
         self.assertEquals(expected, config.abspath())

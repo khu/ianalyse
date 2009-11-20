@@ -11,7 +11,8 @@ class Config:
             config = os.environ.get("CONFIG_FILE")
 
         if None == config :
-            config = os.path.join(settings.PROJECT_DIR, 'ianalyse.cfg')
+            configs = os.path.join(settings.PROJECT_DIR, 'configs')
+            config = os.path.join(configs, 'ianalyse.cfg')
 
         self.config_file = config
     

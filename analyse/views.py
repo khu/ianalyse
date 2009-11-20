@@ -48,7 +48,7 @@ def show(request):
         return redirect('setup.html')
 
     over_all_result = {
-        "project_name" : project_id
+        "project_name" : project_id,
         "type"         : 'pass_rate'
     }
     Build.view_all(project_id, over_all_result)                                                                  

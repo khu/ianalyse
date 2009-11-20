@@ -25,7 +25,8 @@ class TestUtils:
     
     def cleanup_results(self):
         results_dir = self.config.results_dir()
-        os.rmdir_p(results_dir)
+        if os.path.exists(results_dir) :
+            os.rmdir_p(results_dir) 
 
     def last_modified_on(self, pj):
         results = {}
