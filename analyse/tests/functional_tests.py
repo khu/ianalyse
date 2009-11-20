@@ -12,7 +12,6 @@ class FunctionalTests(TestCase):
     def test_user_should_be_able_to_setup_the_application(self):
         user = User()
         user.open_home_page()
-        print user.response
         self.assertContains(user.response, 'Did you configure this file properly')
         self.assertContains(user.response, user.found_config_file_location())
         user.generates_reports_for('connectfour4')
