@@ -4,6 +4,7 @@ import os
 import util.osutils
 
 class TestUtils:
+
     def __init__(self):
         self.config = Config()
         
@@ -34,3 +35,5 @@ class TestUtils:
         for file in os.listdir(result_dir):
             results[file] = os.path.getmtime(os.path.join(result_dir, file))
         return results
+        
+        

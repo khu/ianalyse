@@ -35,31 +35,3 @@ class StatisticsGenerationTests(TestCase):
         statistics = OverallStatistics(self.project_name, 10, 3)
         statistics.generate_pass_rate();
         self.assertEquals(True, os.path.exists(self.get_chart()))
-
-#    def testshouldNotGenerateChartIfTheChartIsGenerated(self):
-#        statistics = OverallStatistics(self.project_name, 10, 3)
-#
-#        os.makedirs_p(os.path.join(settings.RESULT_ROOT, self.project_name))
-#
-#        chart = self.get_chart()
-#        os.touch(chart)
-#
-#        statistics.generate_pass_rate();
-#
-#        content = open(chart, 'r').read()
-#
-#        self.assertEquals('', content)
-#
-#    def testshouldWhenUserExplictlyRequestForGeneration(self):
-#        statistics = OverallStatistics(self.project_name, 10, 3)
-#
-#        os.makedirs_p(os.path.join(settings.RESULT_ROOT, self.project_name))
-#
-#        chart = self.get_chart()
-#        os.touch(chart)
-#
-#        statistics.generate_pass_rate(True);
-#
-#        content = open(chart, 'r').read()
-#
-#        self.assertNotEquals("", content)
