@@ -14,14 +14,23 @@ class TestUtils:
     def cclive_release_jdk(self):
         return settings.PROJECT_DIR + '/analyse/tests/fixtures/cclive-release-jdk1.5'        
      
+    def csv_settings(self):
+        return [('project name', '//property[@name="projectname"]/@value'),
+            ("label", '//property[@name="label"]/@value'),
+            ('buid time', '//build/@time'),
+            ('something wrong', '//not right')
+            ]
+        
     def connectfour_config(self):
         config = Config()
         config.logdir = self.connectfour
+        config.csv_settings = self.csv_settings 
         return config
     
     def cclive_config(self):
         config = Config()
         config.logdir = self.cclive_release_jdk
+        config.csv_settings = self.csv_settings
         return config
     
     def cleanup_results(self):

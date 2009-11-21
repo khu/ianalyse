@@ -35,7 +35,7 @@ def setup(request):
 
 def generate(request) :
     configs = Configs()
-    config = configs.find('dummy')
+    config = configs.find(request.POST['id'])
     proj_name = config.project_name()
     over_all_result = {
         "project_name" : proj_name

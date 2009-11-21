@@ -47,13 +47,11 @@ class Build(models.Model):
         return build
 
     @staticmethod
-    def select_values(file):
+    def select_values(file, csv_settings):
         tree = etree.parse(file)
         root = tree.getroot()
         result = []
-        configs = Configs()
-        config = configs.find('dummy')
-        for setting in config.csv_settings() :
+        for setting in csv_settings :
             try:
                 select_xpath = etree.XPath(setting[1])
                 result.append(select_xpath(root)[0])
@@ -381,7 +379,7 @@ class Builds:
         for eachfile in Builds.filter(config.logdir(), required_builds):
             if None != re.match(pattern, eachfile) :
                 try :
-                    value = Build.select_values(config.logfile(eachfile))
+                    value = Build.select_values(config.logfile(eachfile), config.csv_settings())
                     values.append(value)
                 except Exception, e :
                     pass
@@ -399,11 +397,11 @@ class Builds:
           return files
 
     @staticmethod
-    def create_csv(name):
-        config = Configs().find('dummy')
+    def create_csv(id):
+        config = Configs().find(id)
         arrays = Builds.select_values_from(config, None, config.builds())
-        folder = Config().result_dir(name)
-        writer = csv.writer(open(os.path.join(folder, name + '.csv'), 'w'), delimiter=',')
+        folder = Config().result_dir(id)
+        writer = csv.writer(open(os.path.join(folder, id + '.csv'), 'w'), delimiter=',')
         writer.writerows(arrays)
 
 

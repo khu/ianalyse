@@ -51,9 +51,9 @@ class User :
     def found_pass_rate(self):
         return self.response.context['config_file']
     
-    def generates_reports_for(self, name):
-        self.response = self.client.post('/analyse/generate.html', {})
-        self.project_name = name
+    def generates_reports_for(self, id):
+        self.response = self.client.post('/analyse/generate.html', {'id' : id})
+        self.project_name = id
     
     def downloads_build_times_data(self):
         self.response = self.client.get('/results/' + self.project_name + '/build_times.txt')

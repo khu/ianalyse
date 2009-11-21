@@ -4,7 +4,8 @@ from analyse.models import Build
 import os
 from django.conf import settings
 from datetime import datetime
-
+from analyse.tests.testutil import TestUtils
+from analyse.config import Config, Configs
 
 class BuildTest(TestCase):
 
@@ -44,7 +45,8 @@ class BuildTest(TestCase):
     
     def testToSelectValuesAsArrayByApplyingXPath(self):
         file = self.ccroot + '/log20091011173922Lbuild.1.xml'
-        values = Build.select_values(file)
+        config = Configs().find('dummy')
+        values = Build.select_values(file, config.csv_settings())
         self.assertEquals('connectfour4', values[0])
         self.assertEquals('1 minute(s) 0 second(s)', values[2])
         self.assertEquals('build.1', values[1])
