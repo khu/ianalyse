@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from analyse.models import Build
-from analyse.config import Config
+from analyse.config import Config, Configs
 from analyse.models import Builds
 import os
 from django.conf import settings
@@ -59,13 +59,14 @@ class BuildFactoryTest(TestCase):
           self.assertEquals('log20080924062941.xml', files[4])
 
     def testShouldOnlyParseThe5Builds(self) :
-          builds = Builds.create_builds(TestUtils().cclive_config(), required_builds = 2)
+          configs = Configs()
+          builds = Builds.create_builds(TestUtils().cclive_config(), None,2)
           self.assertEquals(2, len(builds))
           self.assertEquals(datetime(2008, 9, 24, 5, 25, 6), builds[0].start_time)
           self.assertEquals(datetime(2008, 9, 24, 6, 29, 41), builds[1].start_time)
 
     def testShouldSelectValuesFromFiles(self) :      
-          values = Builds.select_values_from(TestUtils().cclive_config(), required_builds = 2)
+          values = Builds.select_values_from(TestUtils().cclive_config(), None,2)
           self.assertEquals(2, len(values))
       
           self.assertEquals('cclive-release-jdk1.5', values[0][0])

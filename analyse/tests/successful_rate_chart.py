@@ -15,7 +15,7 @@ class SuccessfulRateChartTests(TestCase):
         self.ccroot = self.root + 'analyse/test/fixtures-1/connectfour4'
 
     def testGenerateTotalPassRate(self):
-        builds = Builds.create_builds(TestUtils().connectfour_config(), SuccessfulRateChartTests.PATTERN);
+        builds = Builds.create_builds(TestUtils().connectfour_config(), None,SuccessfulRateChartTests.PATTERN);
         
         ndaysStat = TopNStatistics('connectfour4', builds)
         json_str = ndaysStat.successful_rate()

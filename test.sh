@@ -1,3 +1,3 @@
-export CONFIG_FILE=/Users/twer/Workspace/ianalyse/analyse/tests/configs/ianalyse.cfg
+export CONFIGS_DIR=/Users/twer/Workspace/ianalyse/analyse/tests/configs
 ./manage.py test
 

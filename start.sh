@@ -1,4 +1,4 @@
-export CONFIG_FILE=/Users/twer/Workspace/ianalyse/analyse/tests/configs/ianalyse.cfg
+export CONFIGS_DIR=/Users/twer/Workspace/ianalyse/analyse/tests/configs
 rm -fr results/*
 python manage.py testserver
 

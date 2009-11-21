@@ -1,11 +1,11 @@
 from django.test import TestCase
 import os                                                  
 from django.conf import settings
-from analyse.config import Config
+from analyse.config import Config, Configs
 
 
 class ConfigTests(TestCase):   
-    original = os.environ["CONFIG_FILE"]
+    original = os.environ["CONFIGS_DIR"]
     
     def setUp(self):
         self.config = Config(os.path.abspath(os.path.join(settings.PROJECT_DIR, 'analyse/tests/fixtures/config/ianalyse.cfg')))
@@ -14,17 +14,17 @@ class ConfigTests(TestCase):
          project1 = self.config.result_dir('project1')
          if os.path.exists(project1) :
             os.rmdir_p(project1)
-         os.environ["CONFIG_FILE"] = ConfigTests.original
+         os.environ["CONFIGS_DIR"] = ConfigTests.original
          
     def testShouldReturnTheAbsolutePathOfTheDefaultConfigFile(self):
-        expected = os.path.abspath(os.path.join(settings.PROJECT_DIR, 'configs/ianalyse.cfg'))
-        os.environ.pop("CONFIG_FILE")
-        config = Config()
+        expected = os.path.abspath(os.path.join(settings.PROJECT_DIR, 'configs'))
+        os.environ.pop("CONFIGS_DIR")
+        config = Configs()
         self.assertEquals(expected, config.abspath())
 
     def testShouldReturnSpecificConfigFile(self):
-        expected = os.path.abspath(os.path.join(settings.PROJECT_DIR, 'analyse/tests/fixtures/config/ianalyse.cfg'))
-        config = Config(expected)
+        expected = os.path.abspath(os.path.join(settings.PROJECT_DIR, 'analyse/tests/fixtures/config/'))
+        config = Configs(expected)
         self.assertEquals(expected, config.abspath())
     
     def testShouldReturnFalseWhenConfigFileIsMissing(self):

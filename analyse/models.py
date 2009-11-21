@@ -8,7 +8,7 @@ from analyse.openFlashChart import Chart
 import re
 import util.datetimeutils
 import analyse.ordered_dic
-from analyse.config import Config
+from analyse.config import Config, Configs
 
 from xml.sax.handler import ContentHandler
 from xml.sax import parse, parseString
@@ -51,7 +51,9 @@ class Build(models.Model):
         tree = etree.parse(file)
         root = tree.getroot()
         result = []
-        for setting in Config().csv_settings() :
+        configs = Configs()
+        config = configs.find('dummy')
+        for setting in config.csv_settings() :
             try:
                 select_xpath = etree.XPath(setting[1])
                 result.append(select_xpath(root)[0])
@@ -351,7 +353,7 @@ class Builds:
 
 
     @staticmethod
-    def create_builds(config = Config(), pattern = None, required_builds = Config().builds()):
+    def create_builds(config, pattern, required_builds):
         if pattern == None :
             pattern = "log.*.xml"
 
@@ -371,7 +373,7 @@ class Builds:
         return builds;
 
     @staticmethod  
-    def select_values_from(config = Config(), pattern = None, required_builds = Config().builds()):
+    def select_values_from(config, pattern, required_builds):
         if pattern == None :
             pattern = "log.*.xml"
 
@@ -398,7 +400,8 @@ class Builds:
 
     @staticmethod
     def create_csv(name):
-        arrays = Builds.select_values_from()
+        config = Configs().find('dummy')
+        arrays = Builds.select_values_from(config, None, config.builds())
         folder = Config().result_dir(name)
         writer = csv.writer(open(os.path.join(folder, name + '.csv'), 'w'), delimiter=',')
         writer.writerows(arrays)

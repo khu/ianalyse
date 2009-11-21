@@ -2,19 +2,30 @@ import os
 from django.conf import settings
 import ConfigParser
 
+class Configs:
+    def __init__(self, config_dir = None):
+        configs = config_dir
+        if None ==  configs :            
+            configs = os.environ.get("CONFIGS_DIR")
+
+        if None == configs :
+            configs = os.path.join(settings.PROJECT_DIR, 'configs')
+
+        self.configs = configs
+
+    def abspath(self):
+        return os.path.abspath(self.configs)                                        
+
+    def find(self, id):
+        return Config(os.path.join(self.configs, 'ianalyse.cfg'))
+    
+    def __str__( self ):
+            return 'the configs dir location is [' + self.configs + ']'
+    
 class Config:
     DEFAULT_FILES_TO_PROCESS = 30
     def __init__(self, config_file = None):
-        config = config_file
-        
-        if None ==  config_file :            
-            config = os.environ.get("CONFIG_FILE")
-
-        if None == config :
-            configs = os.path.join(settings.PROJECT_DIR, 'configs')
-            config = os.path.join(configs, 'ianalyse.cfg')
-
-        self.config_file = config
+        self.config_file = config_file
     
     def project_name(self):
         def anonymous(config): return config.get('Basic', 'name', 0)
@@ -65,4 +76,9 @@ class Config:
        config = ConfigParser.ConfigParser()
        config.read(self.abspath())
        return func(config)
-
+       
+    def __str__( self ):
+        return 'the config file location is [' + self.config_file + ']'
+        
+        
+        
