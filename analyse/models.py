@@ -19,6 +19,7 @@ import StringIO
 import csv
 
 class Build(models.Model):
+    project_id = models.TextField()
     number = models.TextField()
     name = models.TextField()
     scm_type = models.TextField()
@@ -60,26 +61,26 @@ class Build(models.Model):
         return result
 
     @staticmethod
-    def passed_count(name):
+    def passed_count(project_id):
         cursor = connection.cursor()
-        cursor.execute("select count(1) from analyse_build where name = %s and is_passed = 1", [name])
+        cursor.execute("select count(1) from analyse_build where project_id = %s and is_passed = 1", [project_id])
         rate = cursor.fetchone()
         return rate[0]
 
     @staticmethod
-    def total_count(name):
+    def total_count(project_id):
         cursor = connection.cursor()
-        cursor.execute("select count(1) from analyse_build where name = %s", [name])
+        cursor.execute("select count(1) from analyse_build where project_id = %s", [project_id])
         rate = cursor.fetchone()
         return rate[0]
 
     @staticmethod
-    def pass_rate(name):
+    def pass_rate(project_id):
         cursor = connection.cursor()
         cursor.execute(
-                "select (select CAST(count(1) AS REAL) from analyse_build where name = %s and is_passed = 1) / (select count(1) from analyse_build where name = %s)"
+                "select (select CAST(count(1) AS REAL) from analyse_build where project_id = %s and is_passed = 1) / (select count(1) from analyse_build where project_id = %s)"
                 ,
-                [name, name])
+                [project_id, project_id])
         rate = cursor.fetchone()
         if rate[0] == None:
         	return 0.0
@@ -88,37 +89,37 @@ class Build(models.Model):
 
 
     @staticmethod
-    def avg_build_time(name):
+    def avg_build_time(project_id):
         cursor = connection.cursor()
-        cursor.execute("select avg(build_time) from analyse_build where name = %s", [name])
+        cursor.execute("select avg(build_time) from analyse_build where project_id = %s", [project_id])
         return  cursor.fetchone()[0]
 
     @staticmethod
-    def started_build_at(name):
+    def started_build_at(project_id):
         cursor = connection.cursor()
-        cursor.execute("select min(start_time) from analyse_build where name = %s", [name])
+        cursor.execute("select min(start_time) from analyse_build where project_id = %s", [project_id])
         return  cursor.fetchone()[0]
 
     @staticmethod
-    def last_built_at(name):
+    def last_built_at(project_id):
         cursor = connection.cursor()
-        cursor.execute("select max(start_time) from analyse_build where name = %s", [name])
+        cursor.execute("select max(start_time) from analyse_build where project_id = %s", [project_id])
         return  cursor.fetchone()[0]
 
     @staticmethod
-    def total(name):
+    def total(project_id):
         cursor = connection.cursor()
-        cursor.execute("select count(1) from analyse_build where name = %s", [name])
+        cursor.execute("select count(1) from analyse_build where project_id = %s", [project_id])
         total = cursor.fetchone()
         return total[0]
 
     @staticmethod
-    def analyse_all(name, results):
-        Build.view_all(name, results)
-        stat = OverallStatistics(name = name, total = Build.total(name), passed = Build.passed_count(name))
+    def analyse_all(project_id, results):
+        Build.view_all(project_id, results)
+        stat = OverallStatistics(project_id = project_id, total = Build.total(project_id), passed = Build.passed_count(project_id))
         stat.generate_pass_rate()
 
-        stat = TopNStatistics(name = name, builds = Build.objects.order_by('start_time'))
+        stat = TopNStatistics(project_id = project_id, builds = Build.objects.order_by('start_time'))
         stat.generate_successful_rate()
         stat.generate_build_times()
         stat.generate_per_build_time()
@@ -126,18 +127,18 @@ class Build(models.Model):
         return
 
     @staticmethod
-    def view_all(name, results):
-        results["total_count"] = Build.total_count(name)
-        results["avg_time"] = Build.avg_build_time(name)             
-        results["pass_rate"] = "%.2f%%" % (Build.pass_rate(name) * 100)
-        results["started_build_at"] = Build.started_build_at(name)
-        results["last_built_at"] = Build.last_built_at(name)
+    def view_all(project_id, results):
+        results["total_count"] = Build.total_count(project_id)
+        results["avg_time"] = Build.avg_build_time(project_id)             
+        results["pass_rate"] = "%.2f%%" % (Build.pass_rate(project_id) * 100)
+        results["started_build_at"] = Build.started_build_at(project_id)
+        results["last_built_at"] = Build.last_built_at(project_id)
         return
 
 class OverallStatistics :
 
-    def __init__(self, name=None, total = 0, passed = 0):
-        self.name = name
+    def __init__(self, project_id=None, total = 0, passed = 0):
+        self.project_id = project_id
         self.total = total
         self.passed = passed
 
@@ -160,15 +161,15 @@ class OverallStatistics :
             raise AttributeError(name)
         field = name[len("generate_"):]
         result = getattr(self, field)()
-        project_root = Configs().find(self.name).result_dir()
+        project_root = Configs().find(self.project_id).result_dir()
         os.makedirs_p(project_root)
         total_json_file = os.path.join(project_root, field + '.txt');
         os.write_to_file(total_json_file, result)
         return lambda : {}
 
 class TopNStatistics :
-    def __init__(self, name=None, builds = list()):
-        self.name = name
+    def __init__(self, project_id=None, builds = list()):
+        self.project_id = project_id
         self.builds = builds
 
     def per_build_time(self):
@@ -248,7 +249,7 @@ class TopNStatistics :
         field = name[len("generate_"):]
         result = getattr(self, field)()
         
-        total_json_file = os.path.join(Configs().find(self.name).result_dir(), field + '.txt');
+        total_json_file = os.path.join(Configs().find(self.project_id).result_dir(), field + '.txt');
         
         os.write_to_file(total_json_file, result)
         return lambda : {}
@@ -363,6 +364,7 @@ class Builds:
             if None != re.match(pattern, eachfile) :
                 try :
                     build = Build.from_file(config.logfile(eachfile))
+                    build.project_id = config.id
                     build.save()
                     builds.append(build)
                 except Exception, e :
@@ -398,11 +400,11 @@ class Builds:
           return files
 
     @staticmethod
-    def create_csv(id):
-        config = Configs().find(id)
+    def create_csv(project_id):
+        config = Configs().find(project_id)
         arrays = Builds.select_values_from(config, None, config.builds())
         folder = config.result_dir()
-        writer = csv.writer(open(os.path.join(folder, id + '.csv'), 'w'), delimiter=',')
+        writer = csv.writer(open(os.path.join(folder, project_id + '.csv'), 'w'), delimiter=',')
         writer.writerows(arrays)
 
 

@@ -7,14 +7,14 @@
 {% endblock %}
 
 {% block content %}
-<h1 id="setup_announce">Did you configure this file properly?</h1>
+<h1 id="setup_announce">Did you configure [{{config.project_name}}] properly?</h1>
 <p>
-	<div id="config_file">{{config_file}}</div>
+	<div id="config_file">{{config.abspath}}</div>
 </p>
 <p>
 	<form  id="generate_reports" action="generate.html" method="POST">
-		<input name="id" value="connectfour4">
-	    <input  type="submit" value="Start to generate the report" />
+		<input  name="id"     type="hidden"  value="{{config.id}}">
+	    <input  name="submit" type="submit" value="Start to generate the report" />
 	</form>
 </p>
 {% endblock %}

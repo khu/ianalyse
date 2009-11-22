@@ -75,9 +75,6 @@ class Config:
         def anonymous(config): return config.items("CSV")
         return self.__readattr__(anonymous) 
 
-    def view_all(self, results):
-        results['config_file'] = self.abspath()
-
     def results_dir(self):
         return os.path.join(settings.PROJECT_DIR, 'results')
 

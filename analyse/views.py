@@ -19,14 +19,8 @@ def index(request):
 
 def setup(request):
     config = Configs().find(request.GET['id'])
-    proj_name = config.project_name()
-
-    over_all_result = {
-        "project_name" : proj_name
-    }
-
-    config.view_all(over_all_result)
-    return render_to_response('analyse/setup.html', Context(over_all_result), context_instance = RequestContext(request))
+    results = {"config" : config}
+    return render_to_response('analyse/setup.html', Context(results), context_instance = RequestContext(request))
 
 def generate(request) :
     configs = Configs()
@@ -37,8 +31,8 @@ def generate(request) :
     }
 
     Builds.create_builds(config, None, config.builds())
-    Build.analyse_all(proj_name, over_all_result)
-    Builds.create_csv(proj_name)
+    Build.analyse_all(config.id, over_all_result)
+    Builds.create_csv(config.id)
     return redirect('index.html')
 
 def show(request):
@@ -49,8 +43,8 @@ def show(request):
         return redirect('setup.html?id=' + urlquote(project_id))
 
     over_all_result = {
-        "project_name" : project_id,
-        "type"         : 'pass_rate'
+        "project_id" : project_id,
+        "type"       : 'pass_rate'
     }
     Build.view_all(project_id, over_all_result)                                                                  
     return render_to_response('analyse/show.html', Context(over_all_result), context_instance = RequestContext(request))

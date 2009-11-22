@@ -10,18 +10,18 @@
     swfobject.embedSWF(
             "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "successful_rate", "550", "500",
             "9.0.0", "expressInstall.swf",
-    {"data-file":"/results/{{project_name}}/successful_rate.txt"}
+    {"data-file":"/results/{{project_id}}/successful_rate.txt"}
             );
 
     swfobject.embedSWF(
             "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "build_times", "550", "500",
             "9.0.0", "expressInstall.swf",
-    {"data-file":"/results/{{project_name}}/build_times.txt"}
+    {"data-file":"/results/{{project_id}}/build_times.txt"}
             );
     swfobject.embedSWF(
             "{{ MEDIA_URL }}/swf/open-flash-chart.swf", "per_build_time", "550", "500",
             "9.0.0", "expressInstall.swf",
-    {"data-file":"/results/{{project_name}}/per_build_time.txt"}
+    {"data-file":"/results/{{project_id}}/per_build_time.txt"}
             );
 </script>
 {% endblock %}
@@ -32,10 +32,10 @@
 		    <div class="title">
 		      	 <div class="path">
 			        <span>
-						{{project_name}}				
+						{{project_id}}				
 					</span>
 					<span id="download_button">
-						<a href="/results/{{project_name}}/{{project_name}}.csv">(Export as CSV)</a>
+						<a href="/results/{{project_id}}/{{project_id}}.csv">(Export as CSV)</a>
 					</a>
 			      </div>
 				</span>
