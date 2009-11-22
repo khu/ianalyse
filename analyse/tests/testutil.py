@@ -4,9 +4,6 @@ import os
 import util.osutils
 
 class TestUtils:
-
-    def __init__(self):
-        self.config = Config()
         
     def connectfour(self):
         return settings.PROJECT_DIR + '/analyse/tests/fixtures/connectfour4'
@@ -22,25 +19,26 @@ class TestUtils:
             ]
         
     def connectfour_config(self):
-        config = Config()
+        config = Config(settings.PROJECT_DIR + '/analyse/tests/fixtures/config/connectfour4.cfg')
         config.logdir = self.connectfour
         config.csv_settings = self.csv_settings 
         return config
     
     def cclive_config(self):
-        config = Config()
+        config = Config(settings.PROJECT_DIR + '/analyse/tests/fixtures/config/cclive.cfg')
         config.logdir = self.cclive_release_jdk
         config.csv_settings = self.csv_settings
         return config
     
     def cleanup_results(self):
-        results_dir = self.config.results_dir()
+        results_dir = os.path.join(settings.PROJECT_DIR, 'results')
         if os.path.exists(results_dir) :
             os.rmdir_p(results_dir) 
 
     def last_modified_on(self, pj):
         results = {}
-        result_dir = os.path.join(self.config.result_dir(pj))
+        results_dir = os.path.join(settings.PROJECT_DIR, 'results')
+        result_dir = os.path.join(results_dir, pj)
         for file in os.listdir(result_dir):
             results[file] = os.path.getmtime(os.path.join(result_dir, file))
         return results

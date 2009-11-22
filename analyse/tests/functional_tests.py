@@ -12,6 +12,8 @@ class FunctionalTests(TestCase):
     def test_user_should_be_able_to_setup_the_application(self):
         user = User()
         user.open_home_page()
+        self.assertContains(user.response, 'Error')
+        user.open_show_page('connectfour4')
         self.assertContains(user.response, 'Did you configure this file properly')
         self.assertContains(user.response, user.found_config_file_location())
         user.generates_reports_for('connectfour4')
@@ -43,7 +45,8 @@ class User :
     def open_home_page(self):
         self.response = self.client.get('/analyse/index.html', follow=True)
 
-               
+    def open_show_page(self, id):
+        self.response = self.client.get('/analyse/setup.html?id=' + id, follow=True)
     
     def found_config_file_location(self):
         return self.response.context['config_file']

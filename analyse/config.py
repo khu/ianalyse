@@ -7,25 +7,44 @@ class Configs:
         configs = config_dir
         if None ==  configs :            
             configs = os.environ.get("CONFIGS_DIR")
-
         if None == configs :
             configs = os.path.join(settings.PROJECT_DIR, 'configs')
-
-        self.configs = configs
+        self.config_dir = configs
+        self.configs = {}
+        for file in os.listdir(self.config_dir):
+            id = os.path.splitext(file)[0]
+            self.configs[id] = Config(os.path.join(self.config_dir, file))
 
     def abspath(self):
-        return os.path.abspath(self.configs)                                        
+        return os.path.abspath(self.config_dir)                                        
 
     def find(self, id):
-        return Config(os.path.join(self.configs, 'ianalyse.cfg'))
+        return self.configs[id]
+
+    def size(self):
+        return len(self.configs)
+
+    def results_dir(self):
+        return os.path.join(settings.PROJECT_DIR, 'results')
+
+
+    def items(self):
+        return self.configs.items()
+
+    def __iter__(self):
+        return self.configs.__iter__()
     
+    def __getitem__(self, index):
+        return self.configs.__getitem__(index)
+
     def __str__( self ):
-            return 'the configs dir location is [' + self.configs + ']'
+            return 'the configs dir location is [' + self.config_dir + ']'
     
 class Config:
     DEFAULT_FILES_TO_PROCESS = 30
-    def __init__(self, config_file = None):
+    def __init__(self, config_file):
         self.config_file = config_file
+        self.id = os.path.splitext(os.path.split(config_file)[1])[0]
     
     def project_name(self):
         def anonymous(config): return config.get('Basic', 'name', 0)
@@ -62,21 +81,21 @@ class Config:
     def results_dir(self):
         return os.path.join(settings.PROJECT_DIR, 'results')
 
-    def result_dir(self, name):
-       return os.path.join(self.results_dir(), name)
+    def result_dir(self):
+       return os.path.join(self.results_dir(), self.id)
 
-    def has_result(self, name):
-        if not os.path.exists(self.result_dir(name)) :
+    def has_result(self):
+        if not os.path.exists(self.result_dir()) :
              return False
 
         total_generated_json_files = 4        
-        return len(os.listdir(self.result_dir(name))) >= total_generated_json_files
+        return len(os.listdir(self.result_dir())) >= total_generated_json_files
 
     def __readattr__(self, func):
        config = ConfigParser.ConfigParser()
        config.read(self.abspath())
        return func(config)
-       
+
     def __str__( self ):
         return 'the config file location is [' + self.config_file + ']'
         

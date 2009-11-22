@@ -33,8 +33,8 @@ class BuildFactoryTest(TestCase):
           self.assertEqual(0, len(Build.objects.all()))
           builds = Builds.create_builds(TestUtils().connectfour_config(), BuildFactoryTest.PATTERN, 2);
           self.assertEqual(2, len(Build.objects.all()))
-    
-    
+            
+            
     def testShouldNotThrowExceptionWhenProcessingXmlFile(self):
       try:
           builds = Builds.create_builds(TestUtils().cclive_config(), "log20080624064201Lbuild.70.xml", 2)

@@ -15,7 +15,7 @@ class StatisticsGenerationTests(TestCase):
         return os.path.join(settings.PROJECT_DIR, "tmp")
         
     def setUp(self):
-        self.project_name = "myproject"
+        self.project_name = "connectfour4"
         self.root = settings.PROJECT_DIR
         self.ccroot = self.root + 'analyse/test/fixtures-1/connectfour4'
         self.results_root = os.path.join(settings.PROJECT_DIR, "tmp")
