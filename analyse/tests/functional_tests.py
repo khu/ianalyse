@@ -16,7 +16,7 @@ class FunctionalTests(TestCase):
         user.open_home_page()
         self.assertContains(user.response, 'Error')
         user.open_show_page('connectfour4')
-        self.assertContains(user.response, 'Did you configure [connectfour4] properly?')
+        self.assertContains(user.response, 'ianalyse/analyse/tests/configs/connectfour4.cfg')
         self.assertContains(user.response, user.found_config_file_location())
         user.generates_reports_for('connectfour4')
     
@@ -34,7 +34,7 @@ class FunctionalTests(TestCase):
         user.open_home_page()
         self.assertContains(user.response, 'Error')
         user.open_show_page('cclive')       
-        self.assertContains(user.response, 'Did you configure [cclive release on jdk1.5] properly?')
+        self.assertContains(user.response, 'ianalyse/analyse/tests/configs/cclive.cfg')
         self.assertContains(user.response, user.found_config_file_location())
         user.generates_reports_for('cclive')
 
@@ -73,7 +73,7 @@ class User :
         self.response = self.client.get('/analyse/show.html?id=' + id, follow=True)
     
     def found_config_file_location(self):
-        return self.response.context['config'].abspath()
+        return self.response.context['current'].abspath()
     
     def found_pass_rate(self):
         return self.response.context['config_file']

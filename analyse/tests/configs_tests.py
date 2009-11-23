@@ -17,4 +17,8 @@ class ConfigsTests(TestCase):
         self.assertEquals(os.path.join(self.configs_root, 'ianalyse.cfg'), self.configs['ianalyse'].config_file)
         self.assertEquals(os.path.join(self.configs_root, 'no_days.cfg'), self.configs['no_days'].config_file)
         
-        
+    def testShouldReturnTheFirstConfigWhenNoIdProvided(self):
+        self.assertEquals(os.path.join(self.configs_root, 'ianalyse.cfg'), self.configs.find(None).config_file)
+
+    def testShouldReturnTheConfigEqualWithId(self):
+        self.assertEquals(os.path.join(self.configs_root, 'no_days.cfg'), self.configs.find('no_days').config_file)

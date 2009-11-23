@@ -1,3 +1,73 @@
+#issues {
+    overflow:hidden;
+}
+
+.site {
+    margin:0 auto;
+    padding:0 15px;
+    text-align:left;
+    width:920px;
+}
+
+#issues .menu {
+    float:left;
+    width:10em;
+}
+
+#issues .menu ul {
+    list-style-type:none;
+}
+
+#issues .menu ul li.filter_selected {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:#E0E0E0 none repeat scroll 0 0;
+    font-weight:bold;
+}
+
+#issues .menu ul li {
+    border-color:#E0E0E0 -moz-use-text-color #E0E0E0 #E0E0E0;
+    border-style:solid none solid solid;
+    border-width:1px 0 1px 1px;
+    display:block;
+    margin-top:-0.1em;
+}
+
+#issues .menu ul li a {
+    display:block;
+    padding:0.25em 0.5em;
+}
+
+
+#issues .display {
+    background-color:#FCFCFC;
+    border:0.5em solid #E0E0E0;
+    float:left;
+    width:50em;
+}
+
+
+#issues .display .admin {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:#E0E0E0 none repeat scroll 0 0;
+    border-bottom:0.5em solid #E0E0E0;
+    margin:0;
+    overflow:hidden;
+    padding:0;
+}
+
+.conf {
+    background-color:#E2ECF2;
+    cursor:pointer;
+}
+
+#issues .menu .create {
+    margin-bottom:15px;
+}
+
 #setup_announce {
     color:#133855;
     font-family:"HelveticaNeue-Light",Helvetica,Arial,FreeSans,sans-serif;

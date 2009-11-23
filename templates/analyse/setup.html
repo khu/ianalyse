@@ -7,14 +7,43 @@
 {% endblock %}
 
 {% block content %}
-<h1 id="setup_announce">Did you configure [{{config.project_name}}] properly?</h1>
-<p>
-	<div id="config_file">{{config.abspath}}</div>
-</p>
-<p>
-	<form  id="generate_reports" action="generate.html" method="POST">
-		<input  name="id"     type="hidden"  value="{{config.id}}">
-	    <input  name="submit" type="submit" value="Start to generate the report" />
-	</form>
-</p>
+<div class="site">
+	<div class="collab" id="issues">
+		<div class="menu">
+		  <div class="create">      
+		      <a class="create_issue" href="#">Reload all project</a>
+		  </div>
+		  <ul>
+			{% for item in configs.items %}
+		  			<li {%ifequal item.0 current.id %} class="filter_selected" {%endifequal%}>
+						<a id="open_issues_link" href="/analyse/setup.html?id={{item.0}}">{{item.0}}</a>
+					</li>
+			{% endfor %}
+	      </ul>
+		</div>
+
+	    <div class="display">
+		    		<div class="admin">
+						<dl>
+						  	<dt>Location:</dt>
+						    <dd>{{current.abspath}} <a href="javascript:alert('not implemented, edit on the file system please.')">(Edit)</a></dd>
+						  	<dt>Status:</dt>
+						    <dd>
+								jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+						    	<form  id="generate_reports" action="generate.html" method="POST">
+								           <input  name="id"     type="hidden"  value="{{current.id}}">
+								           <input  name="submit" type="submit" value="Generate reports NOW!">
+								</form>
+						    </dd>
+						</dl>
+		            </div>
+
+	    	    	<div class="conf">
+					<pre>		
+{{current.content}}
+					</pre>
+	    	   </div>
+		</div>
+	</div>
+</div>
 {% endblock %}

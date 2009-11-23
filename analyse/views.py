@@ -18,8 +18,9 @@ def index(request):
     return render_to_response('analyse/index.html', Context(results), context_instance = RequestContext(request))
 
 def setup(request):
-    config = Configs().find(request.GET['id'])
-    results = {"config" : config}
+    configs = Configs()
+    current = configs.find(request.GET.get('id'))
+    results = {"configs" : configs, 'current' : current}
     return render_to_response('analyse/setup.html', Context(results), context_instance = RequestContext(request))
 
 def generate(request) :

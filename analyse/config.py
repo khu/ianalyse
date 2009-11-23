@@ -19,7 +19,10 @@ class Configs:
         return os.path.abspath(self.config_dir)                                        
 
     def find(self, id):
-        return self.configs[id]
+        if id == None :
+            return self.configs.items()[0][1]
+        else :
+            return self.configs[id]
 
     def size(self):
         return len(self.configs)
@@ -93,8 +96,11 @@ class Config:
        config.read(self.abspath())
        return func(config)
 
+    def content(self):
+       return open(self.config_file).read()
+
     def __str__( self ):
         return 'the config file location is [' + self.config_file + ']'
-        
+    
         
         
