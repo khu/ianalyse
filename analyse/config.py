@@ -91,6 +91,12 @@ class Config:
         total_generated_json_files = 4        
         return len(os.listdir(self.result_dir())) >= total_generated_json_files
 
+    def status(self):
+        if self.has_result() :
+            return 'OK'
+        else :
+            return 'MISSING REPORTS'
+
     def __readattr__(self, func):
        config = ConfigParser.ConfigParser()
        config.read(self.abspath())

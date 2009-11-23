@@ -102,3 +102,20 @@
     margin-right:15em;
     display:block;
 }
+
+li form {
+    display : inline;
+}
+
+.label {
+    color:#888888;
+}
+
+.status {
+    color:red;
+    font-weight:bold;
+}
+
+.status.ok {
+    color:green;
+}

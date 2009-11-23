@@ -11,7 +11,9 @@
 	<div class="collab" id="issues">
 		<div class="menu">
 		  <div class="create">      
-		      <a class="create_issue" href="#">Reload all project</a>
+		    	<form  id="generate_reports" action="generate.html" method="POST">
+				     <input  name="submit" type="submit" value="Generate ALL!">
+				</form>
 		  </div>
 		  <ul>
 			{% for item in configs.items %}
@@ -24,18 +26,19 @@
 
 	    <div class="display">
 		    		<div class="admin">
-						<dl>
-						  	<dt>Location:</dt>
-						    <dd>{{current.abspath}} <a href="javascript:alert('not implemented, edit on the file system please.')">(Edit)</a></dd>
-						  	<dt>Status:</dt>
-						    <dd>
-								jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+						<ul>
+						  	<li><span class="label">Location:</span>
+								{{current.abspath}}
+								<a href="javascript:alert('not implemented, edit on the file system please.')">(Edit)</a>
+							</li>
+							<li><span class="label">Status:</span>
+								<span class="status {%ifequal current.status 'OK' %}ok{%endifequal%}">{{current.status}}</span>
 						    	<form  id="generate_reports" action="generate.html" method="POST">
 								           <input  name="id"     type="hidden"  value="{{current.id}}">
-								           <input  name="submit" type="submit" value="Generate reports NOW!">
+								           <input  name="submit" type="submit" value="Generate this report NOW!">
 								</form>
-						    </dd>
-						</dl>
+						    </li>
+						</ul>
 		            </div>
 
 	    	    	<div class="conf">
