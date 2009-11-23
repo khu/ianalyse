@@ -16,10 +16,13 @@ class FunctionalTests(TestCase):
         user.open_home_page()
         self.assertContains(user.response, 'Error')
         user.open_show_page('connectfour4')
-        self.assertContains(user.response, 'ianalyse/analyse/tests/configs/connectfour4.cfg')
+        self.assertContains(user.response, 'MISSING REPORT')
         self.assertContains(user.response, user.found_config_file_location())
         user.generates_reports_for('connectfour4')
-    
+
+        user.open_setup_page('connectfour4')
+        self.assertContains(user.response, 'OK')
+
         user.downloads_build_times_data()
         self.assertEquals(True, user.can_visit_resource())
         user.downloads_csv()
@@ -34,10 +37,13 @@ class FunctionalTests(TestCase):
         user.open_home_page()
         self.assertContains(user.response, 'Error')
         user.open_show_page('cclive')       
-        self.assertContains(user.response, 'ianalyse/analyse/tests/configs/cclive.cfg')
+        self.assertContains(user.response, 'MISSING REPORT')
         self.assertContains(user.response, user.found_config_file_location())
         user.generates_reports_for('cclive')
 
+        user.open_setup_page('cclive')
+        self.assertContains(user.response, 'OK')
+        
         user.open_show_page('cclive')
 
         self.assertContains(user.response, '4 runs')
@@ -71,6 +77,9 @@ class User :
 
     def open_show_page(self, id):
         self.response = self.client.get('/analyse/show.html?id=' + id, follow=True)
+
+    def open_setup_page(self, id):
+        self.response = self.client.get('/analyse/setup.html?id=' + id, follow=True)
     
     def found_config_file_location(self):
         return self.response.context['current'].abspath()
