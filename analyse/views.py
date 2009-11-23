@@ -26,11 +26,7 @@ def setup(request):
 def generate(request) :
     configs = Configs()
     config = configs.find(request.POST['id'])
-    proj_name = config.project_name()
-    over_all_result = {
-        "project_name" : proj_name
-    }
-
+    over_all_result = {}
     Builds.create_builds(config, None, config.builds())
     Build.analyse_all(config.id, over_all_result)
     Builds.create_csv(config.id)

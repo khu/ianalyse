@@ -48,11 +48,7 @@ class Config:
     def __init__(self, config_file):
         self.config_file = config_file
         self.id = os.path.splitext(os.path.split(config_file)[1])[0]
-    
-    def project_name(self):
-        def anonymous(config): return config.get('Basic', 'name', 0)
-        return self.__readattr__(anonymous)
-            
+                
     def abspath(self):
         return os.path.abspath(self.config_file)                                        
     

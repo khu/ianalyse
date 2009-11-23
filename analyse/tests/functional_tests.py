@@ -55,6 +55,7 @@ class FunctionalTests(TestCase):
         self.assertEquals(True, user.can_visit_resource())
         user.downloads_per_build_time_data()
         self.assertEquals(True, user.can_visit_resource())
+        
     
     def test_user_should_not_wait_for_re_generating_the_data_when_referesh_the_page(self):
        user = User()
