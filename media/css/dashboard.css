@@ -1,5 +1,4 @@
 #preview_container {
-    border-bottom:5px solid #DDDDDD;
     border-top:5px solid #DDDDDD;
     overflow:hidden;
     padding:2em 0 2.5em;    
@@ -28,7 +27,8 @@
     float:left;
     margin:0 1em 2em 0;
     text-align:center;
-    width:275px;
+    width:200px;
+    border: 1px solid white;
 }
 
 .preview .name {
@@ -36,3 +36,17 @@
     text-align : center;
 }
 
+.miss_data {
+    color:red;
+    font-weight:bold;
+    display:block;
+    height:150px;
+    text-align:middle;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.miss_data  a {
+    margin-top:10px;
+    display:block;
+}

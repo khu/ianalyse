@@ -41,7 +41,7 @@
 
 
 #issues .display {
-    background-color:#FCFCFC;
+    background-color:#E2ECF2;
     border:0.5em solid #E0E0E0;
     float:left;
     width:50em;
@@ -118,4 +118,9 @@ li form {
 
 .status.ok {
     color:green;
+}
+
+.how {
+    margin-top:1em;
+    margin-bottom:1em;
 }

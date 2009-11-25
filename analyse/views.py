@@ -41,7 +41,14 @@ def show(request):
 
     over_all_result = {
         "project_id" : project_id,
-        "type"       : 'pass_rate'
     }
     Build.view_all(project_id, over_all_result)                                                                  
     return render_to_response('analyse/show.html', Context(over_all_result), context_instance = RequestContext(request))
+
+def help(request):
+    configs = Configs()
+    results = {
+        "configs" : configs,
+    }
+    return render_to_response('analyse/help.html', Context(results), context_instance = RequestContext(request))
+    

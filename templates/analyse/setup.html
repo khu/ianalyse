@@ -32,7 +32,8 @@
 								<a href="javascript:alert('not implemented, edit on the file system please.')">(Edit)</a>
 							</li>
 							<li><span class="label">Status:</span>
-								<span class="status {%ifequal current.status 'OK' %}ok{%endifequal%}">{{current.status}}</span>
+								<span class="status {%ifequal current.status 'OK' %}ok{%endifequal%}">{{current.status}}
+								{%ifnotequal current.status 'OK' %}<a href="/analyse/help.html#faq">(?)</a>{%endifnotequal%}</span>
 						    	<form  id="generate_reports" action="generate.html" method="POST">
 								           <input  name="id"     type="hidden"  value="{{current.id}}">
 								           <input  name="submit" type="submit" value="Generate this report NOW!">
@@ -42,10 +43,11 @@
 		            </div>
 
 	    	    	<div class="conf">
-					<pre>		
+						<pre>
 {{current.content}}
-					</pre>
-	    	   </div>
+						</pre>
+	    	   		</div>
+			<a class="how" href="/analyse/help.html">How to configure it?</a>
 		</div>
 	</div>
 </div>

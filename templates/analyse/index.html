@@ -11,7 +11,7 @@
 <div id="preview_container">
 	<ul class="previews">
 		{% for item in configs.items %}
-			<li class="preview" onclick="">
+			<li class="preview">
 				{% if item.1.has_result %}
 				  	<b id="total_pass_rate_{{item.0}}"></b>				
 					<script type="text/javascript">
@@ -22,9 +22,12 @@
 					            );
 					</script>
 				{% else %}
-					<b>Error</b>
+					<span class="miss_data">
+						Missing Data 
+						<a href="/analyse/setup.html?id={{item.0}}">Reslove it NOW!</a>
+					</span>
 				{% endif %}
-				<a class="name"href="/analyse/show.html?id={{item.0}}">{{item.0}}</a>
+				<a class="name" href="/analyse/show.html?id={{item.0}}">{{item.0}}</a>
 			</li>
 		{% endfor %}
 	</ul>

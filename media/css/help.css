@@ -1,0 +1,49 @@
+.main {
+    float:left;
+    margin-left:20em;
+    margin-right:20em;
+    text-align:left;
+}
+
+.main h1 {
+    margin-bottom:0.5em;
+}
+
+.wikistyle p {
+    line-height:1.5em !important;
+    margin:1em 0 !important;
+}
+
+.wikistyle h2 {
+    border-top:4px solid #E0E0E0 !important;
+    font-size:150% !important;
+    margin-top:1.5em !important;
+    padding-top:0.5em !important;
+}
+
+.wikistyle h1, h2, h3, h4, h5, h6 {
+    border:0 none !important;
+}
+
+
+
+.wikistyle pre {
+    background-color:#F8F8FF !important;
+    border:1px solid #DEDEDE !important;
+    color:#444444 !important;
+    font-size:90% !important;
+    line-height:1.5em !important;
+    margin:1em 0 !important;
+    overflow:auto !important;
+    padding:0.5em !important;
+}
+
+pre.terminal {
+    -moz-background-clip:border !important;
+    -moz-background-inline-policy:continuous !important;
+    -moz-background-origin:padding !important;
+    background:#444444 none repeat scroll 0 0 !important;
+    color:white !important;
+    font-size:0.9em !important;
+    padding:1em !important;
+}

@@ -1,0 +1,107 @@
+{% extends "analyse/layout.html" %}
+
+{% block title %}ianalyse - Take a closer look at your project{% endblock %}
+{% block extrahead %}
+<link href="{{ MEDIA_URL }}/css/help.css" media="screen" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+
+{% block content %}
+<div class="main">
+	<h1 id="create_conf">Configure Ianalyse</h1>
+	<div class="wikistyle">
+		<h2>Create configuration files</h2>
+		<p>
+			The confguration files need to be created under directory:
+<pre class="terminal">
+{{configs.abspath}}
+</pre>
+The configuration file should end with .cfg as file extension, each file stands for one project in Ianalyse. You should be able to find a template file
+named ianalyse.sample under the directory above.
+
+You can easily create your first project by renaming your template like this:
+<pre class="terminal">
+$ cd {{configs.abspath}}
+$ mv ianalyse.sample nightly-build.cfg
+</pre>
+		</p>
+		
+		<h2>Change the settings in configuration file</h2>
+		<p>There are only two sections in the file: [Basic] and [CSV]</p>
+		<h3>Sections: [Basic]</h3>
+		<p>The only option here is logdir, which should point to the directory contains all the CruiseControl logs.
+		for example, if you have directory tree like this:</p>
+<pre class="terminal">
+/var/logs
+|____connectfour
+| |____log20051209122103Lbuild.0.xml
+| |____log20091011161151Lbuild.1.xml
+| |____log20091011161557Lbuild.2.xml
+| |____log20091011165733Lbuild.3.xml
+| |____log20091011170008Lbuild.4.xml
+| |____log20091011172237Lbuild.5.xml
+| |____status.txt	
+</pre>
+you should define the logdir option like this:
+<pre class="terminal">
+[Basic]
+logdir: /var/logs/connectfour
+</pre>
+Another option under [Basic] section is builds, which means lastest N builds need be be analyzed, the default value is 30.
+<pre class="terminal">
+[Basic]
+logdir: /var/logs/connectfour
+builds: 50
+</pre>
+
+		<h2>Sections: [CSV]</h2>
+		<p>The options defined here are used to tell ianalyse which value need to be exported to CSV file from log.xml, the key is column name, the value is XPATH, Let's see you have many log files like this, and you want to export projectname, build time, buildate to CSV.</p>
+<pre class="terminal">
+&lt;cruisecontrol&gt;
+  &lt;info&gt;
+    &lt;property name="projectname" value="connectfour4" /&gt;
+    &lt;property name="lastbuild" value="20091011201149" /&gt;
+    &lt;property name="lastsuccessfulbuild" value="20091011201149" /&gt;
+    &lt;property name="builddate" value="2009-10-13T14:03:24" /&gt;
+    &lt;property name="cctimestamp" value="20091013220324" /&gt;
+    &lt;property name="label" value="build.18" /&gt;
+    &lt;property name="interval" value="300" /&gt;
+    &lt;property name="lastbuildsuccessful" value="true" /&gt;
+    &lt;property name="logdir" value="/Users/twer/Desktop/cruisecontrol-bin-2.8.2/logs/connectfour4" /&gt;
+    &lt;property name="logfile" value="log20091013220324.xml" /&gt;
+  &lt;/info&gt;
+  &lt;build time="1 minute(s) 2 second(s)" error="exec error"&gt;
+    &lt;target name="exec"&gt;
+      &lt;task name="echa"&gt;
+        &lt;message priority="error"/&gt;
+      &lt;/task&gt;
+    &lt;/target&gt;
+  &lt;/build&gt;
+&lt;/cruisecontrol&gt;	
+</pre>
+
+You can define options under your [CSV] like this:
+<pre class="terminal">
+[CSV]
+project name: //property/[@name='projectname']/@value
+buid time: //build/@time
+start time: //property[@name='builddate']/@value	
+</pre>
+
+Click the export button on ianalyse, you will get a CSV file :
+<pre class="terminal">
+[CSV]
+project name, buid time,start time
+connectfour4, 1 minute(s) 2 second(s), 2009-10-13T14:03:24
+</pre>
+<h1 id="faq">FAQ</h1>
+<h3>I saw MISSING REPORTS on the screen, what does it mean, how to resolve it?</h3>	
+<p>This means there is no report generate for you, after you got everything <a href="#create_conf">configured</a> properly, you can click the "generate this report NOW!" button to create reports.</p>	
+
+	</div>
+
+
+
+
+</div>
+{% endblock %}
