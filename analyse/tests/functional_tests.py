@@ -10,6 +10,7 @@ class FunctionalTests(TestCase):
 
     def tearDown(self):
         self.test_utils.cleanup_results()
+        self.test_utils.rename_bak_to_conf()
 
     def test_user_should_be_able_to_setup_the_application(self):
         user = User()
@@ -56,18 +57,23 @@ class FunctionalTests(TestCase):
         user.downloads_per_build_time_data()
         self.assertEquals(True, user.can_visit_resource())
         
+
     
     def test_user_should_not_wait_for_re_generating_the_data_when_referesh_the_page(self):
        user = User()
+       self.test_utils.rename_conf_to_bak()
        user.open_home_page()
-       user.generates_reports_for('connectfour4')
-       
-       before = self.test_utils.last_modified_on('connectfour4')
-       user.open_home_page()        
-       after = self.test_utils.last_modified_on('connectfour4')        
-   
-       self.assertEquals(before, after)
+       self.assertContains(user.response, 'Opps! seems you did not create any config file')
 
+       self.test_utils.rename_bak_to_conf()
+       user.open_home_page()
+       self.assertContains(user.response, 'cclive')
+       self.assertContains(user.response, 'connectfour4')
+       
+    def test_should_print_hint_on_the_screen_when_user_first_time_uses_software(self):
+       user = User()
+       user.open_home_page()
+       self.assertContains(user.response, 'Missing Data')
         
 class User :
     def __init__(self):

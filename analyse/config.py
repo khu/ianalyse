@@ -12,8 +12,10 @@ class Configs:
         self.config_dir = configs
         self.configs = {}
         for file in os.listdir(self.config_dir):
-            id = os.path.splitext(file)[0]
-            self.configs[id] = Config(os.path.join(self.config_dir, file))
+            names = os.path.splitext(file)
+            if names[1] == '.cfg':
+                id = names[0]
+                self.configs[id] = Config(os.path.join(self.config_dir, file))
 
     def abspath(self):
         return os.path.abspath(self.config_dir)                                        
@@ -24,12 +26,14 @@ class Configs:
         else :
             return self.configs[id]
 
+    def is_empty(self):
+        return len(self.configs) == 0
+
     def size(self):
         return len(self.configs)
 
     def results_dir(self):
         return os.path.join(settings.PROJECT_DIR, 'results')
-
 
     def items(self):
         return self.configs.items()

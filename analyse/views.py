@@ -10,6 +10,9 @@ def home(request):
 
 def index(request):
     configs = Configs()
+    if (configs.is_empty()) :
+        return render_to_response('analyse/hint.html', Context({}), context_instance = RequestContext(request))
+
     results = {}
     results = {'configs' : configs}
     for proj_id in configs :
@@ -19,12 +22,18 @@ def index(request):
 
 def setup(request):
     configs = Configs()
+    if (configs.is_empty()) :
+        return render_to_response('analyse/hint.html', Context({}), context_instance = RequestContext(request))
+
     current = configs.find(request.GET.get('id'))
     results = {"configs" : configs, 'current' : current}
     return render_to_response('analyse/setup.html', Context(results), context_instance = RequestContext(request))
 
 def generate(request) :
     configs = Configs()
+    if (configs.is_empty()) :
+        return render_to_response('analyse/hint.html', Context({}), context_instance = RequestContext(request))
+
     config = configs.find(request.POST['id'])
     over_all_result = {}
     Builds.create_builds(config, None, config.builds())
@@ -33,8 +42,11 @@ def generate(request) :
     return redirect('index.html')
 
 def show(request):
+    configs = Configs()
+    if (configs.is_empty()) :
+        return render_to_response('analyse/hint.html', Context({}), context_instance = RequestContext(request))
     project_id = request.GET['id']
-    config = Configs().find(project_id)
+    config = configs.find(project_id)
 
     if not config.has_result() :
         return redirect('setup.html?id=' + urlquote(project_id))
@@ -51,4 +63,7 @@ def help(request):
         "configs" : configs,
     }
     return render_to_response('analyse/help.html', Context(results), context_instance = RequestContext(request))
+    
+    
+    
     
