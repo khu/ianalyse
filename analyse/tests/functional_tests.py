@@ -14,7 +14,7 @@ class FunctionalTests(TestCase):
     def test_user_should_be_able_to_setup_the_application(self):
         user = User()
         user.open_home_page()
-        self.assertContains(user.response, 'Error')
+        self.assertContains(user.response, 'Missing Data')
         user.open_show_page('connectfour4')
         self.assertContains(user.response, 'MISSING REPORT')
         self.assertContains(user.response, user.found_config_file_location())
@@ -35,7 +35,7 @@ class FunctionalTests(TestCase):
     def test_user_should_be_able_to_request_with_project_id(self):
         user = User()
         user.open_home_page()
-        self.assertContains(user.response, 'Error')
+        self.assertContains(user.response, 'Missing Data')
         user.open_show_page('cclive')       
         self.assertContains(user.response, 'MISSING REPORT')
         self.assertContains(user.response, user.found_config_file_location())
