@@ -40,3 +40,8 @@ class DatetimeUtilsTest(TestCase):
 
     def testShouldEvaluateTheHoursToSeconds(self):
         self.assertEquals(3661, util.datetimeutils.evaluate_time_to_seconds("1 hour(s) 1 minute(s) 1 second(s)"))
+    
+    def testShouldConvertTheStringTimeStampToTimeStampStartFrom1970(self):
+        ccdate = datetime.strptime('20090909090909', "%Y%m%d%H%M%S")
+        self.assertEquals(1252505349.0, util.datetimeutils.to_unix_timestamp(ccdate))
+        

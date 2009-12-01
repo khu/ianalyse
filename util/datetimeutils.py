@@ -1,5 +1,6 @@
 from datetime import datetime,timedelta
 import re
+import time
 
 def days_ago(days = 0, now = datetime.now()) :
     start = datetime.min.replace(year = now.year, month = now.month, day = now.day)
@@ -16,9 +17,7 @@ def days_ago_not_before(days = 0, now = datetime.now(), not_before_date = None) 
         return ago
 
 def to_unix_timestamp(day_of_start):
-    epoch = int(day_of_start.strftime('%s'))
-    usec = day_of_start.microsecond
-    return epoch + (usec / 1000000.0)
+    return time.mktime(day_of_start.timetuple()) 
 
 def cctimestamp_to_unix_timestamp(cctimestamp) :
     ccdate = datetime.strptime(cctimestamp, "%Y%m%d%H%M%S")
