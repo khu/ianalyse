@@ -18,6 +18,7 @@ from lxml import etree
 import StringIO
 import csv
 
+
 class Build(models.Model):
     project_id = models.TextField()
     number = models.TextField()
@@ -272,11 +273,6 @@ class Builds:
 
         return grouped_builds
 
-    def to_unix_timestamp(self, day_of_start):
-        epoch = int(day_of_start.strftime('%s'))
-        usec = day_of_start.microsecond
-        return epoch + (usec / 1000000.0)
-
     def pass_rate_by_day(self) :
         arry = []
         builds = Builds()
@@ -286,7 +282,7 @@ class Builds:
         max_date = None;
 
         for day_of_start in grped_builds.order() :
-            timestamp = int(self.to_unix_timestamp(day_of_start));
+            timestamp = int(util.datetimeutils.to_unix_timestamp(day_of_start));
             pass_rate = grped_builds[day_of_start].pass_rate()
             arry.append({"x" : timestamp, "y" : pass_rate * 100})
             if min_date == None or timestamp < min_date:
@@ -303,7 +299,7 @@ class Builds:
         max_date = None;
         max_time = None
         for build in self.builds :
-            timestamp = int(self.to_unix_timestamp(build.start_time));
+            timestamp = int(util.datetimeutils.to_unix_timestamp(build.start_time));
             arry.append({"x" : timestamp, "y" : build.build_time})
             if min_date == None or timestamp < min_date:
                 min_date = timestamp;
@@ -321,7 +317,7 @@ class Builds:
         labels = []
         max_time = None
         for build in self.builds :
-            timestamp = int(self.to_unix_timestamp(build.start_time));
+            timestamp = int(util.datetimeutils.to_unix_timestamp(build.start_time));
             color = None;
             if build.is_passed:
                 color = '#1C9E05'

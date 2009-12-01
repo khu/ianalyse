@@ -1,3 +1,3 @@
 set CONFIGS_DIR=./analyse/tests/configs
-./manage.py test
+python manage.py test
 
