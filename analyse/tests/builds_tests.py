@@ -61,7 +61,7 @@ class BuildsTest(TestCase):
         <revision>1:96ad1ef37c2ae7828a66e16d8eb508b7b69465a4</revision>
         <filename>b</filename>
       </file>
-      <date>2009-10-11T09:48:27</date>
+      <date>2009-10-13T09:48:27</date>
       <user>twer@localhost</user>
       <comment><![CDATA[fucked]]></comment>
       <revision>1:96ad1ef37c2ae7828a66e16d8eb508b7b69465a4</revision>
@@ -71,7 +71,7 @@ class BuildsTest(TestCase):
         <revision>1:96ad1ef37c2ae7828a66e16d8eb508b7b69465a4</revision>
         <filename>b</filename>
       </file>
-      <date>2009-10-11T09:48:27</date>
+      <date>2009-10-17T09:48:27</date>
       <user>twer@localhost</user>
       <comment><![CDATA[fucked]]></comment>
       <revision>1:96ad1ef37c2ae7828a66e16d8eb508b7b69465a4</revision>
@@ -81,13 +81,13 @@ class BuildsTest(TestCase):
     <property name="projectname" value="connectfour4" />
     <property name="lastbuild" value="20091011201149" />
     <property name="lastsuccessfulbuild" value="20091011201149" />
-    <property name="builddate" value="2009-10-13T14:03:24" />
-    <property name="cctimestamp" value="20091013220324" />
+    <property name="builddate" value="2009-10-17T14:03:24" />
+    <property name="cctimestamp" value="20091017220324" />
     <property name="label" value="build.18" />
     <property name="interval" value="300" />
     <property name="lastbuildsuccessful" value="true" />
     <property name="logdir" value="/Users/twer/Desktop/cruisecontrol-bin-2.8.2/logs/connectfour4" />
-    <property name="logfile" value="log20091013220324.xml" />
+    <property name="logfile" value="log20091017220324.xml" />
   </info>
   <build time="0 minute(s) 4 second(s)" error="exec error">
     <target name="exec">
@@ -115,10 +115,10 @@ class BuildsTest(TestCase):
         self.assertEquals(2, len(grouped_builds))
 
         atime = datetime.strptime("20091011000000", "%Y%m%d%H%M%S")
-        btime = datetime.strptime("20091013000000", "%Y%m%d%H%M%S")
+        btime = datetime.strptime("20091017000000", "%Y%m%d%H%M%S")
 
         self.assertEquals(2, len(grouped_builds[atime].builds))
-        btime = datetime.strptime("20091013000000", "%Y%m%d%H%M%S")
+        btime = datetime.strptime("20091017000000", "%Y%m%d%H%M%S")
         self.assertEquals(1, len(grouped_builds[btime].builds))
 
     def testShouldCalculateThePassCount(self):
@@ -132,7 +132,7 @@ class BuildsTest(TestCase):
         builds = Builds()
         builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
 
-        atime = datetime.strptime("20091013000000", "%Y%m%d%H%M%S")
+        atime = datetime.strptime("20091017000000", "%Y%m%d%H%M%S")
         self.assertEquals(0, builds.group_by_each_day()[atime].pass_count())
 
     def testShouldCalculateThePassRate(self):
@@ -151,7 +151,7 @@ class BuildsTest(TestCase):
         self.assertEquals(3, len(values))
 
         self.assertEquals (util.datetimeutils.cctimestamp_to_unix_timestamp("20091011173900"), min)
-        self.assertEquals (util.datetimeutils.cctimestamp_to_unix_timestamp("20091013220324"), max)
+        self.assertEquals (util.datetimeutils.cctimestamp_to_unix_timestamp("20091017220324"), max)
         self.assertEquals (60, max_time)
 
     def testShouldCalculateTheBuildPerDay(self):
@@ -168,8 +168,21 @@ class BuildsTest(TestCase):
         self.assertEquals(4,  values[2]['top']);
         self.assertEquals('2009-10-11 17:39:22', labels[0])
         self.assertEquals('2009-10-11 17:39:00', labels[1])
-        self.assertEquals('2009-10-13 22:03:24', labels[2])
+        self.assertEquals('2009-10-17 22:03:24', labels[2])
         self.assertEquals(60, max_time);
 
 
+    def testShouldCalcateAvgRunsPerDay(self):
+        builds = Builds()
+        builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
+        self.assertEquals(1.5, builds.avg_runs());
 
+    def testShouldCalcateAvgRunsPerDay(self):
+        builds = Builds()
+        builds.builds = [self.passed_at_oct_11,  self.passed_at_oct_11, self.passed_at_oct_11]
+        self.assertEquals(3, builds.avg_runs());
+        
+    def testShouldOnlyKeep2digitAfterPoint(self):
+        builds = Builds()
+        builds.builds = [self.passed_at_oct_11,  self.failed]
+        self.assertEquals('0.33', str(builds.avg_runs()));

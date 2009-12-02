@@ -88,9 +88,14 @@ class Build(models.Model):
 	else:
 		return rate[0]
 
-
     @staticmethod
     def avg_build_time(project_id):
+        cursor = connection.cursor()
+        cursor.execute("select avg(build_time) from analyse_build where project_id = %s", [project_id])
+        return  cursor.fetchone()[0]
+
+    @staticmethod
+    def avg_runs(project_id):
         cursor = connection.cursor()
         cursor.execute("select avg(build_time) from analyse_build where project_id = %s", [project_id])
         return  cursor.fetchone()[0]
@@ -117,14 +122,11 @@ class Build(models.Model):
     @staticmethod
     def analyse_all(project_id, results):
         Build.view_all(project_id, results)
-        stat = OverallStatistics(project_id = project_id, total = Build.total(project_id), passed = Build.passed_count(project_id))
-        stat.generate_pass_rate()
-
         stat = TopNStatistics(project_id = project_id, builds = Build.objects.order_by('start_time'))
+        stat.generate_pass_rate()
         stat.generate_successful_rate()
         stat.generate_build_times()
         stat.generate_per_build_time()
-
         return
 
     @staticmethod
@@ -136,18 +138,22 @@ class Build(models.Model):
         results["last_built_at"] = Build.last_built_at(project_id)
         return
 
-class OverallStatistics :
-
-    def __init__(self, project_id=None, total = 0, passed = 0):
+class TopNStatistics :
+    def __init__(self, project_id=None, builds = list()):
         self.project_id = project_id
-        self.total = total
-        self.passed = passed
+        self.builds = builds
 
     def pass_rate(self):
-        chart = Chart()
+        builds = Builds()
+        builds.builds = self.builds
 
+        total  = Build.total(self.project_id)
+        passed = Build.passed_count(self.project_id)
+        failed = total - passed        
+        
+        chart = Chart()
         element1 = Chart()
-        element1.values =  [self.passed, self.total - self.passed]
+        element1.values =  [passed, failed]
         element1.type = "pie"
         element1.alpha = 0.6
         element1.angle = 35
@@ -155,23 +161,9 @@ class OverallStatistics :
         element1.colours = ['#1C9E05','#FF368D']
 
         chart.elements = [element1]
+        chart.title = {"text": str(builds.avg_runs()) + ' Runs/Day', "style": "{font-size: 15px; font-family: Times New Roman; font-weight: bold; color: #4183C4; text-align: center;}" }
+        chart.bg_colour = "#FFFFFF" 
         return chart.create()
-
-    def __getattr__(self, name):
-        if not name.startswith("generate_"):
-            raise AttributeError(name)
-        field = name[len("generate_"):]
-        result = getattr(self, field)()
-        project_root = Configs().find(self.project_id).result_dir()
-        os.makedirs_p(project_root)
-        total_json_file = os.path.join(project_root, field + '.txt');
-        os.write_to_file(total_json_file, result)
-        return lambda : {}
-
-class TopNStatistics :
-    def __init__(self, project_id=None, builds = list()):
-        self.project_id = project_id
-        self.builds = builds
 
     def per_build_time(self):
         builds = Builds()
@@ -342,7 +334,16 @@ class Builds:
             return 0
 
         return self.pass_count() / len(self.builds)
-        
+    
+    def avg_runs(self):
+        min = self.builds[0]
+        max = self.builds[len(self.builds) - 1]
+        delta = max.start_time - min.start_time
+        len_builds = len(self.builds)
+        if delta.days <= 1 :
+            return '%.2f' % len_builds
+        return '%.2f' % (len_builds / (delta.days - 0.0))
+    
     def __unicode__(self):
         return "<Builds " + str(self.builds) + ">\n"
 

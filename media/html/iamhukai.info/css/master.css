@@ -1,0 +1,524 @@
+/* @group reset */
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+	outline: none;
+	font-size: 1em;
+	text-decoration: none;
+}
+
+/* @end */
+
+/* @group default */
+
+a {
+	color: #666;
+	text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+	color: #333;
+}
+
+a:active {
+	color: #000;
+}
+
+h2 {
+	height: 40px;
+	font: 20px/40px Helvetica Neue, Helvetica, Arial, sans-serif;
+	color: #000;
+	padding: 0 25px;
+	background: url(../image/navigation.png) no-repeat 50% 0;
+	clear: both;
+}
+
+del {
+	text-decoration: line-through;
+	text-shadow: none;
+	color: #ccc;
+}
+
+ins {
+	color: #333;
+}
+
+/* @end */
+
+/* @group layout */
+
+/* @group body */
+
+body { 
+	background: url(../image/body-top.gif) repeat-x 0 0, url(../image/body.gif) repeat 0 0;
+	background-color: #a7b1ba;
+	padding-top: 5px;
+	font: 11px/16px "Lucida Grande", Verdana, sans-serif;
+	color: #999;
+	text-shadow: #fff 0 1px 0;
+	overflow: -moz-scrollbars-vertical;
+	overflow: -webkit-scrollbars-vertical;
+	-webkit-text-size-adjust: none;
+}
+
+/* @end */
+
+/* @group wrapper */
+
+#timvandamme {
+	width: 490px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/* @end */
+
+/* @group header */
+
+#header { 
+	background: url(../image/header.png) no-repeat 50% bottom;
+	height: 85px;
+	padding: 35px 35px 0;
+	position: relative;
+}
+
+#mugshot {
+	float: right;
+}
+
+h1 {
+	font: 24px/30px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #000;
+	padding-top: 18px;
+	padding-left: 10px;
+}
+
+#jobtitle {
+	color: #888;
+	padding-left: 10px;
+	line-height: 20px;
+	text-shadow: #eee 0 1px 0;
+}
+
+#vcard {
+	position: absolute;
+	top: 59px;
+	right: 45px;
+	width: 40px;
+	height: 41px;
+	text-align: center;
+}
+
+#vcard a {
+	display: block;
+	width: 40px;
+	height: 41px; 
+	background: url(../image/vcard.png) no-repeat 0 0;
+	text-decoration: none;
+	text-shadow: #036 0 1px 0;
+	line-height: 42px;
+	color: #fff;
+	font-size: 9px; 
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#vcard a:active {
+	margin-top: 1px;
+}
+
+#vcard a span {
+	position: absolute;
+	top: -45px;
+	left: -49px;
+	width: 138px;
+	background: url(../image/vcard-label.png) no-repeat 50% 50%;
+	padding-bottom: 12px;
+	display: none;
+	opacity: 0;	
+}
+
+/* @end */
+
+/* @group navigation */
+
+#navigation {
+	height: 30px;
+	padding: 5px 35px;
+	background: url(../image/navigation.png) no-repeat 50% 0;
+	line-height: 28px;
+	font-weight: bold;
+}
+
+#navigation li {
+	float: left;
+}
+
+#navigation li a {
+	text-decoration: none;
+	float: left;
+	padding-right: 10px;
+	margin-right: 5px; 
+	background: url(../image/navigation-li-a.png) no-repeat right 30px;
+}
+
+#navigation li a span {
+	float: left;
+	padding: 1px 0 1px 10px;
+	background: url(../image/navigation-li.png) no-repeat 0 30px;
+}
+
+#navigation li a:hover,
+#navigation li a:focus {
+	background-position: right 0;
+	text-shadow: #ddd 0 1px 0;
+}
+
+#navigation li a:hover span,
+#navigation li a:focus span {
+	background-position: 0 0;
+}
+
+#navigation li a:active {
+	background-position: right -30px;
+	text-shadow: #eee 0 1px 0;
+}
+
+#navigation li a:active span {
+	background-position: 0 -30px;
+	padding: 2px 0 0 10px;
+}
+
+.about #navigation li#nav-about a,
+.networks #navigation li#nav-networks a,
+.contact #navigation li#nav-contact a {
+	background-position: right -60px;
+	color: #fff;
+	text-shadow: #666 0 1px 2px;
+	cursor: default;
+}
+
+.about #navigation li#nav-about a span,
+.networks #navigation li#nav-networks a span,
+.contact #navigation li#nav-contact a span {
+	background-position: 0 -60px;
+}
+
+/* @end */
+
+/* @group content */
+
+#content {
+	padding: 0 20px; 
+	background: url(../image/content.png) repeat-y 50% 0;
+	overflow: hidden;
+}
+
+
+
+/* @end */
+
+/* @group footer */
+
+#footer {
+	padding: 0 20px 20px;
+	text-align: center;
+	line-height: 30px;
+	background: url(../image/footer.png) no-repeat 50% 0;
+	color: #888;
+	text-shadow: #ddd 0 1px 0; 
+	text-transform: uppercase;
+	font-size: 9px;
+	font-weight: bold;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group specific */
+
+/* @group contact */
+
+#contact {
+	width: 450px;
+	float: left;
+	background: url(../image/about-li.png) repeat-x 0 bottom;
+	position: relative;
+}
+
+#contact h3 {
+	height: 51px;
+	padding: 10px 0 0 25px;
+	font-weight: normal; 
+	background: url(../image/about-h3.png) repeat-x 0 0;
+	color: #666;
+}
+
+#contact h3 strong {
+	color: #000;
+	font: 18px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	display: block;
+	padding-top: 2px;
+}
+
+#contact-personal,
+#contact-work {
+	width: 224px;
+	float: left;
+	padding-bottom: 10px;
+}
+
+#contact-work {
+	padding-left: 2px; 
+	background: url(../image/contact.png) repeat-y 0 0;
+}
+
+#contact li ul {
+	padding-top: 5px;
+}
+
+#contact li li {
+	padding: 5px 0 0 15px;
+	font: 12px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #666;
+}
+
+#contact li.disclaimer {
+	clear: both;
+	padding: 12px 0 11px;
+	text-align: center;
+	font: italic 11px/18px "Lucida Sans", "Lucida Grande", Verdana, sans-serif;
+	background: url(../image/about-h3.png) repeat-x 0 -59px;
+}
+
+#contact li li a {
+	display: block;
+	padding-left: 23px;
+	background-position: 0 1px;
+	background-repeat: no-repeat;
+}
+
+#contact li li.fn,
+#contact li li.photo,
+#contact li li span.type {    
+	display:none;
+}
+
+#contact li li.org {
+	padding-left: 38px;
+	font-size: 11px;
+	font-weight: bold; 
+	text-transform: uppercase; 
+	background: url(../image/icons/company.png) no-repeat 15px 6px;
+}
+
+#contact li li.email a { 
+	background-image: url(../image/email.png);
+}
+
+#contact li li.adr a { 
+	background-image: url(../image/address.png);
+}
+
+#contact li li.tel a { 
+	background-image: url(../image/phone.png);
+}
+
+#contact li li.url a { 
+	background-image: url(../image/website.png);
+}
+
+/* @end */
+
+/* @group about */
+
+#about {
+	width: 450px;
+}
+
+#about li#about-personal { 
+	background: url(../image/about-li.png) repeat-x 0 bottom;
+	padding-bottom: 10px;
+}
+
+#about li p,
+#about li li {
+	font: 12px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #666;
+}
+
+#about li li {
+	padding: 5px 20px 0 65px;
+}
+
+#about li p#i {
+	width: 40px;
+	float: left;
+	padding: 5px 10px 0 15px;
+	text-align: right;
+}
+
+#about h3 {
+	height: 60px;
+	font-weight: normal; 
+	background: url(../image/about-h3.png) repeat-x 0 0;
+}
+
+#about li#about-personal h3 {
+	height: 61px;
+	margin-bottom: 5px;
+}
+
+#about h3 a {
+	display: block;
+	height: 45px;
+	padding: 10px 0 5px;
+	text-decoration: none;
+	-webkit-transition: background-color 0.25s linear;
+}
+
+#about h3 a:hover,
+#about h3 a:focus {
+	background: rgba(164, 173, 183, .15);
+}
+
+#about h3 a:active {
+	background: rgba(164, 173, 183, .25);
+	padding: 12px 0 3px
+}
+
+#about h3 a img {
+	float: left;
+	margin: 0 10px 0 15px;
+	-webkit-transition: margin-left 0.25s linear;
+}
+
+#about h3 a:hover img {
+	margin-left: 10px;
+}
+
+#about h3 a strong {
+	color: #000;
+	font: 18px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	display: block;
+	padding-top: 2px;
+}
+
+#about h3 a small {
+	margin-top: 10px;
+	float: right;
+	line-height: 20px;
+	padding: 0 25px 1px 30px;
+	background: url(../image/about-h3-small.png) no-repeat 0 0;
+	color: #fff; 
+	font-weight: bold;
+	text-transform: uppercase;
+	text-shadow: #bbb 0 1px 0;
+}
+
+/* @end */
+
+/* @group networks */
+
+#networks {
+	background: url(../image/networks.png) repeat 0 0;
+	width: 450px;
+	float: left;
+}
+
+#networks li {     
+	width: 225px;
+	height: 60px;
+	float: left;
+}
+
+#networks li a {
+	display: block;
+	width: 225px;
+	height: 45px;
+	padding: 10px 0 5px;
+	text-decoration: none;
+	-webkit-transition: background-color 0.25s linear;
+}
+
+#networks li a:hover,
+#networks li a:focus {
+	background: rgba(164, 173, 183, .15);
+}
+
+#networks li a:active {
+	background: rgba(164, 173, 183, .25);
+	padding: 12px 0 3px
+}
+
+#networks li a img {
+	float: left;
+	margin: 0 10px 0 15px;
+	-webkit-transition: margin-left 0.25s linear;
+}
+
+#networks li a:hover img {
+	margin-left: 10px;
+}
+
+#networks li a strong {
+	color: #000;
+	font: 18px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	display: block;
+	padding-top: 2px;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group wall */
+
+#wall {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+
+#wall li {
+	float: left;
+}
+
+#wall li a {
+	float: left;
+	width: 31px;
+	height: 29px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-indent: 150%;
+	background: url(../image/wall.png) no-repeat 0 0;
+}
+
+#wall li#wall-shame a:hover,
+#wall li#wall-shame a:focus {
+	background-position: 0 -29px;
+}
+
+#wall li#wall-shame a:active {
+	background-position: 0 -58px;
+}
+
+#wall li#wall-fame a {
+	background-position: -31px 0;
+}
+
+#wall li#wall-fame a:hover,
+#wall li#wall-fame a:focus {
+	background-position: -31px -29px;
+}
+
+#wall li#wall-fame a:active {
+	background-position: -31px -58px;
+}
+
+/* @end */

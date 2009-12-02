@@ -12,12 +12,9 @@ def index(request):
     configs = Configs()
     if (configs.is_empty()) :
         return render_to_response('analyse/hint.html', Context({}), context_instance = RequestContext(request))
-
-    results = {}
-    results = {'configs' : configs}
-    for proj_id in configs :
-        Build.view_all(proj_id, results)
         
+    results = {'configs' : configs}
+    
     return render_to_response('analyse/index.html', Context(results), context_instance = RequestContext(request))
 
 def setup(request):
