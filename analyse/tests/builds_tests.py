@@ -175,12 +175,12 @@ class BuildsTest(TestCase):
     def testShouldCalcateAvgRunsPerDay(self):
         builds = Builds()
         builds.builds = [self.passed_at_oct_11,  self.another_passed_at_oct_11, self.failed]
-        self.assertEquals(1.5, builds.avg_runs());
+        self.assertEquals('1.5', builds.avg_runs());
 
     def testShouldCalcateAvgRunsPerDay(self):
         builds = Builds()
         builds.builds = [self.passed_at_oct_11,  self.passed_at_oct_11, self.passed_at_oct_11]
-        self.assertEquals(3, builds.avg_runs());
+        self.assertEquals('3.00', builds.avg_runs());
         
     def testShouldOnlyKeep2digitAfterPoint(self):
         builds = Builds()

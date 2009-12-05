@@ -47,6 +47,10 @@ class ConfigTests(TestCase):
         self.assertEquals('buid time', self.config.csv_settings()[1][0])
         self.assertEquals('//build/@time', self.config.csv_settings()[1][1])
 
+    def testShouldAggregateTheColumnNamesAndXpathsAsDic(self):
+        self.assertEquals('start time', self.config.csv_keys()[0])
+        self.assertEquals('buid time', self.config.csv_keys()[1])
+
     def testShouldReturnTrueIfAllResultsJsonGenerated(self):
         project1 = self.config.result_dir()
 				

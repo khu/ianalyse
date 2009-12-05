@@ -401,6 +401,7 @@ class Builds:
         arrays = Builds.select_values_from(config, None, config.builds())
         folder = config.result_dir()
         writer = csv.writer(open(os.path.join(folder, project_id + '.csv'), 'w'), delimiter=',')
+        writer.writerow(config.csv_keys())
         writer.writerows(arrays)
 
 

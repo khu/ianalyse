@@ -77,6 +77,13 @@ class Config:
     def csv_settings(self):
         def anonymous(config): return config.items("CSV")
         return self.__readattr__(anonymous) 
+    
+    def csv_keys(self):
+        settings = self.csv_settings()
+        array = []
+        for setting in settings :
+            array.append(setting[0])
+        return array
 
     def results_dir(self):
         return os.path.join(settings.PROJECT_DIR, 'results')
