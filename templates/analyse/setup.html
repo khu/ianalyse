@@ -11,14 +11,14 @@
 	<div class="collab" id="issues">
 		<div class="menu">
 		  <div class="create">      
-		    	<form  id="generate_reports" action="generate.html" method="POST">
-				     <input  name="submit" type="submit" value="Generate ALL!" onclick="javascript:alert('NOT IMPLEMENTED, USE \n\n[Generate this report NOW!]\n\n for each project instead');return false;">
+		    	<form  id="generate_all_reports" action="generate.html" method="post">
+				     <input  name="submit" type="submit" value="Generate ALL!" onclick="javascript:alert('NOT IMPLEMENTED, USE \n\n[Generate this report NOW!]\n\n for each project instead');return false;"/>
 				</form>
 		  </div>
 		  <ul>
 			{% for item in configs.items %}
 		  			<li {%ifequal item.0 current.id %} class="filter_selected" {%endifequal%}>
-						<a id="open_issues_link" href="/analyse/setup.html?id={{item.0}}">{{item.0}}</a>
+						<a  href="/analyse/setup.html?id={{item.0}}">{{item.0}}</a>
 					</li>
 			{% endfor %}
 	      </ul>
@@ -34,9 +34,9 @@
 							<li><span class="label">Status:</span>
 								<span class="status {%ifequal current.status 'OK' %}ok{%endifequal%}">{{current.status}}
 								{%ifnotequal current.status 'OK' %}<a href="/analyse/help.html#faq">(?)</a>{%endifnotequal%}</span>
-						    	<form  id="generate_reports" action="generate.html" method="POST">
-								           <input  name="id"     type="hidden"  value="{{current.id}}">
-								           <input  name="submit" type="submit" value="Generate this report NOW!">
+						    	<form  id="generate_reports" action="generate.html" method="post">
+								           <input  name="id"     type="hidden"  value="{{current.id}}"/>
+								           <input  name="submit" type="submit" value="Generate this report NOW!"/>
 								</form>
 						    </li>
 						</ul>

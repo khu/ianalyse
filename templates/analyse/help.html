@@ -13,18 +13,18 @@
 		<h2>Create configuration files</h2>
 		<p>
 			The confguration files need to be created under directory:
-<pre class="terminal">
-{{configs.abspath}}
-</pre>
-The configuration file should end with .cfg as file extension, each file stands for one project in Ianalyse. You should be able to find a template file
-named ianalyse.sample under the directory above.
-
-You can easily create your first project by renaming your template like this:
-<pre class="terminal">
-$ cd {{configs.abspath}}
-$ mv ianalyse.sample nightly-build.cfg
-</pre>
 		</p>
+		<pre class="terminal">
+		{{configs.abspath}}
+		</pre>
+		The configuration file should end with .cfg as file extension, each file stands for one project in Ianalyse. You should be able to find a template file
+		named ianalyse.sample under the directory above.
+
+		You can easily create your first project by renaming your template like this:
+		<pre class="terminal">
+		$ cd {{configs.abspath}}
+		$ mv ianalyse.sample nightly-build.cfg
+		</pre>
 		
 		<h2>Change the settings in configuration file</h2>
 		<p>There are only two sections in the file: [Basic] and [CSV]</p>
