@@ -1,6 +1,5 @@
 from django.db import connection, models,settings
 import string
-from elementtree import ElementTree
 from datetime import datetime
 import os
 import util.datetimeutils

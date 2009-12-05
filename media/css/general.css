@@ -26,6 +26,7 @@ body {
     height:auto !important;
     margin:0 auto -8.6em;
     min-height:600px;
+    _height:600px
 }
 
 a {
